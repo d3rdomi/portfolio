@@ -1,0 +1,60 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import '../styles/global-style.css';
+import '../styles/index-style.css';
+import MyFooter from '../components/MyFooter.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<head>
+	<script> 
+		import "../scripts/gradient.js";
+	</script>
+	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+</head>
+
+	<body>
+
+		<canvas id="gradient-canvas" data-transition-in></canvas>
+	
+		<div class="main-grid">
+			<div class="header">
+			  <h1>Dominik Lange</h1>
+			</div>
+		  
+		 <a href="about-me">
+			<div class="about-me article-section">
+				<div class="text-about-me text">
+				  <h2>about me</h2>
+				</div>
+			</div>
+		  </a>
+	
+		  <a href="photography">
+			<div class="photography article-section">
+				<div class="text-photography text">  
+				  <h2>photography</h2> 
+				</div>
+			</div>
+		  </a>
+	
+		  <a href="design">
+			<div class="design article-section">
+				<div class="text-design text">
+				  <h2>design</h2> 
+				</div>
+			</div>
+		  </a>
+	
+		  <a href="motion-design">
+			<div class="animation article-section">
+				<div class="text-animation text">   
+				  <h2>motion design</h2> 
+				</div>
+			</div>
+		  </a>
+
+		  <MyFooter class="footer"/>
+
+		</div>
+	  </body>

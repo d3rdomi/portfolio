@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@500&display=swap');
+
+
+body {
+  background: var(--accent3);
+  height: 100%;
+}
+
+h1 {
+  color: white !important;
+}
+
+.parent1 {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+img {
+  width: 720px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: 0.3s;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+img:hover {
+  transform: scale(0.98);
+}
+
+main {
+  width: 960px;
+  padding: 1em !important;
+}
+
+.title {
+  margin: 0;
+  color: rgb(var(--black));
+  text-align: center;
+}
+
+ul {
+  margin: 20px;
+  padding: 0px;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  list-style-type: none;
+}
+
+
+
+ul li a {
+  display: block;
+}
+
+h1 {
+  color: var(--main2);
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+h2 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--main3);
+}
+
+.main-grid {
+  margin: 20px;
+  padding: 0px;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.header {
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 0px;
+  display: block;
+}
+
+.header-mobile {
+  display: none; 
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+p {
+  text-align: left;
+  color: var(--main3);
+}
+
+.text {
+  padding: 20px;
+}
+
+.instagram-btn{
+  background: #ffffff;
+  padding: 16px 24px;
+  border-radius: 8px;
+  border: 0px;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;  
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  font-family: 'roboto';
+  font-size: 20px;
+  font-weight: 700;
+  transition: 0.5s;
+  cursor: pointer;
+  display: flex;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+  color: #000000;
+}
+
+
+
+@media only screen and (max-width:480px) {
+  img {
+    width: 720px;
+    height: 450px;
+  }
+  ul {
+  gap: 4rem;
+  }
+  .header-mobile {
+    display: block;
+  }
+  .header {
+    display: none;
+  }
+  .main-grid {
+    display: block;
+  }
+  ul {
+    display: block;
+  }
+  li {
+    margin-bottom: 50px;
+  }
+}
+

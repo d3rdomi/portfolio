@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@500&display=swap');
+
+/* COLORS */
+
+:root{
+  /* MAIN COLORS */
+  --main1: #eceae5;   /* beige */
+  --main2: #808080;   /* grey */
+  --main3: #000000;   /* black */
+  --main4: #ffffff;   /* weiß */
+
+    /* ACCENT COLORS*/
+  --accent1: #c9cff7;   /* lavender */
+  --accent2: #B9E5F0;   /* hellblau */
+  --accent3: #f5c1d4;   /* lachs */
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+  color: var(--text-color);
+}
+
+
+h1 {
+  font-size: 60px;
+  color: #ffffff;
+  margin: 0px;
+  font-family: 'Unbounded';
+  font-weight: 500;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  color: #000000;
+  text-align: center;
+}
+
+a {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.impressum {
+  text-align: left;
+}
+
+.copyright {
+  text-align: right;
+}

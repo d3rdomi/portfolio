@@ -1,0 +1,54 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import '../styles/about-me-style.css';
+import '../styles/global-style.css';
+import MyFooter from '../components/MyFooter.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+---
+
+<head>
+	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+</head>
+
+	<body>
+		<div class="parent1">
+		  <div class="main-grid">
+			<div class="image article-section">
+			  <img src="./public/assets/about-me/about-me.png" alt="">
+			</div>
+
+			<div class="name article-section">
+			  <h1>Dominik <br> Lange</h1>
+			  <div class="social">
+				<a href="https://www.instagram.com/dominikjpg">
+				  <img class="icon" src="img/about-me/instagram.svg" alt="">
+				</a>
+				<a href="https://www.linkedin.com/in/dominik-lange-2a016b25b/">
+				  <img class="icon"  src="img/about-me/linkedin.svg" alt="">
+				</a>
+				<a href="mailto:domi-lange@web.de">
+				  <img class="icon" src="img/about-me/mail.svg" alt="">
+				</a>
+			  </div>
+			</div>
+
+			<div class="text article-section">
+				<p>Lorem Ipsum dolor sit amet</p>
+			</div>
+
+			<div class="contact article-section">
+				<form class="form" action="https://fabform.io/f/EIK0pV_" method="post">
+				  <input class="input vorname" type="text" id="Vorname" placeholder="Vorname" name="firstName" required>
+				  <input class="input nachname" type="text" id="Nachname" placeholder="Nachname" name="lastName" required>
+				  <input class="input mail" type="email" id="email" placeholder="E-Mail" name="email" required>
+				  <textarea class="input message" id="message" type="text" id="input-message" placeholder="Nachricht" name="message" required></textarea>
+				  <button class="submit-button" type="submit">Senden</button>
+				</form>
+			</div>
+
+			<MyFooter class="footer"/>
+
+		  </div>
+		</div>
+	  </body>

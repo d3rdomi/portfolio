@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
+body {
+    background-color: var(--accent1);
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+.header {
+    padding: 0px;
+    margin: 30px;
+    margin-bottom: 50px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    -ms-word-break: break-word;
+}
+
+.information {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 50px;
+    width: 250px;
+    
+}
+
+p {
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+a {
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+h2 {
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}

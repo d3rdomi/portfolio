@@ -1,0 +1,20 @@
+<footer>
+	<a class="impressum" href="impressum">Impressum & Datenschutz &copy; Dominik Lange <span id="copyright"></span> </a>
+</footer>
+
+
+<style>
+	footer {
+	font-size: 10px;
+	background-color: transparent;
+	color: #000000;
+	font-family: 'Roboto', sans-serif;
+	margin: 0px;
+	margin-top: 15px;
+	text-decoration: none !important;
+	}
+</style>
+
+<script>
+	document.querySelector("#copyright").textContent = new Date().getFullYear().toString();
+</script>
