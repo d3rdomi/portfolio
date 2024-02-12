@@ -5,5 +5,9 @@ pubDate: 'Feb 02 2024'
 heroImage: '/assets/photography/2022/2022-11.jpg'
 ---
 
-![blog placeholder](/assets/photography/2022/2022-13.jpg)
-![blog placeholder](/assets/photography/2020/DSCF1442.jpeg)
+![Schmetterling](/assets/photography/2022/2022-11.jpg)
+![Reh](/assets/photography/2022/2022-13.jpg)
+![schlafende Katze](/assets/photography/2020/DSCF1442.jpeg)
+![Vogel](/assets/photography/2019/Juni.JPG)
+![Katze](/assets/photography/2017/IMG_6300.JPG)
+![Schwan](/assets/photography/2020/IMG_5565.jpg)

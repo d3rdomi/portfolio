@@ -25,9 +25,9 @@ const posts = (await getCollection('photography')).sort(
 			</div>
 
 			<main>
-				<!-- <button class="instagram-btn">
+				<button class="instagram-btn">
 					<a href="https://www.instagram.com/dominikjpg">Instagram</a>
-				</button> -->
+				</button>
 
 				<section>
 					<ul class="main-grid">
@@ -35,7 +35,7 @@ const posts = (await getCollection('photography')).sort(
 							posts.map((post) => (
 								<li>
 									<a href={`/photography/${post.slug}/`}>
-										<img width={720} height={360} src={post.data.heroImage} alt="" />
+										<img src={post.data.heroImage} alt="" />
 										<h4 class="title">{post.data.title}</h4>
 									</a>
 								</li>

@@ -39,9 +39,33 @@ h1 {
 h2 {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
+  font-size: 40px;
+  color: #000000;
+  text-align: left !important;
+}
+
+h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  font-size: 30px;
+  color: #000000;
+  text-align: left;
+}
+
+h4 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
   font-size: 20px;
   color: #000000;
-  text-align: center;
+  text-align: left;
+}
+
+h5 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: #000000;
+  text-align: left;
 }
 
 a {

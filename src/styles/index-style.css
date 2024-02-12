@@ -51,6 +51,10 @@ h1 {
 
 h2 {
   color: black;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  color: #000000;
 }
 
 .main-grid {
@@ -79,7 +83,7 @@ selector {
 	position: absolute;
 	height: 100vh;
 	width: 100%;
-  background-image: url("../public/assets/home/mesh-gradient.png");
+  background-image: url("../public/assets/home/mesh-gradient.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
