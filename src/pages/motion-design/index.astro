@@ -1,0 +1,43 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+import '../../styles/global-style.css';
+import '../../styles/motion-design-style.css';
+import MyFooter from '../../components/MyFooter.astro';
+const posts = (await getCollection('motion-design')).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />	
+		
+	</head>
+	<body>
+
+		<div class="header">
+			<h1>motion design</h1>
+		</div>
+
+		<main>
+			<section>
+				<ul>
+					{
+						posts.map((post) => (
+							<li>
+								<a href={`/design/${post.slug}/`}>
+									<video autoplay muted loop width={250} src={post.data.heroImage} alt="" />
+									<h4 class="title">{post.data.title}</h4>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<MyFooter />
+	</body>
+</html>
