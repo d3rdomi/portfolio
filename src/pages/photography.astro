@@ -1,0 +1,184 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import '../styles/global-style.css';
+import '../styles/photography-style.css';
+import MyFooter from '../components/MyFooter.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import PhotographyComponent from '../components/photography-component.astro';
+---
+
+    <head>     
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <script src="https://kit.fontawesome.com/d65b223c30.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body class="main-grid" onload="filterSelection('all')">
+
+        <h1 class="headline-desktop">photography</h1>
+        <h1 class="headline-mobile">photo-<br>graphy</h1>
+
+        <!-- Control buttons -->
+        <div id="myBtnContainer">
+            <button class="btn active" onclick="filterSelection('all')">
+                <i class="fa-solid fa-eye"></i> Show all
+            </button>
+            <button class="btn" onclick="filterSelection('people')">
+                <i class="fa-solid fa-person"></i> people
+            </button>
+            <button class="btn" onclick="filterSelection('animals')"> 
+                <i class="fa-solid fa-paw"></i> animals
+            </button>
+            <button class="btn" onclick="filterSelection('landscape')">
+                <i class="fa-solid fa-mountain-sun"></i> landscape
+            </button>
+            <button class="btn" onclick="filterSelection('analog')">
+                <i class="fa-solid fa-camera-retro"></i> analog
+            </button>
+            <button class="btn" onclick="filterSelection('architecture')">
+                <i class="fa-solid fa-house"></i> architecture
+            </button>
+        </div>
+
+
+        <div class="container">
+
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/DSCF6742.jpg"
+                altText="A picture of two girls on a motorcycle and a pride flag."
+                name="Pride Day"
+                year={2023}
+                filter="people"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/_DSF6939.jpg"
+                altText="A picture of a camper on the street."
+                name="Camper in norway"
+                year={2023}
+                filter="landscape"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/_DSF6999.jpg"
+                altText="A picture of a lake in norway with big mountains."
+                name="lake in norway"
+                year={2023}
+                filter="landscape"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/_DSF7063.jpg"
+                altText="A cloudy picture of the sea in norway with mountains."
+                name="cloudy norway"
+                year={2023}
+                filter="landscape"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/_DSF7119.jpg"
+                altText="A picture of a vally. Giant mountains left and right. And at the centre of the image, a small lake. Shot from a high view."
+                name="the valley"
+                year={2023}
+                filter="landscape"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/_DSF7308-Bearbeitet.jpg"
+                altText="A picture of a clean, reflecting lake in norway with big mountains."
+                name="reflecting"
+                year={2023}
+                filter="landscape"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/_DSF7669.jpg"
+                altText="A group of dancers standing around a dancer in the middle spinning."
+                name="the dynamic in dancing"
+                year={2024}
+                filter="people"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/_DSF7882.jpg"
+                altText="A mountain with trees in fall, the leaves are turning yellow."
+                name="fall is coming"
+                year={2023}
+                filter="landscape"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/_DSF8387-min.jpg"
+                altText="A building in the night, with many shining windows."
+                name="building by night"
+                year={2023}
+                filter="architecture"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/_DSF8446-min.jpg"
+                altText="A sign with love wins written on it."
+                name="love wins"
+                year={2023}
+                filter=""
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/DSCF4917.jpg"
+                altText="A butterfly sitting on a pink flower."
+                name="butterfly"
+                year={2022}
+                filter="animals"
+            />
+            
+
+
+        </div>
+        </div>
+
+        <MyFooter />
+
+
+        <script onload="initializePage()">
+
+            filterSelection("all")
+            function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filterDiv");
+            if (c == "all") c = "";
+            // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+            for (i = 0; i < x.length; i++) {
+                RemoveClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
+            }
+            }
+
+            // Show filtered elements
+            function AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {
+                element.className += " " + arr2[i];
+                }
+            }
+            }
+
+            // Hide elements that are not selected
+            function RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+            }
+            element.className = arr1.join(" ");
+            }
+
+            // Add active class to the current control button (highlight it)
+            var btnContainer = document.getElementById("myBtnContainer");
+            var btns = btnContainer.getElementsByClassName("btn");
+            for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+            }
+        </script>
+
+    </body>
+</html>

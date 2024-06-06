@@ -1,5 +1,5 @@
 ---
-title: 'SeeMagazin'
+title: 'SeeMagazin Social Media'
 pubDate: 'Feb 10 2024'
 heroImage: '/assets/design-work/Online/SeeMagazin/SeeMagazin-Instagram.jpg'
 ---

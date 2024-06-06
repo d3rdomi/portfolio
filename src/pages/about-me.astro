@@ -5,6 +5,12 @@ import '../styles/global-style.css';
 import MyFooter from '../components/MyFooter.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
+import { Image } from 'astro:assets';
+import headerImage from "../assets/about-me/about-me.jpg"
+import LinkedIn from "../assets/about-me/linkedin.svg"
+import Instagram from "../assets/about-me/instagram.svg"
+import Mail from "../assets/about-me/mail.svg"
+
 ---
 
 <head>
@@ -15,26 +21,26 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<div class="parent1">
 		  <div class="main-grid">
 			<div class="image article-section">
-			  <img loading="lazy" src="./public/assets/about-me/about-me.jpg" alt="">
+				<Image src={headerImage} alt="A picture of me, Dominik Lange"/>
 			</div>
 
 			<div class="name article-section">
 			  <h1>Dominik <br> Lange</h1>
 			  <div class="social">
 				<a href="https://www.instagram.com/dominikjpg">
-				  <img class="icon" src="img/about-me/instagram.svg" alt="">
+				  <Image class="icon" src={Instagram} alt="Instagram Icon"/>
 				</a>
 				<a href="https://www.linkedin.com/in/dominik-lange-2a016b25b/">
-				  <img class="icon"  src="img/about-me/linkedin.svg" alt="">
+				  <Image class="icon"  src={LinkedIn} alt="LinkedIn Icon"/>
 				</a>
 				<a href="mailto:domi-lange@web.de">
-				  <img class="icon" src="img/about-me/mail.svg" alt="">
+				  <Image class="icon" src={Mail} alt="Mail Icon"/>
 				</a>
 			  </div>
 			</div>
 
 			<div class="text article-section">
-				<p>Lorem Ipsum dolor sit amet</p>
+				<p>Hallo, ich bin Dominik, Mediengestalter mit Erfahrung in Design, Motion Design, Fotografie, Website-Erstellung sowie UI und UX Design. Meine Arbeit zeichnet sich durch Kreativität, Präzision und  Verständnis für Ästhetik aus. Ich strebe nach zeitlosem Design, durchdachten Workflows sowie kontinuierliche Weiterentwicklung. Auf meinem Weg suche ich stehts nach neuen Inspirationen und Herausforderungen um mein Wissen zu erweitern.</p>
 			</div>
 
 			<div class="contact article-section">

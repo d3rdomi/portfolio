@@ -1,0 +1,25 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import '../styles/global-style.css';
+import '../styles/motion-design-style.css';
+import MyFooter from '../components/MyFooter.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<head>     
+	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <script src="https://kit.fontawesome.com/d65b223c30.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>motion design</h1>
+    </div>
+
+    <div class="main">
+        <i class="fa-solid fa-person-digging"></i>
+        <p>still in construction</p>
+    </div>
+    <MyFooter />
+</body>
+</html>

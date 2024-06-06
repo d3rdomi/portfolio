@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@500&display=swap');
 
-
 body {
   background: var(--accent3);
   height: 100%;
@@ -13,6 +12,7 @@ h1 {
   color: var(--main2);
   margin-left: 20px;
   margin-right: 20px;
+  padding-bottom: 30px;
 }
 
 h2 {
@@ -25,102 +25,111 @@ h2 {
   color: var(--main3);
 }
 
-img {
-  border-radius: 15px;
-  transition: 0.3s;
-  border-radius: 8px;
-  width: 100%;
-  padding: 0px;
+.main-grid {
+  margin: 0px;
+  padding: 15px;
+  padding-left: 150px;
+  padding-right: 150px;
   box-sizing: border-box;
-  height: 400px;
-  object-fit: cover;
 }
 
-img:hover {
-  transform: scale(0.98);
+.container {
+    overflow: hidden;
+    flex-direction: row;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+  
+.filterDiv {
+    color: #ffffff;
+    text-align: center;
+    display: none; /* Hidden by default */
+    height: 400px;
+    position: relative;
+    flex-grow: 1;
+    margin-bottom: 60px;
 }
 
-.header-mobile {
-  display: none;
+.description {
+  margin-top: 10px;
+  font-size: 12pt;
 }
-.header {
+
+
+.container::after {
+  content: "";
+  flex-grow: 15;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
   display: block;
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-  margin-top: 30px;
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    vertical-align: middle;
 }
 
-.navigation {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: stretch;
-  margin: 20px;
-  padding: 0px;
-  box-sizing: border-box;
-  flex-wrap: wrap;
+
+/* Style the buttons */
+.btn {
+    border: 1px solid rgb(84, 84, 84, 0);
+    padding: 12px 16px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.397);
+    cursor: pointer;
+    border-radius: 100px;
+    margin-bottom: 10px;
+    margin-right: 2px;
+    font-weight: 300;
 }
 
-li {
-  list-style-type: none;
-  max-width: 350px;
-  min-width: 220px;
-  margin: 4px;
-
+i {
+  padding-right: 3px;
 }
 
-.instagram-btn{
-  background: #ffffff;
-  padding: 16px 24px;
-  border-radius: 8px;
-  border: 0px;
-  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;  
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
-  font-family: 'roboto';
-  font-size: 20px;
-  font-weight: 700;
-  transition: 0.5s;
-  cursor: pointer;
-  width: 150px;
-  margin: 20px auto; /* Zentriert den Button horizontal */
+/* Add a light grey background on mouse-over */
+.btn:hover {
+    border: 1px solid rgba(84, 84, 84, 0);
+    background-color: rgb(255, 255, 255, 1);
+    color: black;
 }
 
-footer {
-  text-align: center;
-  padding: 20px;
-  text-decoration: none;
-  color: #000000;
+/* Add a dark background to the active button */
+.btn.active {
+    border: 1px solid rgba(84, 84, 84, 0);
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
 }
 
-@media only screen and (max-width:480px) {
-  .navigation {
-      flex-wrap: wrap;
-      margin: 0px;
-      margin-top: 30px;
+#myBtnContainer {
+    margin-bottom: 10px;
+}
+
+.headline-desktop {
+  display: block;
+}
+.headline-mobile {
+  display: none;
+}
+
+@media only screen and (max-width:700px) {
+  .main-grid {
+    margin: 0px;
+    padding: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    box-sizing: border-box;
   }
-  li {
-      margin-bottom: 30px;
-      margin-left: 0px;
-      margin-right: 0px;
-      margin-top: 0px;
-  }
-  h2 {
-      line-height: 0px;
-      text-align: center;
-      margin-top: 15px;
-  }
-  .header-mobile {
-    display: block;
-  }
-  .header {
+  .headline-desktop {
     display: none;
+  }
+  .headline-mobile {
+    display: block;
   }
 }

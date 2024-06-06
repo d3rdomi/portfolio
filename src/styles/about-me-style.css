@@ -38,14 +38,22 @@ body {
   align-items: center;
   height: 100%;
   border-radius: 25px;
+  object-fit: cover;
 }
 
-img {
+.image img {
   flex-shrink: 0;
-
   max-height: 400px;
+  object-fit: contain;
+  min-width: 100%;
+  min-height: 100%;
 }
 
+p {
+  font-size: 16px !important;
+  line-height: 22px !important;
+  font-weight: 300 !important;
+}
 
 .article-section {
   border-radius: 25px;
@@ -88,6 +96,7 @@ img {
     padding: 15px;
     border:0; outline:0;
     transition: 500ms;
+    font-weight: 300;
   }
 
 .input:hover {
