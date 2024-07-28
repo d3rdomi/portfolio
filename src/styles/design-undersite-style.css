@@ -7,8 +7,8 @@ body {
 }
 
 img {
-  width: 720px;
-  height: 560px;
+  width: 100%;
+  height: auto;
   object-fit: cover;
   border-radius: 15px;
   transition: 0.3s;
@@ -44,6 +44,8 @@ ul li a {
 
 h1 {
   color: var(--main2);
+  overflow-wrap: break-word;
+  hyphens: manual;
 }
 
 h2 {
@@ -93,14 +95,17 @@ footer {
   color: rgb(var(--gray-dark));
 }
 
+a {
+  color: darkblue;
+  text-decoration-line: underline;
+}
 
 @media only screen and (max-width:480px) {
   img {
     width: 720px;
-    height: 450px;
+    height: auto;
   }
   ul {
   gap: 4rem;
 }
 }
-

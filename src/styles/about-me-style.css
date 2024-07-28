@@ -28,7 +28,11 @@ body {
   grid-gap: 30px;
   transition: 1s;
   z-index: 0;
-  padding: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+
 }
 
 .image {
@@ -168,4 +172,17 @@ p {
   .text {
     order: 3;
   }
+}
+
+
+@media only screen and (min-width:980px) {
+  /* .main-grid {
+    padding-left: 15em;
+    padding-right: 15em;
+  } */
+   .main-grid {
+    width: 980px;
+    place-self: center;
+    position: relative;
+   }
 }

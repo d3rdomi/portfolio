@@ -8,6 +8,8 @@ import MyFooter from '../../components/MyFooter.astro';
 const posts = (await getCollection('design')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
+
+import { Image } from 'astro:assets';
 ---
 
 <!doctype html>
@@ -29,8 +31,8 @@ const posts = (await getCollection('design')).sort(
 						posts.map((post) => (
 							<li>
 								<a href={`/design/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
+									<Image width={720} height={360} src={post.data.heroImage} alt={"post.data.altText"} />
+									<h4 class="title">{post.data.title}</h2>
 								</a>
 							</li>
 						))
