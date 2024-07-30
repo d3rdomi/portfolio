@@ -1,41 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@500&display=swap');
 
-/*
-.morning {
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-attachment: fixed;
-  background-color: var(--accent1);
-  background-image:
-  radial-gradient(at 13% 64%, rgb(255, 237, 159) 0px, transparent 50%);
-}
-
-.noon {
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-attachment: fixed;
-  background-color: var(--accent2);
-  background-image: radial-gradient(at 14% 1%, rgba(249, 236, 177, 0.5), transparent 70%);
-}
-
-.afternoon {
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-attachment: fixed;
-  background-color: var(--accent3);
-  background-image:
-  radial-gradient(at 82% 61%, rgb(255, 237, 159) 0px, transparent 50%);
-}
-
-.evening {
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-attachment: fixed;
-  background-color:var(--accent1);
-  background-image:
-  radial-gradient(at 25% 6%, rgb(191, 192, 245) 0px, transparent 50%);
-}
-*/
 
 body {
   background: white;
@@ -69,7 +33,6 @@ h2 {
   transition: transform 400ms ease;
   place-content: center;
   grid-gap: 10px;
-  transition: 1s;
   z-index: -1;
   box-sizing: border-box;
   transform: translateY(-15px);
@@ -137,15 +100,18 @@ selector {
 
 @media only screen and (max-width:550px) {
   .main-grid {
-    grid-column-gap: 15px;
-    padding-left: 30px;
-    padding-right: 30px;
-    grid-gap: 15px;
-    height: 100vh;
+    padding-left: 80px;
+    padding-top: 100px;
+    padding-right: 80px;
+    height: 100dvh;
+    display:flex;
+    gap: 10px;
+    flex-direction: column;
   }
 
   .header {
     grid-column: 1 / 3;
+    height: 8rem;
     margin-bottom: 100px;
   }
 
@@ -175,103 +141,6 @@ selector {
     text-align: right;
   }
 }
-
-/*
-.evening-article {
-  background-color:#6c72a8;
-  background-image:
-  radial-gradient(at 94% 2%, hsla(21, 82%, 69%, 0.3) 0px, transparent 50%),
-  radial-gradient(at 33% 8%, hsla(83,78%,70%,0.3) 0px, transparent 50%),
-  radial-gradient(at 66% 91%, hsla(232,85%,74%,0.3) 0px, transparent 50%),
-  radial-gradient(at 66% 10%, hsla(191,93%,78%,0.3) 0px, transparent 50%),
-  radial-gradient(at 94% 50%, hsla(303,79%,79%,0.3) 0px, transparent 50%),
-  radial-gradient(at 12% 72%, hsla(152,80%,61%,0.3) 0px, transparent 50%),
-  radial-gradient(at 74% 90%, hsla(278,95%,77%,0.3) 0px, transparent 50%);
-}
-
-.about-me {
-  border-radius: 30px;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-attachment: local;
-  background-color:#ffffff;
-  background-image:
-  radial-gradient(at 94% 2%, hsla(21, 86%, 70%, 0.3) 0px, transparent 50%),
-  radial-gradient(at 33% 8%, hsla(83,78%,70%,0.3) 0px, transparent 50%),
-  radial-gradient(at 66% 91%, hsla(232,85%,74%,0.3) 0px, transparent 50%),
-  radial-gradient(at 66% 10%, hsla(191,93%,78%,0.3) 0px, transparent 50%),
-  radial-gradient(at 94% 50%, hsla(303,79%,79%,0.3) 0px, transparent 50%),
-  radial-gradient(at 12% 72%, hsla(152,80%,61%,0.3) 0px, transparent 50%),
-  radial-gradient(at 74% 90%, hsla(278,95%,77%,0.3) 0px, transparent 50%);
-  transition: 1s;
-}
-
-
-.photography {
-  border-radius: 30px;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-attachment: local;
-  background-color:#ffffff;
-  background-image:
-  radial-gradient(at 94% 2%, hsla(20,96%,64%,0.3) 0px, transparent 50%),
-  radial-gradient(at 33% 8%, hsla(83,78%,70%,0.3) 0px, transparent 50%),
-  radial-gradient(at 66% 91%, hsla(232,85%,74%,0.3) 0px, transparent 50%),
-  radial-gradient(at 66% 10%, hsla(191,93%,78%,0.3) 0px, transparent 50%),
-  radial-gradient(at 94% 50%, hsla(303,79%,79%,0.3) 0px, transparent 50%),
-  radial-gradient(at 12% 72%, hsla(152,80%,61%,0.3) 0px, transparent 50%),
-  radial-gradient(at 74% 90%, hsla(278,95%,77%,0.3) 0px, transparent 50%);
-  transition: 1s;
-}
-
-.design {
-  border-radius: 30px;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-attachment: local;
-  background-color:#ffffff;
-  background-image:
-  radial-gradient(at 94% 2%, hsla(20,96%,64%,0.3) 0px, transparent 50%),
-  radial-gradient(at 33% 8%, hsla(83,78%,70%,0.3) 0px, transparent 50%),
-  radial-gradient(at 66% 91%, hsla(232,85%,74%,0.3) 0px, transparent 50%),
-  radial-gradient(at 66% 10%, hsla(191,93%,78%,0.3) 0px, transparent 50%),
-  radial-gradient(at 94% 50%, hsla(303,79%,79%,0.3) 0px, transparent 50%),
-  radial-gradient(at 12% 72%, hsla(152,80%,61%,0.3) 0px, transparent 50%),
-  radial-gradient(at 74% 90%, hsla(278,95%,77%,0.3) 0px, transparent 50%);
-  transition:  1s;
-}
-
-.animation {
-  border-radius: 30px;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-attachment:local;
-  background-color:#ffffff;
-  background-image:
-  radial-gradient(at 94% 2%, hsla(20,96%,64%,0.3) 0px, transparent 50%),
-  radial-gradient(at 33% 8%, hsla(83,78%,70%,0.3) 0px, transparent 50%),
-  radial-gradient(at 66% 91%, hsla(232,85%,74%,0.3) 0px, transparent 50%),
-  radial-gradient(at 66% 10%, hsla(191,93%,78%,0.3) 0px, transparent 50%),
-  radial-gradient(at 94% 50%, hsla(303,79%,79%,0.3) 0px, transparent 50%),
-  radial-gradient(at 12% 72%, hsla(152,80%,61%,0.3) 0px, transparent 50%),
-  radial-gradient(at 74% 90%, hsla(278,95%,77%,0.3) 0px, transparent 50%);
-  transition:  1s;
-}
-
-.about-me:hover {
-  transform: scale(0.9) rotate(-5grad);
-}
-
-.photography:hover {
-  transform: scale(0.9) rotate(5grad);  
-}
-.design:hover {
-  transform: scale(0.9) rotate(5grad);  
-}
-.animation:hover {
-  transform: scale(0.9) rotate(-5grad); 
-}
-*/
 
 .article-section {
   background-color: rgba(256, 256, 256, 0.3);
