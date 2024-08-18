@@ -2,6 +2,7 @@
 title: 'NewHealth.Guide Website'
 pubDate: 'Feb 02 2024'
 heroImage: '/src/assets/design/NHG-Website/Website_NHG.jpg'
+altText: 'Landingpage der NewHealth.Guide Webseite'
 ---
 
 

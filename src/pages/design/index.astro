@@ -10,6 +10,10 @@ const posts = (await getCollection('design')).sort(
 );
 
 import { Image } from 'astro:assets';
+
+const { imgSrc } = Astro.props;
+const images = import.meta.glob("../assets/**/*");
+
 ---
 
 <!doctype html>
@@ -31,7 +35,8 @@ import { Image } from 'astro:assets';
 						posts.map((post) => (
 							<li>
 								<a href={`/design/${post.slug}/`}>
-									<Image width={720} height={360} src={post.data.heroImage} alt={"post.data.altText"} />
+									<Image width={720} height={360} src={post.data.heroImage} alt={post.data.altText}/>
+
 									<h4 class="title">{post.data.title}</h2>
 								</a>
 							</li>

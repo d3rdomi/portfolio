@@ -2,6 +2,7 @@
 title: 'GuteFahrt'
 pubDate: 'Feb 02 2024'
 heroImage: '/src/assets/design/Gute-Fahrt/Cover_Gute-Fahrt.jpg'
+altText: 'Cover des Magazines Gute Fahrt'
 ---
 
 

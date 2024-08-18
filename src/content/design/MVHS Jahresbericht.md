@@ -2,6 +2,7 @@
 title: 'MVHS Jahresbericht'
 pubDate: 'Feb 02 2024'
 heroImage: '/src/assets/design/MVHS/Cover_MVHS.jpg'
+altText: 'Cover des Jahresberichtes der MVHS'
 ---
 
 

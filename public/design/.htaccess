@@ -1,0 +1,5 @@
+AuthUserFile /mnt/rid/93/62/524199362/htdocs/design/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Passwort"
+AuthType Basic
+require valid-user
