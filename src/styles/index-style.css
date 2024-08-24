@@ -14,7 +14,6 @@ h1 {
 }
 
 h2 {
-  color: black;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   font-size: 20px;
@@ -62,6 +61,10 @@ selector {
 }
 
 .article-section {
+  background-color: rgba(256, 256, 256, 0.3);
+  transition: 1s;
+  border-radius: 30px;
+  backdrop-filter: blur(20px);
   height: 100%;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   -webkit-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -82,7 +85,6 @@ selector {
   z-index: -1;
 }
 
-
 .text {
   text-align: left;
   display: flex;
@@ -96,15 +98,30 @@ selector {
   transition:  1s;
 }
 
+.footer {
+  margin-top: 10px;
+  margin-bottom: -20px;
+  background-color: transparent;
+  grid-column: 1 /3;
+}
 
+.impressum {
+  text-align: left;
+}
+
+.copyright {
+  text-align: right;
+}
+
+/* DEVICE SPECIFIC */
 
 @media only screen and (max-width:550px) {
   .main-grid {
-    padding-left: 80px;
+    padding-left: 30px;
     padding-top: 100px;
-    padding-right: 80px;
+    padding-right: 30px;
     height: 100dvh;
-    display:flex;
+    display: flex;
     gap: 10px;
     flex-direction: column;
   }
@@ -120,12 +137,11 @@ selector {
   display: flex;
   width: 100%;
   height: 100%;
-  align-items: left;
-  justify-content: left;
+  align-items: center;
+  justify-content: center;
   color: black;
   margin-left: 0px;
   margin-top: 0px;
-  transform: translateY(-20px) translateX(20px);
   }
 
   footer {
@@ -142,12 +158,13 @@ selector {
   }
 }
 
-.article-section {
-  background-color: rgba(256, 256, 256, 0.3);
-  transition: 1s;
-  border-radius: 30px;
-  backdrop-filter: blur(20px);
+@media only screen and (max-height:700px) {
+  .header {
+    margin-bottom: 50px;
+  }
 }
+
+/* ANIMATION */
 
 .about-me .photography .design .animation{
   transition: 1s;
@@ -165,20 +182,4 @@ selector {
 }
 .animation:hover {
   transform: scale(0.9) rotate(-5grad); 
-}
-
-
-.footer {
-  margin-top: 10px;
-  margin-bottom: -20px;
-  background-color: transparent;
-  grid-column: 1 /3;
-}
-
-.impressum {
-  text-align: left;
-}
-
-.copyright {
-  text-align: right;
 }

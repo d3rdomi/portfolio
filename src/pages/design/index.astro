@@ -11,13 +11,10 @@ const posts = (await getCollection('design')).sort(
 
 import { Image } from 'astro:assets';
 
-const { imgSrc } = Astro.props;
-const images = import.meta.glob("../assets/**/*");
-
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="de">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />	
 		

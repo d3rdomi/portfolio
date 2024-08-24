@@ -24,6 +24,7 @@
   color: var(--text-color);
 }
 
+/* TEXT */
 
 h1 {
   font-size: 60px;
@@ -86,6 +87,8 @@ p {
   line-height: 20px;
   color: #000000;
 }
+
+/* OTHER */
 
 html {
   scroll-behavior: smooth;

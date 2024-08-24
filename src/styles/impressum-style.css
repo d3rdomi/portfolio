@@ -2,16 +2,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 
 body {
-    background-color: var(--accent1);
+    background-color: var(--main1);
     display: block;
     text-align: left;
-    margin: 0px;
     padding: 0px;
+    margin: 0px;
+}
+
+main {
+    width: 960px;
+	max-width: calc(100% - 2em);
+	margin: auto;
 }
 
 h1 {
     text-align: left;
-    color: #ffffff;
+    font-weight: 500;
+    font-size: 40px;
+    color: #000000;
+}
+
+h2 {
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-size: 25px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+h4 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+a {
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
 }
 
 .header {
@@ -30,19 +61,6 @@ h1 {
     padding: 50px;
     width: 250px;
     
-}
-
-a {
-    text-align: left;
-    padding: 0px;
-    margin: 0px;
-}
-
-h2 {
-    padding: 0px;
-    margin: 0px;
-    margin-bottom: 5px;
-    margin-top: 10px;
 }
 
 .impressum {

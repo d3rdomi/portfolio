@@ -1,7 +1,7 @@
 ---
 title: 'SeeMagazin'
 pubDate: 'Aug 15 2024'
-heroImage:  'https://photographylife.com/wp-content/uploads/2014/09/Nikon-D750-Image-Samples-2.jpg' #'../assets/design/SeeMagazin/Cover_SeeMagazin.jpg'
+heroImage:  '/Cover_SeeMagazin.jpg'
 altText: 'Cover des Magazines SeeMagazin'
 ---
 
@@ -9,8 +9,9 @@ Bei diesem traumhaft schönen Coffee-table Magazin arbeite ich schon das 4. Jahr
 
 &#169; Storyboard GmbH
 
-<!-- ![SeeMagazin Layout](../assets/design/SeeMagazin/SeeMagazin_2024_04-05.jpg)
-![SeeMagazin Layout](../assets/design/SeeMagazin/SeeMagazin_2024_12-13.jpg)
+
+![SeeMagazin Layout](/images/SeeMagazin_2024_04-05.jpg)
+<!-- ![SeeMagazin Layout](../assets/design/SeeMagazin/SeeMagazin_2024_12-13.jpg)
 ![SeeMagazin Layout](../assets/design/SeeMagazin/SeeMagazin_2024_38-39.jpg)
 ![SeeMagazin Layout](../assets/design/SeeMagazin/SeeMagazin_2024_62-63.jpg)
 ![SeeMagazin Layout](../assets/design/SeeMagazin/SeeMagazin_2024_86-87.jpg) -->

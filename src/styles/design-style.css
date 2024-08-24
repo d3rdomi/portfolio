@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@500&display=swap');
 
 
+main {
+	width: 960px;
+	max-width: calc(100% - 2em);
+	margin: auto;
+} 
+
+
 body {
   	background: var(--main1);
   	height: 100dvh;
@@ -19,10 +26,6 @@ img {
 
 img:hover {
   transform: scale(0.98);
-}
-
-main {
-  width: 960px;
 }
 
 .title {
@@ -115,4 +118,5 @@ footer {
   gap: 4rem;
 }
 }
+
 
