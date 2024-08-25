@@ -1,7 +1,7 @@
 ---
 title: 'MVHS Jahresbericht'
 pubDate: 'Feb 02 2024'
-heroImage: '/src/assets/design/MVHS/Cover_MVHS.jpg'
+heroImage: '/assets/design/MVHS/Cover_MVHS.jpg'
 altText: 'Cover des Jahresberichtes der MVHS'
 ---
 
@@ -10,5 +10,5 @@ Der Jahresbericht der Münchner Volkshochschule stellt eine Zusammenfassung des 
 
 &#169; Storyboard GmbH
 
-![MVHS Layout](/src/assets/design/MVHS/MVHS_2023_08-09.jpg)
-![MVHS Layout](/src/assets/design/MVHS/MVHS_2023_28-29.jpg)
+![MVHS Layout](/assets/design/MVHS/MVHS_2023_08-09.jpg)
+![MVHS Layout](/assets/design/MVHS/MVHS_2023_28-29.jpg)
