@@ -2,7 +2,7 @@
 
 
 body {
-  background: white;
+  background: #EDAAA8;
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
@@ -45,7 +45,8 @@ selector {
 	position: absolute;
 	height: 100vh;
 	width: 100%;
-  background-image: url("../public/assets/home/mesh-gradient.jpg");
+  /* background-image: url("../public/assets/home/mesh-gradient.jpg"); */
+  background-color: #EDAAA8;
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;

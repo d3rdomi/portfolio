@@ -3,19 +3,21 @@
 
 body {
   	background: var(--accent2);
-  	height: 100vh;
+  	height: auto;
     display: block;
+    transition: 1s;
 }
 
 .parent1 {
   display: flex;
   flex-direction: column;
-  height: 100dvh;
+  height: auto;
+  transition: 1s;
 }
 
 .main-grid {
   box-sizing: border-box;
-  height: 100vh;
+  height: auto;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -26,13 +28,12 @@ body {
   transition: transform 400ms ease;
   place-content: center;
   grid-gap: 30px;
-  transition: 1s;
   z-index: 0;
   padding-left: 1em;
   padding-right: 1em;
   padding-top: 1em;
   padding-bottom: 1em;
-
+  transition: 1s;
 }
 
 .image {
@@ -176,10 +177,6 @@ p {
 
 
 @media only screen and (min-width:980px) {
-  /* .main-grid {
-    padding-left: 15em;
-    padding-right: 15em;
-  } */
    .main-grid {
     width: 980px;
     place-self: center;
