@@ -108,5 +108,8 @@ a {
   }
   ul {
   gap: 4rem;
-}
+  }
+  h1 {
+    font-size: 35px;
+  }
 }

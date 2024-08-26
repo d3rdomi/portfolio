@@ -1,5 +1,5 @@
 ---
-title: 'GuteFahrt'
+title: 'Gute Fahrt'
 pubDate: 'Feb 02 2024'
 heroImage: '/assets/design/Gute-Fahrt/Cover_Gute-Fahrt.jpg'
 altText: 'Cover des Magazines Gute Fahrt'
