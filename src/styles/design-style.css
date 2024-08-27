@@ -112,12 +112,10 @@ footer {
 @media only screen and (max-width:480px) {
   img {
     width: 720px;
-    height: 450px;
+    height: 350px;
   }
   ul {
     gap: 4rem;
     grid-template-columns: auto;
   }
 }
-
-
