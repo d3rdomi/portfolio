@@ -33,29 +33,40 @@ h2 {
   box-sizing: border-box;
 }
 
+.blur {
+  z-index: 1000;
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);
+  height: 100%;
+  width: 100%;
+  float: center;
+  position: absolute;
+}
+
 .container {
-    overflow: hidden;
-    flex-direction: row;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+  overflow: hidden;
+  flex-direction: row;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
   
 .filterDiv {
-    color: #ffffff;
-    text-align: center;
-    display: none; /* Hidden by default */
-    height: 400px;
-    position: relative;
-    flex-grow: 1;
-    margin-bottom: 60px;
+  color: #ffffff;
+  text-align: center;
+  display: none; /* Hidden by default */
+  height: auto;
+  position: relative;
+  flex-grow: 1;
+  margin-bottom: 0px;
+  width: auto;
 }
 
 .description {
   margin-top: 10px;
   font-size: 12pt;
 }
-
 
 .container::after {
   content: "";
@@ -68,25 +79,26 @@ h2 {
 }
 
 img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    vertical-align: middle;
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  vertical-align: middle;
+
 }
 
 
 /* Style the buttons */
 .btn {
-    border: 1px solid rgb(84, 84, 84, 0);
-    padding: 12px 16px;
-    color: black;
-    background-color: rgba(255, 255, 255, 0.397);
-    cursor: pointer;
-    border-radius: 100px;
-    margin-bottom: 10px;
-    margin-right: 2px;
-    font-weight: 300;
+  border: 1px solid rgb(84, 84, 84, 0);
+  padding: 12px 16px;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.397);
+  cursor: pointer;
+  border-radius: 100px;
+  margin-bottom: 10px;
+  margin-right: 2px;
+  font-weight: 300;
 }
 
 i {
@@ -95,41 +107,50 @@ i {
 
 /* Add a light grey background on mouse-over */
 .btn:hover {
-    border: 1px solid rgba(84, 84, 84, 0);
-    background-color: rgb(255, 255, 255, 1);
-    color: black;
+  border: 1px solid rgba(84, 84, 84, 0);
+  background-color: rgb(255, 255, 255, 1);
+  color: black;
 }
 
 /* Add a dark background to the active button */
 .btn.active {
-    border: 1px solid rgba(84, 84, 84, 0);
-    background-color: rgba(255, 255, 255, 1);
-    color: black;
+  border: 1px solid rgba(84, 84, 84, 0);
+  background-color: rgba(255, 255, 255, 1);
+  color: black;
 }
 
 #myBtnContainer {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
-.headline-desktop {
-  display: block;
-}
-.headline-mobile {
-  display: none;
-}
 
 @media only screen and (max-width:700px) {
   .main-grid {
-    margin: 0px;
-    padding: 15px;
-    padding-left: 25px;
-    padding-right: 25px;
-    box-sizing: border-box;
+    padding: 10px;
   }
   .headline-desktop {
     display: none;
   }
   .headline-mobile {
     display: block;
+  }
+  img {
+    height: 150px;
+    width: 100%;
+    border-radius: 10px;
+  }
+  .description {
+    display: none;
+  }
+  .container {
+    gap: 5px;
+  }
+  .filterDiv {
+    height: 150px;
+    margin-bottom: 0px;
+  }
+  .headline {
+    font-size: 40px;
+    margin-top: 15px;
   }
 }
