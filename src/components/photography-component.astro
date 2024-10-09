@@ -16,5 +16,6 @@ if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: 
 ---
 
 <a href={imagePath} class={`filterDiv ${filter}`}>
-    <Image src={images[imagePath]()} alt={altText} title={name}/>
+    <Image src={images[imagePath]()} alt={altText} title={name} height={400} quality='mid' loading="lazy"
+    />
 </a>
