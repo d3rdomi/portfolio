@@ -125,7 +125,9 @@ i {
 }
 
 
-@media only screen and (max-width:700px) {
+
+
+@media only screen and (max-width:960px) {
   .main-grid {
     padding: 10px;
     transition: 1s;
@@ -154,5 +156,31 @@ i {
   .headline {
     font-size: 40px;
     margin-top: 15px;
+    transition: 1s;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  img {
+    height: 100px;
+    width: 100%;
+    border-radius: 10px;
+  }
+  .filterDiv {
+    height: 100px;
+  }
+}
+
+@media only screen and (max-width: 290px) {
+  .headline {
+    font-size: 30px;
+    transition: 1s;
+  }
+}
+
+@media only screen and (max-width: 240px) {
+  .headline {
+    font-size: 20px;
+    transition: 1s;
   }
 }
