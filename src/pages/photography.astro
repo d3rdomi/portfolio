@@ -40,149 +40,203 @@ import "../scripts/simple-lightbox.js";
             <button class="btn" onclick="filterSelection('architecture')">
                 <i class="fa-solid fa-house"></i> Architektur
             </button>
+            <button class="btn" onclick="filterSelection('travel')">
+                <i class="fa-solid fa-plane"></i> Reisen
+            </button>
         </div>
 
 
-        <div class="container gallery">
+        <div class="container gallery grid">
 
             <PhotographyComponent 
-                imagePath="/src/assets/photography/_DSF6939.jpg"
+                imagePath="/src/assets/photography/thumbnails/_DSF6939-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/_DSF6939-high-resolution.jpg"
                 altText="A picture of a camper on the street."
                 name="camper in norway"
                 year={2023}
                 filter="landscape"
             />
-            <PhotographyComponent 
-                imagePath="/src/assets/photography/_DSF6999.jpg"
+            <PhotographyComponent
+                imagePath="/src/assets/photography/thumbnails/_DSF6999-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/_DSF6999-high-resolution.jpg"
                 altText="A picture of a lake in norway with big mountains."
                 name="lake in norway"
                 year={2023}
                 filter="landscape"
             />
             <PhotographyComponent 
-                imagePath="/src/assets/photography/_DSF7063.jpg"
+                imagePath="/src/assets/photography/thumbnails/_DSF7063-thumbnail.jpg"
+                HiRes='/assets/photography/high-resolution/_DSF7063-high-resolution.jpg'
                 altText="A cloudy picture of the sea in norway with mountains."
                 name="cloudy norway"
                 year={2023}
                 filter="landscape"
             />
             <PhotographyComponent 
-                imagePath="/src/assets/photography/_DSF7119.jpg"
+                imagePath="/src/assets/photography/thumbnails/_DSF7119-thumbnail.jpg"
+                HiRes='/assets/photography/high-resolution/_DSF7119-high-resolution.jpg'
                 altText="A picture of a vally. Giant mountains left and right. And at the centre of the image, a small lake. Shot from a high view."
                 name="the valley"
                 year={2023}
                 filter="landscape"
             />
             <PhotographyComponent 
-                imagePath="/src/assets/photography/_DSF7308-Bearbeitet.jpg"
+                imagePath="/src/assets/photography/thumbnails/_DSF7308-Bearbeitet-thumbnail.jpg"
+                HiRes='/assets/photography/high-resolution/_DSF7308-Bearbeitet-high-resolution.jpg'
                 altText="A picture of a clean, reflecting lake in norway with big mountains."
                 name="reflecting"
                 year={2023}
                 filter="landscape"
             />
             <PhotographyComponent 
-                imagePath="/src/assets/photography/_DSF7675.jpg"
+                imagePath="/src/assets/photography/thumbnails/_DSF7675-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/_DSF7675-high-resolution.jpg"
                 altText="A group of dancers standing around a dancer in the middle spinning."
                 name="the dynamic in dancing"
                 year={2024}
                 filter="people"
             />
             <PhotographyComponent 
-                imagePath="/src/assets/photography/_DSF7882.jpg"
-                altText="A mountain with trees in fall, the leaves are turning yellow."
-                name="fall is coming"
-                year={2023}
-                filter="landscape"
-            />
-            <PhotographyComponent 
-                imagePath="/src/assets/photography/_DSF8387-min.jpg"
-                altText="A building in the night, with many shining windows."
-                name="building by night"
-                year={2023}
-                filter="architecture"
-            />
-            <PhotographyComponent 
-                imagePath="/src/assets/photography/_DSF8446-min.jpg"
-                altText="A sign with love wins written on it."
-                name="love wins"
-                year={2023}
-                filter=""
-            />
-            <PhotographyComponent 
-                imagePath="/src/assets/photography/DSCF4917.jpg"
-                altText="A butterfly sitting on a pink flower."
-                name="butterfly"
-                year={2022}
-                filter="animals"
-            />
-
-            <!-- NEW -->
-
-            <PhotographyComponent 
-                imagePath="/src/assets/photography/_DSF7392.jpg"
-                altText="A picture made in norway of a pretty town on a hill."
-                name="cute town"
-                year={2023}
-                filter="landscape"
-            />
-            <PhotographyComponent 
-                imagePath="/src/assets/photography/_DSF7820.jpg"
-                altText="Holzdock am See mit nebelverhangenen Bergen im Hintergrund."
-                name="See mit Bergkulisse"
-                year={2023}
-                filter="landscape"
-            />
-            <PhotographyComponent 
-                imagePath="/src/assets/photography/_DSF8095.jpg"
-                altText="Reihe von Tänzerinnen in Schwarz mit ausgestreckten Armen auf einer Bühne."
-                name="dance"
+                imagePath="/src/assets/photography/thumbnails/_DSF7023-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/_DSF7023-high-resolution.jpg"
+                altText="A camper besides a biker on a road with a big mountain in the back."
+                name="camper on a street"
                 year={2024}
-                filter="people"
+                filter="landscape travel"
             />
             <PhotographyComponent 
-                imagePath="/src/assets/photography/_DSF8284.jpg"
-                altText="Eine Doppelbelichtung von einem Bild einer Tänzerin."
-                name="dancer"
-                year={2024}
-                filter="people"
-            />
-            <PhotographyComponent 
-                imagePath="/src/assets/photography/_DSF8416-Bearbeitet-min.jpg"
-                altText="Eine Hauswand mit blauen und gelben Lichtern."
-                name="lights"
-                year={2024}
-                filter="architecture"
-            />
-            <PhotographyComponent 
-                imagePath="/src/assets/photography/DSCF0834.jpg"
-                altText="Ein Schwarz und Weiss Bild von einem Mann, der Vögel bei einem See füttert."
-                name="birds and people"
-                year={2022}
-                filter="analog people"
-            />
-            <PhotographyComponent 
-                imagePath="/src/assets/photography/DSCF2382-min.jpg"
-                altText="Ein Graffiti Bild von einer Hauswand"
-                name="graffiti"
-                year={2022}
-                filter="architecture"
-            />
-            <PhotographyComponent 
-                imagePath="/src/assets/photography/DSCF4181-Bearbeitet-min.jpg"
-                altText="A rainbow in Stockholm."
-                name="Stockholm rainbow"
+                imagePath="/src/assets/photography/thumbnails/_DSF7424-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/_DSF7424-high-resolution.jpg"
+                altText="A foogy picture of mountains in norway."
+                name="foggy mountains"
                 year={2023}
-                filter="landscape"
+                filter="landscape travel"
             />
             <PhotographyComponent 
-                imagePath="/src/assets/photography/DSCF5104.jpg"
-                altText="Ein Einkaufswagen in einem Fluss."
-                name="A shopping cart in river"
+                imagePath="/src/assets/photography/thumbnails/DSCF0757-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/DSCF0757-high-resolution.jpg"
+                altText="A black and white picture of a lighthouse in Hamburg, Germany."
+                name="Lighthouse"
                 year={2022}
-                filter=""
+                filter="landscape bw"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/thumbnails/DSCF0780-Bearbeitet-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/DSCF0780-Bearbeitet-high-resolution.jpg"
+                altText="A black and white picture with a yellow ladder."
+                name="Yellow ladder."
+                year={2022}
+                filter="landscape bw"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/thumbnails/DSCF0836-bearbeitet-min-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/DSCF0836-bearbeitet-min-high-resolution.jpg"
+                altText="A black and white picture of a person feeding seagulls."
+                name="seagulls"
+                year={2022}
+                filter="human bw"
             />
             
-        </div>
+           <PhotographyComponent 
+                imagePath="/src/assets/photography/thumbnails/DSCF1677-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/DSCF1677-high-resolution.jpg"
+                altText="A foodbridge in the mist."
+                name="misty lake"
+                year={2022}
+                filter="landscape"
+            />
+
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/thumbnails/DSCF2382-min-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/DSCF2382-min-high-resolution.jpg"
+                altText="A black and white picture of a graffiti."
+                name="graffiti"
+                year={2022}
+                filter="bw architecture travel"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/thumbnails/DSCF3282-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/DSCF3282-high-resolution.jpg"
+                altText="A black and white picture of the olympic stadium in munich."
+                name="Olympiapark 1"
+                year={2022}
+                filter="architecture bw"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/thumbnails/DSCF3307-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/DSCF3307-high-resolution.jpg"
+                altText="A black and white picture of the olympic stadium in munich."
+                name="Olympiapark 2"
+                year={2022}
+                filter="architecture bw"
+            /> 
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/thumbnails/DSCF3792-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/DSCF3792-high-resolution.jpg"
+                altText="A red house in finland."
+                name="finland 1"
+                year={2022}
+                filter="landscape architecture travel"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/thumbnails/DSCF3847-min-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/DSCF3847-min-high-resolution.jpg"
+                altText="A car in misty finland."
+                name="finland 2"
+                year={2022}
+                filter="landscape car travel"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/thumbnails/DSCF3934-min-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/DSCF3934-min-high-resolution.jpg"
+                altText="A picture of a circle of stones and a tree in the misty background."
+                name="finland 3"
+                year={2022}
+                filter="landscape travel"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/thumbnails/DSCF4078-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/DSCF4078-high-resolution.jpg"
+                altText="A picture of a house facade with a work of art made of chairs."
+                name="finland 4"
+                year={2022}
+                filter="architecture travel bw"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/thumbnails/DSCF4434-min-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/DSCF4434-min-high-resolution.jpg"
+                altText="A small castle somewhere in sweden."
+                name="sweden 1"
+                year={2022}
+                filter="architecture travel landscape"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/thumbnails/DSCF4434-min-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/DSCF4434-min-high-resolution.jpg"
+                altText="A small castle somewhere in sweden."
+                name="sweden 1"
+                year={2022}
+                filter="architecture travel landscape"
+            />
+            <PhotographyComponent 
+                imagePath="/src/assets/photography/thumbnails/DSCF4802-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/DSCF4802-high-resolution.jpg"
+                altText="Giant lily pads in the botanical garden."
+                name="giant lily pads"
+                year={2022}
+                filter="landscape"
+            />
+
+
+            <!-- <PhotographyComponent 
+                imagePath="/src/assets/photography/thumbnails/DSCFXXXX-thumbnail.jpg"
+                HiRes="/assets/photography/high-resolution/XXX-high-resolution.jpg"
+                altText="XXX"
+                name="XXX"
+                year={20XX}
+                filter="XXX"
+            /> -->
+            
 
         </div>
 
@@ -1833,6 +1887,7 @@ import "../scripts/simple-lightbox.js";
         },{}]},{},[1]);
 
         </script>
+
         <script>
             (function() {
                 var $gallery = new SimpleLightbox('.gallery a', {});

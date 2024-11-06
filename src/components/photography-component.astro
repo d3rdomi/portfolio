@@ -8,14 +8,15 @@ interface Props {
    name: string;
    year: number;
    filter: string;
+   HiRes: string;
 }
 
-const { imagePath, altText, name, year, filter } = Astro.props;
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/photography/*.{jpeg,jpg,png,gif}')
-if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/photography/*.{jpeg,jpg,png,gif}"`);
+const { imagePath, altText, name, year, filter, HiRes } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/photography/thumbnails/*.{jpeg,jpg,png,gif}')
+if (!images[imagePath]) throw new Error(`"${imagePath}" does not exist in glob: "src/assets/photography/thumbnails/*.{jpeg,jpg,png,gif}"`);
 ---
 
-<a href={imagePath} class={`filterDiv ${filter}`}>
-    <Image src={images[imagePath]()} alt={altText} title={name} height={400} quality='mid' loading="lazy"
+<a href={HiRes} class={`filterDiv ${filter}`}>
+    <Image src={images[imagePath]()} alt={altText} title={`${name}, ${year}`} height={400} quality='mid' loading="lazy"
     />
 </a>

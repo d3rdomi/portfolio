@@ -54,18 +54,29 @@ h2 {
 }
   
 .filterDiv {
+  min-height: 200px;
+  max-height: 400px;
+  width: auto;
   color: #ffffff;
   text-align: center;
   display: none; /* Hidden by default */
-  height: 300px;
-  width: 300px;
   position: relative;
   flex-grow: 1;
   margin-bottom: 0px;
+  border: solid red 3px;
 }
 
-.sl-wrapper .sl-image .sl-caption{
-  font-family:'Unbound',
+img {
+  max-height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  vertical-align: middle;
+}
+
+.description {
+  margin-top: 10px;
+  font-size: 12pt;
 }
 
 .container::after {
@@ -76,13 +87,6 @@ h2 {
 /* The "show" class is added to the filtered elements */
 .show {
   display: block;
-}
-
-img {
-  height: 300px;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 20px;
 }
 
 
@@ -121,38 +125,71 @@ i {
   margin-bottom: 10px;
 }
 
-@media only screen and (max-width:960px) {
-  .main-grid {
-    padding-left: 50px;
-    padding-right: 50px;
-    transition: 1s;
-  }
 
-  .filterDiv {
-    width: 200px;
-    height: 200px;
+
+/* @media only screen and (max-width:960px) {
+  .main-grid {
+    padding: 10px;
     transition: 1s;
   }
 
   img {
-    height: 200px;
-    transition: 1s;
-  }
-}
-
-@media only screen and (max-width:560px) {
-  .main-grid {
-    padding-left: 10px;
-    padding-right: 10px;
-    transition: 1s;
+    height: 100px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    vertical-align: middle;
+    align-self: flex-start;
+    justify-content: flex-start;
   }
 
-  .headline {
-    font-size: 30pt;
+  .description {
+    display: none;
+  }
+
+  .container {
+    gap: 5px;
   }
 
   .filterDiv {
-    height: 200px;
-    width: 48%;
+    height: 100%;
+    width: auto;
+    margin-bottom: 0px;
+    border: solid red 1px;
+    margin: 0px;
+    padding: 0px;
+    flex-grow: 1;
+    position: relative;
+  }
+  
+  .headline {
+    font-size: 40px;
+    margin-top: 15px;
+    transition: 1s;
+  }
+} */
+
+/* @media only screen and (max-width: 350px) {
+  img {
+    height: 100px;
+    width: 100%;
+    border-radius: 10px;
+  }
+  .filterDiv {
+    height: 100px;
   }
 }
+
+@media only screen and (max-width: 290px) {
+  .headline {
+    font-size: 30px;
+    transition: 1s;
+  }
+}
+
+@media only screen and (max-width: 240px) {
+  .headline {
+    font-size: 20px;
+    transition: 1s;
+  }
+} */

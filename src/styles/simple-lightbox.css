@@ -4,6 +4,8 @@
 	Available for use under the MIT License
 	Version 2.14.3
 */
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@500&display=swap');
+
 body.hidden-scroll {
   overflow: hidden;
 }
@@ -51,7 +53,7 @@ body.hidden-scroll {
   height: 44px;
   width: 44px;
   line-height: 44px;
-  font-family: Arial, Baskerville, monospace;
+  font-family: 'Unbounded';
   color: #000;
   font-size: 3rem;
 }
@@ -63,6 +65,7 @@ body.hidden-scroll {
   z-index: 10060;
   color: #000;
   font-size: 1rem;
+  font-family: 'Unbounded';
 }
 .sl-wrapper .sl-download {
   display: none;
@@ -73,6 +76,7 @@ body.hidden-scroll {
   z-index: 10060;
   color: #fff;
   font-size: 1rem;
+  font-family: 'Unbounded';
 }
 .sl-wrapper .sl-download a {
   color: #fff;
@@ -91,7 +95,7 @@ body.hidden-scroll {
   text-align: center;
   display: block;
   z-index: 10060;
-  font-family: Arial, Baskerville, monospace;
+  font-family: 'Unbounded';
   color: #000;
 }
 .sl-wrapper .sl-navigation button.sl-next {
