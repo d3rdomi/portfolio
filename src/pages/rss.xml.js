@@ -14,3 +14,16 @@ export async function GET(context) {
 		})),
 	});
 }
+
+export async function GET(context) {
+	const posts = await getCollection('photography');
+	return rss({
+		title: SITE_TITLE,
+		description: SITE_DESCRIPTION,
+		site: context.site,
+		items: posts.map((post) => ({
+			...post.data,
+			link: `/photography/${post.slug}/`,
+		})),
+	});
+}

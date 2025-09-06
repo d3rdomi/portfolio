@@ -1,158 +1,127 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@500&display=swap');
 
+
+main {
+	width: 960px;
+	max-width: calc(100% - 2em);
+	margin: auto;
+} 
+
+
 body {
-  background: var(--accent3);
-  height: 100%;
-  max-width: 100%;
-}
-
-h1 {
-  color: white !important;
-  text-align: center;
-  color: var(--main2);
-  margin-left: 20px;
-  margin-right: 20px;
-  padding-bottom: 30px;
-}
-
-h2 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  color: #000000;
-  text-align: center;
-  font-weight: 800;
-  margin-bottom: 10px;
-  color: var(--main3);
-}
-
-.main-grid {
-  margin: 0px;
-  padding: 15px;
-  padding-left: 150px;
-  padding-right: 150px;
-  box-sizing: border-box;
-  transition: 1s;
-}
-
-.blur {
-  z-index: 1000;
-  backdrop-filter: blur(20px);
-  background-color: rgba(255, 255, 255, 0.7);
-  color: rgba(255, 255, 255, 0.7);
-  height: 100%;
-  width: 100%;
-  float: center;
-  position: absolute;
-}
-
-.container {
-  overflow: hidden;
-  flex-direction: row;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-  
-.filterDiv {
-  color: #ffffff;
-  text-align: center;
-  display: none; /* Hidden by default */
-  height: 300px;
-  width: 300px;
-  position: relative;
-  flex-grow: 1;
-  margin-bottom: 0px;
-}
-
-.sl-wrapper .sl-image .sl-caption{
-  font-family:'Unbound',
-}
-
-.container::after {
-  content: "";
-  flex-grow: 15;
-}
-
-/* The "show" class is added to the filtered elements */
-.show {
-  display: block;
+  	background: var(--main4);
+  	height: 100dvh;
 }
 
 img {
-  height: 300px;
-  width: 100%;
+  width: 720px;
+  height: 360px;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
+img:hover {
+  transform: scale(0.98);
+}
 
-/* Style the buttons */
-.btn {
-  border: 1px solid rgb(84, 84, 84, 0);
-  padding: 12px 16px;
-  color: black;
-  background-color: rgba(255, 255, 255, 0.397);
-  cursor: pointer;
-  border-radius: 100px;
+.title {
+  margin: 0;
+  color: rgb(var(--black));
+}
+
+ul {
+  margin: 20px;
+  padding: 0px;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  list-style-type: none;
+}
+
+ul li a {
+  display: block;
+}
+
+h1 {
+  color: var(--main3);
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+h2 {
+  text-align: left;
   margin-bottom: 10px;
-  margin-right: 2px;
-  font-weight: 300;
+  padding-top: 10px;
+  font-family: 'Unbounded';
+  font-weight: 500;
+  color: var(--main3);
+  font-size: 30px;
 }
 
-i {
-  padding-right: 3px;
-}
-
-/* Add a light grey background on mouse-over */
-.btn:hover {
-  border: 1px solid rgba(84, 84, 84, 0);
-  background-color: rgb(255, 255, 255, 1);
-  color: black;
-}
-
-/* Add a dark background to the active button */
-.btn.active {
-  border: 1px solid rgba(84, 84, 84, 0);
-  background-color: rgba(255, 255, 255, 1);
-  color: black;
-}
-
-#myBtnContainer {
+h4 {
+  text-align: left;
   margin-bottom: 10px;
+  padding-top: 10px;
+  font-family: 'Unbounded';
+  font-weight: 500;
+  color: var(--main3);
+  font-size: 30px;
 }
 
-@media only screen and (max-width:960px) {
-  .main-grid {
-    padding-left: 50px;
-    padding-right: 50px;
-    transition: 1s;
-  }
+.main-grid {
+  margin: 20px;
+  padding: 0px;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
 
-  .filterDiv {
-    width: 200px;
-    height: 200px;
-    transition: 1s;
-  }
+.header {
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
 
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+p {
+  text-align: left;
+  color: var(--main3);
+}
+
+.text {
+  padding: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+  color: #000000;
+}
+
+
+
+@media only screen and (max-width:480px) {
   img {
-    height: 200px;
-    transition: 1s;
+    width: 720px;
+    height: 350px;
   }
-}
-
-@media only screen and (max-width:560px) {
-  .main-grid {
-    padding-left: 10px;
-    padding-right: 10px;
-    transition: 1s;
-  }
-
-  .headline {
-    font-size: 30pt;
-  }
-
-  .filterDiv {
-    height: 200px;
-    width: 48%;
+  ul {
+    gap: 4rem;
+    grid-template-columns: auto;
   }
 }

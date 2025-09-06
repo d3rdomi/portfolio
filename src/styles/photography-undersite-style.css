@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@500&display=swap');
+
+
+main {
+	width: 960px;
+	max-width: calc(100% - 2em);
+	margin: auto;
+} 
+
+body {
+  	background: var(--main4);
+  	height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+  width: 25rem !important;
+  height: auto;
+  object-fit: cover;
+  border-radius: 15px;
+  max-width: 100%;
+}
+
+/* .swiper {
+  width: 600px;
+  height: 300px;
+} */
+
+ul li a {
+  display: block;
+}
+
+h1 {
+  color: var(--main3);
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+  color: #000000;
+}
+
+
+
+@media only screen and (max-width:480px) {
+
+}

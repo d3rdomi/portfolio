@@ -2,10 +2,10 @@
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import '../styles/global-style.css';
-import '../styles/design-undersite-style.css';
+import '../styles/photography-style.css';
 import MyFooter from '../components/MyFooter.astro';
 
-type Props = CollectionEntry<'design'>['data'];
+type Props = CollectionEntry<'photography'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---

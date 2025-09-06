@@ -1,0 +1,49 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+import '../../styles/global-style.css';
+import '../../styles/photography-style.css';
+import MyFooter from '../../components/MyFooter.astro';
+const posts = (await getCollection('photography')).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+
+import { Image } from 'astro:assets';
+
+---
+
+<!doctype html>
+<html lang="de">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />	
+		
+	</head>
+	<body>
+
+		<div class="header">
+			<h1>photography</h1>
+		</div>
+
+		<main>
+			<section>
+				<ul>
+					{
+						posts.map((post) => (
+							<li>
+								<a href={`/photography/${post.slug}/`}>
+									<Image width={720} height={360} src={post.data.heroImage} alt={post.data.altText}/>
+
+									<h2 class="title">{post.data.title}</h2>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		
+		<MyFooter />
+
+	</body>
+</html>
