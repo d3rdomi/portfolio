@@ -16,12 +16,15 @@ const design = defineCollection({
 });
 
 // Motion Design Collection
-/* const motionDesign = defineCollection({
+const motionDesign = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    text: z.string(),
+    pubDate: z.coerce.date(),
+    text: z.string().optional(),    
     images: z.array(z.string()).optional(),
+    description: z.string().optional(),
+    heroImage: z.string().optional(),
   }),
 });
 
@@ -30,10 +33,13 @@ const photography = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
-    text: z.string(),
     images: z.array(z.string()).optional(),
+	pubDate: z.coerce.date(),
+	altText: z.string().optional(),
+    heroImage: z.string().optional(),
+	text: z.string().optional(),
   }),
-}); */
+});
 
 export const collections = {
   design,

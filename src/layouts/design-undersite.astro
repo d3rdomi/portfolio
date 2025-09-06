@@ -7,28 +7,43 @@ import MyFooter from '../components/MyFooter.astro';
 
 type Props = CollectionEntry<'design'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, text, images } = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
 
-		</style>
-	</head>
+  <body>
+    <main>
+      <article>
+        <div class="prose">
+          <div class="title">
+            <h1>{title}</h1>
+            {description && <p class="description">{description}</p>}
+            {pubDate && <time datetime={pubDate.toString()}>Published: {new Date(pubDate).toLocaleDateString()}</time>}
+            {updatedDate && <time datetime={updatedDate.toString()}>Updated: {new Date(updatedDate).toLocaleDateString()}</time>}
+          </div>
 
-	<body>
-		<main>
-			<article>
-				<div class="prose">
-					<div class="title">
-						<h1>{title}</h1>
-					</div>
-					<slot />
-				</div>
-			</article>
-		</main>
-		<MyFooter />
-	</body>
+          {text && (
+            <div class="text-content">
+              <p>{text}</p>
+            </div>
+          )}
+
+          {images && images.length > 0 && (
+            <div class="additional-images">
+              {images.map((img) => (
+                <img src={img} alt={title} />
+              ))}
+            </div>
+          )}
+
+          <slot />
+        </div>
+      </article>
+    </main>
+    <MyFooter />
+  </body>
 </html>
