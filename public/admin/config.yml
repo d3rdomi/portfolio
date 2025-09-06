@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: auth0
+  domain: "dev-zl0hs1ykc7f6cpc0.us.auth0.com"
+  client_id: "VyWbBXtZrjSMx5CFuOalQXs6TJ1UGVAt"
+  redirect_uri: "https://portfolio-dominik.netlify.app/admin/auth/callback"
+  allowed_roles: ["editor", "admin"] # optional, wenn du Rollen verwenden willst
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
