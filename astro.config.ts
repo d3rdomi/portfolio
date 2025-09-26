@@ -3,12 +3,12 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import keystatic from '@keystatic/astro';
-import netlify from '@astrojs/netlify'; // Neu hinzugefügt
+import netlify from '@astrojs/netlify';
 
 export default defineConfig({
   site: 'https://portfolio-dominik.netlify.app',
-  output: 'server', // Neu hinzugefügt
-  adapter: netlify(), // Neu hinzugefügt
+  output: 'server', // Geändert!
+  adapter: netlify(),
   integrations: [
     mdx(), 
     sitemap(),
