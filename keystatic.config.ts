@@ -5,6 +5,12 @@ export default config({
     kind: 'github',
     repo: 'd3rdomi/portfolio', // Ersetze mit deinen Daten
   },
+
+// export default config({
+//   storage: {
+//     kind: 'local', // Für lokales Testen
+//   },
+
   
   collections: {
     // Design Collection (basierend auf deiner config.ts)
