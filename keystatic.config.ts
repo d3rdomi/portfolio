@@ -3,14 +3,12 @@ import { config, fields, collection } from '@keystatic/core';
 export default config({
   storage: {
     kind: 'github',
-    repo: 'd3rdomi/portfolio', // Ersetze mit deinen Daten
+    //kind: 'local', // Für lokales Testen
+    repo: {
+      owner: 'd3rdomi',
+      name: 'portfolio',
+   }     
   },
-
-// export default config({
-//   storage: {
-//     kind: 'local', // Für lokales Testen
-//   },
-
   
   collections: {
     // Design Collection (basierend auf deiner config.ts)
