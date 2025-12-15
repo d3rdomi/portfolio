@@ -5,14 +5,17 @@ import react from '@astrojs/react';
 import keystatic from '@keystatic/astro';
 import netlify from '@astrojs/netlify';
 
+import markdoc from '@astrojs/markdoc';
+
 export default defineConfig({
   site: 'https://portfolio-dominik.netlify.app',
   output: 'server', // Geändert!
   adapter: netlify(),
   integrations: [
-    mdx(), 
+    mdx(),
     sitemap(),
     react(),
     keystatic(),
+    markdoc(),
   ],
 });
