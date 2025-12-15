@@ -15,4 +15,4 @@ export default defineConfig({
     react(),
     keystatic(),
   ],
-});
+}); 
