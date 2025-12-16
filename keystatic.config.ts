@@ -23,7 +23,7 @@ export default config({
         heroImage: fields.image({
           label: 'Hero Image',
           directory: 'public/assets/design',
-          publicPath: '~/assets/design',
+          publicPath: '/assets/design',
         }),
         altText: fields.text({ label: 'Alt Text' }),
         text: fields.text({ label: 'Text' }),
@@ -31,7 +31,7 @@ export default config({
           fields.image({
             label: 'Bild',
             directory: 'public/assets/design',
-            publicPath: '~/assets/design',
+            publicPath: '/assets/design',
           }),
           { label: 'Bilder', itemLabel: props => props.value || 'Bild' }
         ),
