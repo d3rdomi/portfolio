@@ -1,2 +1,2 @@
 # portfolio
-A portolio Website for myself.
+A portfolio Website for myself.
