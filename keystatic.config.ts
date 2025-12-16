@@ -20,13 +20,13 @@ export default config({
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
         pubDate: fields.date({ label: 'Veröffentlichungsdatum' }),
-        text: fields.text({ label: 'Text' }),
         heroImage: fields.image({
           label: 'Hero Image',
           directory: 'public/assets/design',
           publicPath: '/assets/design',
         }),
         altText: fields.text({ label: 'Alt Text' }),
+        text: fields.text({ label: 'Text' }),
         images: fields.array(
           fields.image({
             label: 'Bild',
