@@ -22,7 +22,7 @@ export default config({
         pubDate: fields.date({ label: 'Veröffentlichungsdatum' }),
         heroImage: fields.image({
           label: 'Hero Image',
-          directory: 'src/assets/design',
+          directory: 'public/assets/design',
           publicPath: '~/assets/design',
         }),
         altText: fields.text({ label: 'Alt Text' }),
@@ -30,7 +30,7 @@ export default config({
         images: fields.array(
           fields.image({
             label: 'Bild',
-            directory: 'src/assets/design',
+            directory: 'public/assets/design',
             publicPath: '~/assets/design',
           }),
           { label: 'Bilder', itemLabel: props => props.value || 'Bild' }
