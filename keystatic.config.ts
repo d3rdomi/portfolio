@@ -26,7 +26,6 @@ export default config({
           publicPath: '/assets/design',
         }),
         altText: fields.text({ label: 'Alt Text' }),
-        text: fields.text({ label: 'Text' }),
         images: fields.array(
           fields.image({
             label: 'Bild',
