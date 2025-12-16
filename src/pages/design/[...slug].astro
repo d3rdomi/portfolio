@@ -1,19 +1,17 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
+import { getCollection } from 'astro:content';
 import BlogPost from '../../layouts/design-undersite.astro';
 
-export async function getStaticPaths() {
-	const posts = await getCollection('design');
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
-}
-type Props = CollectionEntry<'design'>;
+const { slug } = Astro.params;
 
-const post = Astro.props;
+const posts = await getCollection('design');
+const post = posts.find(p => p.slug === slug);
+
+if (!post) throw new Error('404 vibes');
+
 const { Content } = await post.render();
 ---
+
 
 <BlogPost {...post.data}>
 	<Content />
