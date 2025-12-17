@@ -32,7 +32,7 @@ import { Image } from 'astro:assets';
 						posts.map((post) => (
 							<li>
 								<a href={`/design/${post.slug}/`}>
-									<Image width={720} height={360} src={post.data.heroImage} alt={post.data.altText}/>
+									<Image width={720} src={post.data.heroImage} alt={post.data.altText}/>
 
 									<h4 class="title">{post.data.title}</h2>
 								</a>
