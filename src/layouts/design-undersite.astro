@@ -4,13 +4,23 @@ import BaseHead from '../components/BaseHead.astro';
 import '../styles/global-style.css';
 import '../styles/design-undersite-style.css';
 import MyFooter from '../components/MyFooter.astro';
+import Carousel from '../components/Carousel.jsx';
+import { slide } from 'astro:transitions';
 
 type Props = CollectionEntry<'design'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage, text, images } = Astro.props;
+
+const slides = [
+  { title: 'Slide1', image: '/assets/design/gute-fahrt/heroImage.jpg' },
+  { title: 'Slide 2', image: '/assets/design/gute-fahrt/heroImage.jpg' },
+  { title: 'Slide 3', image: '/assets/design/gute-fahrt/heroImage.jpg' },
+  { title: 'Slide 4', image: '/assets/design/gute-fahrt/heroImage.jpg' },
+
+];
 ---
 
-<html lang="en">
+<html lang="de">
   <head>
     <BaseHead title={title} description={description} />
   </head>
@@ -32,13 +42,7 @@ const { title, description, pubDate, updatedDate, heroImage, text, images } = As
             </div>
           )}
 
-          {images && images.length > 0 && (
-            <div class="additional-images">
-              {images.map((img) => (
-                <img src={img} alt={title} />
-              ))}
-            </div>
-          )}
+          <Carousel slides={slides} client:load />
 
           <slot />
         </div>
