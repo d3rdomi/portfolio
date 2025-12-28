@@ -12,11 +12,18 @@ type Props = CollectionEntry<'design'>['data'];
 const { title, description, pubDate, updatedDate, heroImage, text, images } = Astro.props;
 
 const slides = [
-  { title: 'Slide1', image: '/assets/design/gute-fahrt/heroImage.jpg' },
-  { title: 'Slide 2', image: '/assets/design/gute-fahrt/heroImage.jpg' },
-  { title: 'Slide 3', image: '/assets/design/gute-fahrt/heroImage.jpg' },
-  { title: 'Slide 4', image: '/assets/design/gute-fahrt/heroImage.jpg' },
-
+  {
+    title: title,         // Titel aus der MDOC-Datei
+    image: '/assets/design/gute-fahrt/heroImage.jpg',     // Hero-Image aus MDOC
+    text: 'text123',           // optionaler Text
+    alt: '' // kannst auch aus Astro.props holen, falls vorhanden
+  },
+  // Weitere Slides, z.B. aus images-Array der MDOC-Datei
+  ...images.map((img, i) => ({
+    title: `Slide ${i + 2}`,
+    image: img,
+    alt: ''
+  }))
 ];
 ---
 
