@@ -10,6 +10,14 @@ const design = defineCollection({
     altText: z.string().optional(),
     text: z.string(),
     images: z.array(z.string()).optional(),
+    ImageCarousel: z.array(
+      z.object({
+        title: z.string(),
+        text: z.string(),
+        image: z.string(),
+        altText: z.string().optional(),
+      })
+    ).optional(),
     link: z.string().optional(),
     copyright: z.string().optional(),
   }),

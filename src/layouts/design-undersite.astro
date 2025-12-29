@@ -9,22 +9,36 @@ import { slide } from 'astro:transitions';
 
 type Props = CollectionEntry<'design'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, text, images } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, text, images, ImageCarousel } = Astro.props;
 
-const slides = [
+// DEBUG: Schauen wir was ankommt
+console.log('=== DEBUG ===');
+console.log('ImageCarousel:', ImageCarousel);
+console.log('Alle Props:', Astro.props);
+console.log('=============');
+
+const slides = ImageCarousel?.map((item) => ({
+  title: item.title,
+  image: item.image,
+  text: item.text,
+  alt: item.altText || item.title, // Fallback auf title falls kein altText
+})) || [];
+
+/* const slides = [
   {
     title: title,         // Titel aus der MDOC-Datei
     image: '/assets/design/gute-fahrt/heroImage.jpg',     // Hero-Image aus MDOC
-    text: 'text123',           // optionaler Text
-    alt: '' // kannst auch aus Astro.props holen, falls vorhanden
+    text: 'text1',           // optionaler Text
+    alt: 'alt-Text 1' // kannst auch aus Astro.props holen, falls vorhanden
   },
-  // Weitere Slides, z.B. aus images-Array der MDOC-Datei
-  ...images.map((img, i) => ({
-    title: `Slide ${i + 2}`,
-    image: img,
-    alt: ''
-  }))
-];
+  {
+    title: 'Slide 2',         // Titel aus der MDOC-Datei
+    image: '/assets/design/gute-fahrt/heroImage.jpg',      // Hero-Image aus MDOC
+    text: 'Text2',           // optionaler Text
+    alt: 'alt-Text 2' // kannst auch aus Astro.props holen, falls vorhanden
+  },
+]; */
+
 ---
 
 <html lang="de">
@@ -49,7 +63,7 @@ const slides = [
             </div>
           )}
 
-          <Carousel slides={slides} client:load />
+          {slides.length > 0 && <Carousel slides={slides} client:load />}
 
           <slot />
         </div>

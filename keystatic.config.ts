@@ -1,7 +1,5 @@
 import { config, fields, collection } from '@keystatic/core';
 
-let counter = 0;
-
 export default config({
   storage: {
     kind: 'github',
@@ -38,23 +36,19 @@ export default config({
           { label: 'Bilder', itemLabel: props => props.value || 'Bild' }
         ),
 
-                 // ImageCarousel
+      // ImageCarousel
       ImageCarousel: fields.array(
         fields.object({
+          title: fields.text({ label: 'Titel', validation: { isRequired: true }}),
+          text: fields.text({ label: 'Text', validation: { isRequired: true }}),
           image: fields.image({
             label: 'Bild',
             directory: 'public/assets/design',
             publicPath: '/assets/design',
             validation: { isRequired: true },
           }),
+          altText: fields.text({ label: 'Alt Text' }),
         }),
-        {
-          label: 'Image Carousel',
-          itemLabel: props => {
-            counter++;
-            return props.value?.title?.trim() ? props.value.title : `Bild ${counter}`; //sodass Bild 1, Bild 2, ... angezeigt wird, wenn kein Titel gefunden wird
-          },
-        }
       ),
 
         link: fields.url({ label: 'Link' }),
