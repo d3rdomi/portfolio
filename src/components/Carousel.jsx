@@ -6,10 +6,10 @@ export default function EmblaCarousel({ slides = [] }) {
   const [emblaRef] = useEmblaCarousel();
 
   return (
-    <div className="embla h-56 overflow-hidden mx-auto mt-12 max-w-lg border" ref={emblaRef}>
-      <div className="embla__container flex h-full">
+    <div className="embla" ref={emblaRef}>
+      <div className="embla__container">
         {slides.map((slide, i) => (
-          <div className="embla__slide flex-shrink-0 w-full flex items-center justify-center" key={i}>
+          <div className="embla__slide" key={i}>
             {slide.title && 
             <h2>{slide.title}</h2>
             }
