@@ -1,5 +1,13 @@
 import { defineCollection, z } from 'astro:content';
 
+// About Collection
+const aboutMe = defineCollection({
+  type: 'content',
+  schema: z.object({
+    portrait: z.string(),
+  }),
+});
+
 // Design Collection
 const design = defineCollection({
   type: 'content',
@@ -53,4 +61,5 @@ export const collections = {
   design,
   'motion-design': motionDesign,
   photography,
+  'about-me': aboutMe,
 };

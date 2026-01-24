@@ -1,4 +1,4 @@
-import { config, fields, collection } from '@keystatic/core';
+import { config, fields, collection, singleton } from '@keystatic/core';
 
 export default config({
   storage: {
@@ -9,7 +9,27 @@ export default config({
       name: 'portfolio',
    }     
   },
-  
+
+  singletons: {
+    about: singleton({
+      label: 'About Me',
+      path: 'src/content/about-me/',
+      schema: {
+        portrait: fields.image({
+          label: 'Portrait Bild',
+          directory: 'public/assets/about',
+          publicPath: '/assets/about/',
+        }),
+        text: fields.document({
+          label: 'About Text',
+          formatting: true,
+          links: true,
+          dividers: true,
+        }),
+      },
+    }),
+  },
+
   collections: {
     // Design Collection (basierend auf deiner config.ts)
     design: collection({

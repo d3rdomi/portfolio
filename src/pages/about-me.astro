@@ -5,12 +5,16 @@ import '../styles/global-style.css';
 import MyFooter from '../components/MyFooter.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
+import { getEntry } from 'astro:content';
 import { Image } from 'astro:assets';
-import headerImage from "../assets/about-me/about-me.jpg"
 import LinkedIn from "../assets/about-me/linkedin.svg"
 import Instagram from "../assets/about-me/instagram.svg"
 import Mail from "../assets/about-me/mail.svg"
 
+// About-Daten aus Keystatic laden
+const aboutData = await getEntry('about-me', 'index');
+const { portrait } = aboutData.data;
+const { Content } = await aboutData.render();
 ---
 
 <head>
@@ -21,7 +25,7 @@ import Mail from "../assets/about-me/mail.svg"
 		<div class="parent1">
 		  <div class="main-grid">
 			<div class="image article-section">
-				<Image src={headerImage} alt="A picture of me, Dominik Lange"/>
+				<img src={portrait} alt="A picture of me, Dominik Lange"/>
 			</div>
 
 			<div class="name article-section">
@@ -40,7 +44,7 @@ import Mail from "../assets/about-me/mail.svg"
 			</div>
 
 			<div class="text article-section">
-				<p>Hallo, ich bin Dominik, Mediengestalter mit Erfahrung in Design, Motion Design, Fotografie, Website-Erstellung sowie UI und UX Design. Meine Arbeit zeichnet sich durch Kreativität, Präzision und  Verständnis für Ästhetik aus. Ich strebe nach zeitlosem Design, durchdachten Workflows sowie kontinuierlicher Weiterentwicklung. Auf meinem Weg suche ich stehts nach neuen Inspirationen und Herausforderungen um mein Wissen zu erweitern.</p>
+				<Content />
 			</div>
 
 			<div class="contact article-section">
