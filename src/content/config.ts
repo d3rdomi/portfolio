@@ -26,8 +26,10 @@ const design = defineCollection({
         altText: z.string().optional(),
       })
     ).optional(),
+    backgroundColor: z.string().optional(),;
     link: z.string().optional(),
     copyright: z.string().optional(),
+    
   }),
 });
 

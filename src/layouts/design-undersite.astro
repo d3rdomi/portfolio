@@ -9,7 +9,7 @@ import { slide } from 'astro:transitions';
 
 type Props = CollectionEntry<'design'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, text, images, ImageCarousel } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, text, images, ImageCarousel, backgroundColor } = Astro.props;
 
 const slides = ImageCarousel?.map((item) => ({
   title: item.title,
@@ -25,7 +25,7 @@ const slides = ImageCarousel?.map((item) => ({
     <BaseHead title={title} description={description} />
   </head>
 
-  <body>
+  <body style={`background-color: ${backgroundColor || '#000000'};`}>
     <main>
       <article>
         <div class="prose">

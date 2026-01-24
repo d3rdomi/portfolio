@@ -56,21 +56,32 @@ export default config({
           }),
           { label: 'Bilder', itemLabel: props => props.value || 'Bild' }
         ),
-
-      // ImageCarousel
-      ImageCarousel: fields.array(
-        fields.object({
-          title: fields.text({ label: 'Titel', validation: { isRequired: true }}),
-          text: fields.text({ label: 'Text', validation: { isRequired: true }}),
-          image: fields.image({
-            label: 'Bild',
-            directory: 'public/assets/design',
-            publicPath: '/assets/design',
-            validation: { isRequired: true },
-          }),
-          altText: fields.text({ label: 'Alt Text' }),
+        backgroundColor: fields.text({
+          label: 'Hintergrundfarbe',
+          defaultValue: '#000000',
+          description: 'Hex-Code für die Hintergrundfarbe mit # (z.B. #ff5733)',
+          validation: {
+            length: {
+              min: 4,
+              max: 7
+            }
+          }
         }),
-      ),
+
+        // ImageCarousel
+        ImageCarousel: fields.array(
+          fields.object({
+            title: fields.text({ label: 'Titel', validation: { isRequired: true }}),
+            text: fields.text({ label: 'Text', validation: { isRequired: true }}),
+            image: fields.image({
+              label: 'Bild',
+              directory: 'public/assets/design',
+              publicPath: '/assets/design',
+              validation: { isRequired: true },
+            }),
+            altText: fields.text({ label: 'Alt Text' }),
+          }),
+        ),
 
         link: fields.url({ label: 'Link' }),
         copyright: fields.text({ label: 'Copyright' }),
