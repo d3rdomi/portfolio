@@ -14,6 +14,7 @@ export default config({
     about: singleton({
       label: 'About Me',
       path: 'src/content/about-me/',
+      format: { contentField: 'text' },
       schema: {
         portrait: fields.image({
           label: 'Portrait Bild',
