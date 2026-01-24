@@ -11,6 +11,9 @@ type Props = CollectionEntry<'design'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage, text, images, ImageCarousel, backgroundColor } = Astro.props;
 
+console.log('backgroundColor:', backgroundColor);
+console.log('All props:', Astro.props);
+
 const slides = ImageCarousel?.map((item) => ({
   title: item.title,
   image: item.image,
@@ -25,7 +28,7 @@ const slides = ImageCarousel?.map((item) => ({
     <BaseHead title={title} description={description} />
   </head>
 
-  <body style={`background-color: ${backgroundColor || '#000000'};`}>
+  <body style={`background-color: ${backgroundColor || '#ff0000'};`}>
     <main>
       <article>
         <div class="prose">
