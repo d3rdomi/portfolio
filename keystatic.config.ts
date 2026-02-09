@@ -48,14 +48,6 @@ export default config({
         }),
         altText: fields.text({ label: 'Alt Text' }),
         text: fields.text({ label: 'Text' }),
-        images: fields.array(
-          fields.image({
-            label: 'Bild',
-            directory: 'public/assets/design',
-            publicPath: '/assets/design',
-          }),
-          { label: 'Bilder', itemLabel: props => props.value || 'Bild' }
-        ),
         backgroundColor: fields.text({
           label: 'Hintergrundfarbe',
           defaultValue: '#000000',
@@ -103,14 +95,6 @@ export default config({
         title: fields.slug({ name: { label: 'Title' } }),
         pubDate: fields.date({ label: 'Veröffentlichungsdatum' }),
         text: fields.text({ label: 'Text' }),
-        images: fields.array(
-          fields.image({
-            label: 'Bild',
-            directory: 'src/assets/motion-design',
-            publicPath: '~/assets/motion-design',
-          }),
-          { label: 'Bilder', itemLabel: props => props.value || 'Bild' }
-        ),
         description: fields.text({ label: 'Beschreibung' }),
         heroImage: fields.image({
           label: 'Hero Image',
@@ -133,14 +117,6 @@ export default config({
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
-        images: fields.array(
-          fields.image({
-            label: 'Foto',
-            directory: 'src/assets/photography',
-            publicPath: '~/assets/photography',
-          }),
-          { label: 'Fotos', itemLabel: props => props.value || 'Foto' }
-        ),
         pubDate: fields.date({ label: 'Veröffentlichungsdatum' }),
         altText: fields.text({ label: 'Alt Text' }),
         heroImage: fields.image({

@@ -17,7 +17,6 @@ const design = defineCollection({
     heroImage: z.string().optional(),
     altText: z.string().optional(),
     text: z.string(),
-    images: z.array(z.string()).optional(),
     ImageCarousel: z.array(
       z.object({
         title: z.string(),
@@ -29,7 +28,6 @@ const design = defineCollection({
     backgroundColor: z.string().optional(),
     link: z.string().optional(),
     copyright: z.string().optional(),
-    
   }),
 });
 
