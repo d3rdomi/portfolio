@@ -26,5 +26,8 @@
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "swiper": "^11.2.10"
+  },
+  "devDependencies": {
+    "baseline-browser-mapping": "^2.9.19"
   }
 }
