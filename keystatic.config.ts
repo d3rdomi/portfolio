@@ -32,7 +32,7 @@ export default config({
   },
 
   collections: {
-    // Design Collection (basierend auf deiner config.ts)
+    // Design Collection
     design: collection({
       label: 'Design',
       slugField: 'title',
@@ -85,22 +85,51 @@ export default config({
       },
     }),
 
-    // Motion Design Collection
-    motionDesign: collection({
-      label: 'Motion Design',
+    // Concepts Collection (HIER das zweite "collections:" entfernt!)
+    concepts: collection({
+      label: 'Konzepte',
       slugField: 'title',
-      path: 'src/content/motion-design/*',
+      path: 'src/content/concepts/*',
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
         pubDate: fields.date({ label: 'Veröffentlichungsdatum' }),
-        text: fields.text({ label: 'Text' }),
-        description: fields.text({ label: 'Beschreibung' }),
         heroImage: fields.image({
           label: 'Hero Image',
-          directory: 'src/assets/motion-design',
-          publicPath: '~/assets/motion-design',
+          directory: 'public/assets/concepts',
+          publicPath: '/assets/concepts',
         }),
+        altText: fields.text({ label: 'Alt Text' }),
+        text: fields.text({ label: 'Text' }),
+        backgroundColor: fields.text({
+          label: 'Hintergrundfarbe',
+          defaultValue: '#000000',
+          description: 'Hex-Code für die Hintergrundfarbe mit # (z.B. #ff5733)',
+          validation: {
+            length: {
+              min: 4,
+              max: 7
+            }
+          }
+        }),
+
+        // ImageCarousel
+        ImageCarousel: fields.array(
+          fields.object({
+            title: fields.text({ label: 'Titel', validation: { isRequired: true }}),
+            text: fields.text({ label: 'Text', validation: { isRequired: true }}),
+            image: fields.image({
+              label: 'Bild',
+              directory: 'public/assets/concepts',
+              publicPath: '/assets/concepts',
+              validation: { isRequired: true },
+            }),
+            altText: fields.text({ label: 'Alt Text' }),
+          }),
+        ),
+
+        link: fields.url({ label: 'Link' }),
+        copyright: fields.text({ label: 'Copyright' }),
         content: fields.document({
           label: 'Inhalt',
           formatting: true,

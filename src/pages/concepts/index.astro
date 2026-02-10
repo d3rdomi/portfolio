@@ -3,23 +3,26 @@ import BaseHead from '../../components/BaseHead.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import '../../styles/global-style.css';
-import '../../styles/motion-design-style.css';
+import '../../styles/design-style.css';
 import MyFooter from '../../components/MyFooter.astro';
-const posts = (await getCollection('motion-design')).sort(
+const posts = (await getCollection('concepts')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
+
+import { Image } from 'astro:assets';
+
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="de">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />	
+		
 	</head>
 	<body>
 
 		<div class="header">
-			<h1>motion design</h1>
+			<h1>Konzepte</h1>
 		</div>
 
 		<main>
@@ -28,9 +31,10 @@ const posts = (await getCollection('motion-design')).sort(
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/design/${post.slug}/`}>
-									<video autoplay muted loop width={250} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
+								<a href={`/concepts/${post.slug}/`}>
+									<Image width={720} src={post.data.heroImage} alt={post.data.altText}/>
+
+									<h4 class="title">{post.data.title}</h2>
 								</a>
 							</li>
 						))
