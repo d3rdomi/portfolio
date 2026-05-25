@@ -57,7 +57,11 @@ export default config({
           publicPath: '/assets/design',
         }),
         altText: fields.text({ label: 'Alt Text' }),
-        text: fields.text({ label: 'Text' }),
+        content: fields.document({
+          label: 'Inhalt',
+          formatting: true,
+          links: true,
+        }),
         backgroundColor: fields.text({
           label: 'Hintergrundfarbe',
           defaultValue: '#000000',
@@ -87,11 +91,6 @@ export default config({
 
         link: fields.url({ label: 'Link' }),
         copyright: fields.text({ label: 'Copyright' }),
-        content: fields.document({
-          label: 'Inhalt',
-          formatting: true,
-          links: true,
-        }),
       },
     }),
 
@@ -120,7 +119,11 @@ export default config({
           publicPath: '/assets/concepts',
         }),
         altText: fields.text({ label: 'Alt Text' }),
-        text: fields.text({ label: 'Text' }),
+        content: fields.document({
+          label: 'Inhalt',
+          formatting: true,
+          links: true,
+        }),
         backgroundColor: fields.text({
           label: 'Hintergrundfarbe',
           defaultValue: '#000000',
@@ -150,11 +153,6 @@ export default config({
 
         link: fields.url({ label: 'Link' }),
         copyright: fields.text({ label: 'Copyright' }),
-        content: fields.document({
-          label: 'Inhalt',
-          formatting: true,
-          links: true,
-        }),
       },
     }),
 

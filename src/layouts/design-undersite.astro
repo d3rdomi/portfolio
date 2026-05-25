@@ -8,9 +8,9 @@ import Carousel from '../components/Carousel.jsx';
 
 type Props = CollectionEntry<'design'>['data'];
 
-const { title, pubDate, heroImageDesktop, heroImageMobile, text, ImageCarousel, backgroundColor, altText } = Astro.props;
+const { title, pubDate, heroImageDesktop, heroImageMobile, ImageCarousel, backgroundColor, altText } = Astro.props;
 
-const slides = (ImageCarousel ?? []).map((item) => ({
+const slides: any[] = (ImageCarousel ?? []).map((item) => ({
   title: item.title,
   image: item.image,
   text: item.text,
@@ -39,12 +39,6 @@ const slides = (ImageCarousel ?? []).map((item) => ({
           <div class="title">
             <h1>{title}</h1>
           </div>
-
-          {text && (
-            <div class="text-content">
-              <p>{text}</p>
-            </div>
-          )}
 
           <slot />
 

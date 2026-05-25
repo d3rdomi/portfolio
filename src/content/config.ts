@@ -18,7 +18,6 @@ const design = defineCollection({
     heroImageDesktop: z.string().optional(),
     heroImageMobile: z.string().optional(),
     altText: z.string().optional(),
-    text: z.string(),
     ImageCarousel: z.array(
       z.object({
         title: z.string(),
@@ -43,7 +42,6 @@ const concepts = defineCollection({
     heroImageDesktop: z.string().optional(),
     heroImageMobile: z.string().optional(),
     altText: z.string().optional(),
-    text: z.string(),
     ImageCarousel: z.array(
       z.object({
         title: z.string(),
