@@ -3,15 +3,12 @@
 body {
 	background: var(--main4);
 	min-height: 100dvh;
-	display: flex;
-	flex-direction: column;
 }
 
 main {
 	width: 960px;
 	max-width: calc(100% - 2em);
 	margin: auto;
-	flex: 1;
 }
 
 .hero-wrapper {
