@@ -115,7 +115,16 @@ footer {
 
 
 
+@media only screen and (max-width: 767px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
 @media only screen and (max-width:480px) {
+  h1 {
+    font-size: 2.2rem;
+  }
   img {
     width: 720px;
     height: 350px;
