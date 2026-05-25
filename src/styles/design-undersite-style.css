@@ -24,7 +24,7 @@ body {
 
 @media (max-width: 767px) {
   .hero-header {
-    height: 100dvh;
+    height: 60dvh;
   }
 }
 
