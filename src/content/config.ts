@@ -14,7 +14,9 @@ const design = defineCollection({
   schema: z.object({
     title: z.string(),
     pubDate: z.coerce.date(),
-    heroImage: z.string().optional(),
+    thumbnail: z.string().optional(),
+    heroImageDesktop: z.string().optional(),
+    heroImageMobile: z.string().optional(),
     altText: z.string().optional(),
     text: z.string(),
     ImageCarousel: z.array(

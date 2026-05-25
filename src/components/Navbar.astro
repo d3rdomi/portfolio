@@ -1,35 +1,34 @@
-<head>
-    <script src="https://kit.fontawesome.com/d65b223c30.js" crossorigin="anonymous"></script>
-</head>
-
-<div class="nav">
+---
+const path = Astro.url.pathname;
+---
+<div class="nav" transition:persist="navbar">
   <ul class="parent">
-      <a href="index.html">
-        <li class="child home active">
+      <a href="/">
+        <li class={`child home ${path === '/' ? 'active' : ''}`}>
           <i class="fa-solid fa-house"></i>
           <span>Home</span>
         </li>
       </a>
-      <a href="about-me">
-        <li class="child about-me">
+      <a href="/about-me">
+        <li class={`child about-me ${path.startsWith('/about-me') ? 'active' : ''}`}>
           <i class="fa-solid fa-face-smile-beam"></i>
           <span>Über Mich</span>
         </li>
       </a>
-      <a href="photography">
-        <li class="child photography">
+      <a href="/photography">
+        <li class={`child photography ${path.startsWith('/photography') ? 'active' : ''}`}>
           <i class="fa-solid fa-camera"></i>
           <span>Fotografie</span>
         </li>
       </a>
-      <a href="design">
-        <li class="child design">
+      <a href="/design">
+        <li class={`child design ${path.startsWith('/design') ? 'active' : ''}`}>
           <i class="fa-solid fa-palette"></i>
           <span>Design</span>
         </li>
       </a>
-      <a href="concepts">
-        <li class="child concepts">
+      <a href="/concepts">
+        <li class={`child concepts ${path.startsWith('/concepts') ? 'active' : ''}`}>
           <i class="fa-solid fa-lightbulb"></i>
           <span>Konzepte</span>
         </li>
@@ -37,6 +36,27 @@
   </ul>
   <div class="show hidden"></div>
 </div>
+
+<script>
+  function updateActiveState() {
+    const path = window.location.pathname;
+    document.querySelectorAll('.child').forEach(el => el.classList.remove('active'));
+
+    if (path === '/') {
+      document.querySelector('.child.home')?.classList.add('active');
+    } else if (path.startsWith('/about-me')) {
+      document.querySelector('.child.about-me')?.classList.add('active');
+    } else if (path.startsWith('/photography')) {
+      document.querySelector('.child.photography')?.classList.add('active');
+    } else if (path.startsWith('/design')) {
+      document.querySelector('.child.design')?.classList.add('active');
+    } else if (path.startsWith('/concepts')) {
+      document.querySelector('.child.concepts')?.classList.add('active');
+    }
+  }
+
+  document.addEventListener('astro:page-load', updateActiveState);
+</script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap");
@@ -49,12 +69,9 @@
   justify-content: center;
   align-items: center;
   display: flex;
-  z-index: 100;
-  /* Sticky machen */
   position: sticky;
-  top: 0; /* Abstand von oben (0 = direkt oben) */
+  top: 0;
   z-index: 100;
-  background-color: transparent; /* Optional: Hintergrund wenn die Navbar über Content scrollt */
 }
 
 .parent {
@@ -62,7 +79,7 @@
   display: flex;
   flex-wrap: nowrap;
   gap: clamp(0.1rem, 0.5vw, 0.5rem);
-  background-color: #ffffff80;
+  background-color: #cccccc80;
   padding: clamp(0.3rem, 1vw, 0.5rem);
   border-radius: 5rem;
   position: relative;
@@ -72,6 +89,8 @@
   align-items: center;
   overflow-x: auto;
   scrollbar-width: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* Desktop: schmaler */

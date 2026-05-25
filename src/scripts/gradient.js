@@ -1,6 +1,16 @@
-	window.addEventListener('DOMContentLoaded', (e) => {
-		var gradient = new Gradient;
-		gradient.initGradient("#gradient-canvas");
+	let activeGradient = null;
+
+	document.addEventListener('astro:before-swap', () => {
+		if (activeGradient) {
+			activeGradient.pause();
+			activeGradient = null;
+		}
+	});
+
+	document.addEventListener('astro:page-load', () => {
+		if (!document.querySelector('#gradient-canvas')) return;
+		activeGradient = new Gradient();
+		activeGradient.initGradient('#gradient-canvas');
 	});
 
     function normalizeColor(hexCode) {

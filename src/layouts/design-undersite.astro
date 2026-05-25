@@ -5,38 +5,39 @@ import '../styles/global-style.css';
 import '../styles/design-undersite-style.css';
 import MyFooter from '../components/MyFooter.astro';
 import Carousel from '../components/Carousel.jsx';
-import { slide } from 'astro:transitions';
 
 type Props = CollectionEntry<'design'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, text, images, ImageCarousel, backgroundColor } = Astro.props;
-
-console.log('backgroundColor:', backgroundColor);
-console.log('All props:', Astro.props);
+const { title, pubDate, heroImageDesktop, heroImageMobile, text, ImageCarousel, backgroundColor, altText } = Astro.props;
 
 const slides = ImageCarousel?.map((item) => ({
   title: item.title,
   image: item.image,
   text: item.text,
-  alt: item.altText || item.title, // Fallback auf title falls kein altText
+  alt: item.altText || item.title,
 })) || [];
 
 ---
 
 <html lang="de">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={title} />
   </head>
 
   <body style={`background-color: ${backgroundColor || '#000000'};`}>
+    {(heroImageDesktop || heroImageMobile) && (
+      <div class="hero-header">
+        <picture>
+          {heroImageMobile && <source media="(max-width: 767px)" srcset={heroImageMobile} />}
+          <img src={heroImageDesktop || heroImageMobile} alt={altText || title} />
+        </picture>
+      </div>
+    )}
     <main>
       <article>
         <div class="prose">
           <div class="title">
             <h1>{title}</h1>
-            {description && <p class="description">{description}</p>}
-            {pubDate && <time datetime={pubDate.toString()}>Published: {new Date(pubDate).toLocaleDateString()}</time>}
-            {updatedDate && <time datetime={updatedDate.toString()}>Updated: {new Date(updatedDate).toLocaleDateString()}</time>}
           </div>
 
           {text && (

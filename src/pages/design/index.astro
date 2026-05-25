@@ -10,15 +10,13 @@ const posts = (await getCollection('design')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 
-import { Image } from 'astro:assets';
-
 ---
 
 <!doctype html>
 <html lang="de">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />	
-		
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
 	</head>
 	<body>
 		<Navbar class="navbar" />
@@ -33,7 +31,7 @@ import { Image } from 'astro:assets';
 						posts.map((post) => (
 							<li>
 								<a href={`/design/${post.slug}/`}>
-									<Image width={720} src={post.data.heroImage} alt={post.data.altText}/>
+									{post.data.thumbnail && <img src={post.data.thumbnail} alt={post.data.altText ?? ''} />}
 
 									<h4 class="title">{post.data.title}</h2>
 								</a>

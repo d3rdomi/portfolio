@@ -41,8 +41,18 @@ export default config({
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
         pubDate: fields.date({ label: 'Veröffentlichungsdatum' }),
-        heroImage: fields.image({
-          label: 'Hero Image',
+        thumbnail: fields.image({
+          label: 'Thumbnail (Index-Seite)',
+          directory: 'public/assets/design',
+          publicPath: '/assets/design',
+        }),
+        heroImageDesktop: fields.image({
+          label: 'Hero Bild Desktop',
+          directory: 'public/assets/design',
+          publicPath: '/assets/design',
+        }),
+        heroImageMobile: fields.image({
+          label: 'Hero Bild Mobile',
           directory: 'public/assets/design',
           publicPath: '/assets/design',
         }),
