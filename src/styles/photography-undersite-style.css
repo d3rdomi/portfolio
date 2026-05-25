@@ -11,22 +11,23 @@ main {
 	margin: auto;
 }
 
-.hero-wrapper {
-	position: relative;
-}
-
-.hero-wrapper .nav {
-	position: absolute !important;
-	top: 0;
-	left: 0;
-	right: 0;
+.hero-header {
+	width: 100%;
+	height: 60vh;
+	overflow: hidden;
 }
 
 .hero-header img {
 	width: 100%;
-	height: 60vh;
+	height: 100%;
 	object-fit: cover;
 	display: block;
+}
+
+@media (max-width: 767px) {
+	.hero-header {
+		height: 40vh;
+	}
 }
 
 h1 {
@@ -66,9 +67,7 @@ footer {
 	.photo-grid {
 		column-count: 2;
 	}
-}
 
-@media only screen and (max-width: 767px) {
 	h1 {
 		font-size: 2rem;
 	}

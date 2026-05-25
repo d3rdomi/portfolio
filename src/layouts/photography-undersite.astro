@@ -18,13 +18,12 @@ const { title, heroImage, altText, text, images } = Astro.props;
 
 	<body>
 		<Navbar />
-		<div class="hero-wrapper">
-			{heroImage && (
-				<div class="hero-header">
-					<img src={heroImage} alt={altText || title} />
-				</div>
-			)}
-		</div>
+
+		{heroImage && (
+			<div class="hero-header">
+				<img src={heroImage} alt={altText || title} />
+			</div>
+		)}
 
 		<main>
 			<article>
