@@ -10,8 +10,6 @@ const posts = (await getCollection('concepts')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 
-import { Image } from 'astro:assets';
-
 ---
 
 <!doctype html>
@@ -33,9 +31,9 @@ import { Image } from 'astro:assets';
 						posts.map((post) => (
 							<li>
 								<a href={`/concepts/${post.slug}/`}>
-									<Image width={720} src={post.data.heroImage} alt={post.data.altText}/>
+									<img src={post.data.thumbnail} alt={post.data.altText} />
 
-									<h4 class="title">{post.data.title}</h2>
+									<h4 class="title">{post.data.title}</h4>
 								</a>
 							</li>
 						))

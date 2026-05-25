@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/design-undersite.astro';
 
 const { slug } = Astro.params;
@@ -7,9 +7,9 @@ const { slug } = Astro.params;
 const posts = await getCollection('concepts');
 const post = posts.find(p => p.slug === slug);
 
-if (!post) throw new Error('404 vibes');
+if (!post) throw new Error('404');
 
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 
