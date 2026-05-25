@@ -5,6 +5,7 @@ import '../styles/global-style.css';
 import '../styles/design-undersite-style.css';
 import MyFooter from '../components/MyFooter.astro';
 import Carousel from '../components/Carousel.jsx';
+import Navbar from '../components/Navbar.astro';
 
 type Props = CollectionEntry<'design'>['data'];
 
@@ -25,6 +26,7 @@ const slides: any[] = (ImageCarousel ?? []).map((item) => ({
   </head>
 
   <body style={`background-color: ${backgroundColor || '#000000'};`}>
+    <Navbar />
     {(heroImageDesktop || heroImageMobile) && (
       <div class="hero-header">
         <picture>

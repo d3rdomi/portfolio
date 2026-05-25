@@ -6,6 +6,8 @@ body {
   	height: auto;
     display: block;
     transition: 1s;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .parent1 {
@@ -22,9 +24,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  position: absolute;
-  left: 0px;
-  top: 0px;
+  position: relative;
   transition: transform 400ms ease;
   place-content: center;
   grid-gap: 30px;
@@ -151,7 +151,7 @@ p {
     box-sizing: border-box;
     height: auto;
     display: block;
-    position: absolute;
+    position: relative;
     transition: transform 400ms ease;
     transition: 1s;
     z-index: 0;

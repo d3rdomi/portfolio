@@ -10,6 +10,7 @@ body {
 .hero-header {
   width: 100%;
   height: 70vh;
+  margin-top: -150px;
   overflow: hidden;
 }
 
@@ -25,6 +26,7 @@ body {
 @media (max-width: 767px) {
   .hero-header {
     height: 60dvh;
+    margin-top: -120px;
   }
 }
 
@@ -124,8 +126,8 @@ footer a {
 }
 
 a {
-  color: darkblue;
-  text-decoration-line: underline;
+  color: inherit;
+  text-decoration: none;
 }
 
 @media only screen and (max-width:480px) {
