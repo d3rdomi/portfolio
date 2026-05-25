@@ -16,5 +16,8 @@
 </style>
 
 <script>
-	document.querySelector("#copyright").textContent = new Date().getFullYear().toString();
+	document.addEventListener('astro:page-load', () => {
+		const el = document.querySelector('#copyright');
+		if (el) el.textContent = new Date().getFullYear().toString();
+	});
 </script>

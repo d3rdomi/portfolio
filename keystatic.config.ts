@@ -159,11 +159,19 @@ export default config({
         pubDate: fields.date({ label: 'Veröffentlichungsdatum' }),
         altText: fields.text({ label: 'Alt Text' }),
         heroImage: fields.image({
-          label: 'Hero Image',
-          directory: 'src/assets/photography',
-          publicPath: '~/assets/photography',
+          label: 'Hero Image (Übersicht)',
+          directory: 'public/assets/photography',
+          publicPath: '/assets/photography',
         }),
-        text: fields.text({ label: 'Text' }),
+        text: fields.text({ label: 'Beschreibung', multiline: true }),
+        images: fields.array(
+          fields.image({
+            label: 'Bild',
+            directory: 'public/assets/photography',
+            publicPath: '/assets/photography',
+          }),
+          { label: 'Bilder', itemLabel: () => 'Bild' }
+        ),
         content: fields.document({
           label: 'Inhalt',
           formatting: true,

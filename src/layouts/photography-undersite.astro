@@ -4,32 +4,54 @@ import BaseHead from '../components/BaseHead.astro';
 import '../styles/global-style.css';
 import '../styles/photography-undersite-style.css';
 import MyFooter from '../components/MyFooter.astro';
+import Navbar from '../components/Navbar.astro';
 
 type Props = CollectionEntry<'photography'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, heroImage, altText, text, images } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="de">
 	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-
-		</style>
+		<BaseHead title={title} description={title} />
 	</head>
 
 	<body>
+		<div class="hero-wrapper">
+			{heroImage && (
+				<div class="hero-header">
+					<img src={heroImage} alt={altText || title} />
+				</div>
+			)}
+			<Navbar />
+		</div>
+
 		<main>
 			<article>
 				<div class="prose">
 					<div class="title">
 						<h1>{title}</h1>
 					</div>
+
+					{text && (
+						<div class="text-content">
+							<p>{text}</p>
+						</div>
+					)}
+
+					{images && images.length > 0 && (
+						<div class="photo-grid">
+							{images.map((src) => (
+								<img src={src} alt={altText || title} loading="lazy" />
+							))}
+						</div>
+					)}
+
 					<slot />
 				</div>
 			</article>
 		</main>
-		<MyFooter />
 
+		<MyFooter />
 	</body>
 </html>
