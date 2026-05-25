@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 import '../../styles/global-style.css';
 import '../../styles/design-style.css';
 import MyFooter from '../../components/MyFooter.astro';
+import Navbar from '../../components/Navbar.astro';
 const posts = (await getCollection('design')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
@@ -20,7 +21,7 @@ import { Image } from 'astro:assets';
 		
 	</head>
 	<body>
-
+		<Navbar class="navbar" />
 		<div class="header">
 			<h1>design work</h1>
 		</div>

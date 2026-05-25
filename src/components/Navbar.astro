@@ -1,0 +1,143 @@
+<head>
+    <script src="https://kit.fontawesome.com/d65b223c30.js" crossorigin="anonymous"></script>
+</head>
+
+<div class="nav">
+  <ul class="parent">
+      <a href="index.html">
+        <li class="child home active">
+          <i class="fa-solid fa-house"></i>
+          <span>Home</span>
+        </li>
+      </a>
+      <a href="about-me">
+        <li class="child about-me">
+          <i class="fa-solid fa-face-smile-beam"></i>
+          <span>Über Mich</span>
+        </li>
+      </a>
+      <a href="photography">
+        <li class="child photography">
+          <i class="fa-solid fa-camera"></i>
+          <span>Fotografie</span>
+        </li>
+      </a>
+      <a href="design">
+        <li class="child design">
+          <i class="fa-solid fa-palette"></i>
+          <span>Design</span>
+        </li>
+      </a>
+      <a href="concepts">
+        <li class="child concepts">
+          <i class="fa-solid fa-lightbulb"></i>
+          <span>Konzepte</span>
+        </li>
+      </a>
+  </ul>
+  <div class="show hidden"></div>
+</div>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap");
+
+.nav {
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding-top: 20px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  z-index: 100;
+  /* Sticky machen */
+  position: sticky;
+  top: 0; /* Abstand von oben (0 = direkt oben) */
+  z-index: 100;
+  background-color: transparent; /* Optional: Hintergrund wenn die Navbar über Content scrollt */
+}
+
+.parent {
+  list-style: none;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: clamp(0.1rem, 0.5vw, 0.5rem);
+  background-color: #ffffff80;
+  padding: clamp(0.3rem, 1vw, 0.5rem);
+  border-radius: 5rem;
+  position: relative;
+  width: 90%; /* Mobile first - 90% */
+  max-width: 95vw;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+/* Desktop: schmaler */
+@media (min-width: 768px) {
+  .parent {
+    width: 70%; /* Auf Desktop nur 70% */
+  }
+}
+
+.parent::-webkit-scrollbar {
+  display: none;
+}
+
+.active {
+  background-color: #ffffff;
+  border-radius: 5rem;
+  padding: clamp(6px, 2vw, 10px);
+}
+
+.child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.15rem, 0.5vw, 0.3rem);
+  padding: clamp(5px, 1.5vw, 8px) clamp(6px, 2vw, 10px);
+  border-radius: 5rem;
+  min-width: max-content;
+  transition: all 0.3s ease;
+  text-align: center;
+  white-space: nowrap;
+  flex-shrink: 1;
+  margin: 0px;
+}
+
+.child i {
+  font-size: clamp(0.85rem, 2vw, 1.3rem);
+}
+
+.child span {
+  font-size: clamp(0.65rem, 1.5vw, 1rem);
+}
+
+.child:hover {
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.show {
+  background-color: #e8e5e480;
+  height: 10rem;
+  width: min(30rem, 90vw);
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hidden {
+  display: none;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+</style>

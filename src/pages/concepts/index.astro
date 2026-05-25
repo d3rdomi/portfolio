@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 import '../../styles/global-style.css';
 import '../../styles/design-style.css';
 import MyFooter from '../../components/MyFooter.astro';
+import Navbar from '../../components/Navbar.astro';
 const posts = (await getCollection('concepts')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
@@ -16,10 +17,10 @@ import { Image } from 'astro:assets';
 <!doctype html>
 <html lang="de">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />	
-		
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<body>
+		<Navbar class="navbar" />
 
 		<div class="header">
 			<h1>Konzepte</h1>

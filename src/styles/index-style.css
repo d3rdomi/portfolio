@@ -64,7 +64,7 @@ selector {
 
 .article-section {
   background-color: rgba(256, 256, 256, 0.3);
-  transition: 1s;
+  transition: 0.25s;
   border-radius: 30px;
   backdrop-filter: blur(20px);
   height: 100%;
@@ -229,19 +229,19 @@ selector {
 /* ANIMATION */
 
 .about-me .photography .design .animation{
-  transition: 1s;
+  transition: 0.25s;
 }
 
 .about-me:hover {
-  transform: scale(0.9) rotate(-5grad);
+  transform: scale(0.97) rotate(-2grad);
 }
 
 .photography:hover {
-  transform: scale(0.9) rotate(5grad);  
+  transform: scale(0.97) rotate(2grad);  
 }
 .design:hover {
-  transform: scale(0.9) rotate(5grad);  
+  transform: scale(0.97) rotate(2grad);  
 }
 .animation:hover {
-  transform: scale(0.9) rotate(-5grad); 
+  transform: scale(0.97) rotate(-2grad); 
 }

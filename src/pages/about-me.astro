@@ -10,6 +10,7 @@ import { Image } from 'astro:assets';
 import LinkedIn from "../assets/about-me/linkedin.svg"
 import Instagram from "../assets/about-me/instagram.svg"
 import Mail from "../assets/about-me/mail.svg"
+import Navbar from '../components/Navbar.astro';
 
 // About-Daten aus Keystatic laden
 const aboutData = await getEntry('about-me', 'index');
@@ -22,6 +23,7 @@ const { Content } = await aboutData.render();
 </head>
 
 	<body>
+		<Navbar class="navbar" />
 		<div class="parent1">
 		  <div class="main-grid">
 			<div class="image article-section">
