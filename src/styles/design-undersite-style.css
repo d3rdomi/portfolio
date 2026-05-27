@@ -137,6 +137,71 @@ a {
   margin-bottom: 1.5rem;
 }
 
+/* Blocks */
+.blocks-section {
+  margin-top: 2rem;
+}
+
+.blocks-section > * + * {
+  border-top: 4px solid rgba(255, 255, 255, 0.3);
+  padding-top: 2rem;
+}
+
+.text-block {
+  margin-bottom: 2rem;
+}
+
+.image-block {
+  margin-bottom: 2rem;
+}
+
+.image-block img {
+  margin: 0;
+  width: 100%;
+  height: auto;
+}
+
+.image-block .caption {
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.6;
+  margin-top: 0.5rem;
+}
+
+.image-text-block {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.image-text-block.reverse {
+  flex-direction: row-reverse;
+}
+
+.image-text-block img {
+  flex: 0 0 55%;
+  max-width: 55%;
+  margin: 0;
+  height: auto;
+}
+
+.image-text-block .block-text {
+  flex: 1;
+}
+
+@media (max-width: 767px) {
+  .image-text-block,
+  .image-text-block.reverse {
+    flex-direction: column;
+  }
+
+  .image-text-block img {
+    max-width: 100%;
+    flex: none;
+  }
+}
+
 @media only screen and (max-width:480px) {
   img {
     width: 720px;

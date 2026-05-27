@@ -14,14 +14,17 @@ function createBlocksField(directory: string, publicPath: string) {
       }),
       {
         text: fields.object({
+          headline: fields.text({ label: 'Überschrift', validation: { isRequired: false } }),
           content: fields.text({ label: 'Inhalt', multiline: true }),
         }),
         image: fields.object({
+          headline: fields.text({ label: 'Überschrift', validation: { isRequired: false } }),
           src: fields.image({ label: 'Bild', directory, publicPath }),
           alt: fields.text({ label: 'Alt Text', validation: { isRequired: false } }),
           caption: fields.text({ label: 'Bildunterschrift', validation: { isRequired: false } }),
         }),
         imageText: fields.object({
+          headline: fields.text({ label: 'Überschrift', validation: { isRequired: false } }),
           image: fields.image({ label: 'Bild', directory, publicPath }),
           alt: fields.text({ label: 'Alt Text', validation: { isRequired: false } }),
           text: fields.text({ label: 'Text', multiline: true }),

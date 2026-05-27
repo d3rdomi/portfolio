@@ -3,11 +3,15 @@ import { defineCollection, z } from 'astro:content';
 const blockSchema = z.discriminatedUnion('discriminant', [
   z.object({
     discriminant: z.literal('text'),
-    value: z.object({ content: z.string() }),
+    value: z.object({
+      headline: z.string().optional(),
+      content: z.string(),
+    }),
   }),
   z.object({
     discriminant: z.literal('image'),
     value: z.object({
+      headline: z.string().optional(),
       src: z.string(),
       alt: z.string().optional(),
       caption: z.string().optional(),
@@ -16,6 +20,7 @@ const blockSchema = z.discriminatedUnion('discriminant', [
   z.object({
     discriminant: z.literal('imageText'),
     value: z.object({
+      headline: z.string().optional(),
       image: z.string(),
       alt: z.string().optional(),
       text: z.string(),

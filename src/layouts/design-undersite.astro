@@ -47,6 +47,35 @@ const slides = (ImageCarousel ?? []).map((item) => ({
           {copyright && <p class="copyright">© {copyright}</p>}
 
           {slides.length > 0 && <Carousel slides={slides} client:load />}
+
+          {blocks && blocks.length > 0 && (
+            <div class="blocks-section">
+              {blocks.map((block) => {
+                if (block.discriminant === 'text') return (
+                  <div class="text-block">
+                    {block.value.headline && <h2>{block.value.headline}</h2>}
+                    <p>{block.value.content}</p>
+                  </div>
+                );
+                if (block.discriminant === 'image') return (
+                  <div class="image-block">
+                    {block.value.headline && <h2>{block.value.headline}</h2>}
+                    <img src={block.value.src} alt={block.value.alt ?? ''} />
+                    {block.value.caption && <p class="caption">{block.value.caption}</p>}
+                  </div>
+                );
+                if (block.discriminant === 'imageText') return (
+                  <div class:list={['image-text-block', { reverse: block.value.imagePosition === 'right' }]}>
+                    <img src={block.value.image} alt={block.value.alt ?? ''} />
+                    <div class="block-text">
+                      {block.value.headline && <h2>{block.value.headline}</h2>}
+                      <p>{block.value.text}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </article>
     </main>
