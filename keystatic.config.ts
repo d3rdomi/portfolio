@@ -117,8 +117,8 @@ export default config({
         // ImageCarousel
         ImageCarousel: fields.array(
           fields.object({
-            title: fields.text({ label: 'Titel', validation: { isRequired: true }}),
-            text: fields.text({ label: 'Text', validation: { isRequired: true }}),
+            title: fields.text({ label: 'Titel' }),
+            text: fields.text({ label: 'Text' }),
             image: fields.image({
               label: 'Bild',
               directory: 'public/assets/design',
@@ -180,8 +180,8 @@ export default config({
         // ImageCarousel
         ImageCarousel: fields.array(
           fields.object({
-            title: fields.text({ label: 'Titel', validation: { isRequired: true }}),
-            text: fields.text({ label: 'Text', validation: { isRequired: true }}),
+            title: fields.text({ label: 'Titel' }),
+            text: fields.text({ label: 'Text' }),
             image: fields.image({
               label: 'Bild',
               directory: 'public/assets/concepts',
