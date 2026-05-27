@@ -1,5 +1,45 @@
 import { config, fields, collection, singleton } from '@keystatic/core';
 
+function createBlocksField(directory: string, publicPath: string) {
+  return fields.array(
+    fields.conditional(
+      fields.select({
+        label: 'Block-Typ',
+        options: [
+          { label: 'Text', value: 'text' },
+          { label: 'Bild', value: 'image' },
+          { label: 'Bild + Text', value: 'imageText' },
+        ],
+        defaultValue: 'text',
+      }),
+      {
+        text: fields.object({
+          content: fields.text({ label: 'Inhalt', multiline: true }),
+        }),
+        image: fields.object({
+          src: fields.image({ label: 'Bild', directory, publicPath }),
+          alt: fields.text({ label: 'Alt Text', validation: { isRequired: false } }),
+          caption: fields.text({ label: 'Bildunterschrift', validation: { isRequired: false } }),
+        }),
+        imageText: fields.object({
+          image: fields.image({ label: 'Bild', directory, publicPath }),
+          alt: fields.text({ label: 'Alt Text', validation: { isRequired: false } }),
+          text: fields.text({ label: 'Text', multiline: true }),
+          imagePosition: fields.select({
+            label: 'Bild-Position',
+            options: [
+              { label: 'Links', value: 'left' },
+              { label: 'Rechts', value: 'right' },
+            ],
+            defaultValue: 'left',
+          }),
+        }),
+      }
+    ),
+    { label: 'Inhalts-Blöcke', itemLabel: () => 'Block' }
+  );
+}
+
 export default config({
   storage: {
     kind: 'github',
@@ -89,6 +129,7 @@ export default config({
           }),
         ),
 
+        blocks: createBlocksField('public/assets/design', '/assets/design'),
         link: fields.url({ label: 'Link' }),
         copyright: fields.text({ label: 'Copyright' }),
       },
@@ -151,6 +192,7 @@ export default config({
           }),
         ),
 
+        blocks: createBlocksField('public/assets/concepts', '/assets/concepts'),
         link: fields.url({ label: 'Link' }),
         copyright: fields.text({ label: 'Copyright' }),
       },

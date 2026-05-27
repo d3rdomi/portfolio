@@ -9,9 +9,9 @@ import Navbar from '../components/Navbar.astro';
 
 type Props = CollectionEntry<'design'>['data'];
 
-const { title, pubDate, heroImageDesktop, heroImageMobile, ImageCarousel, backgroundColor, altText } = Astro.props;
+const { title, pubDate, heroImageDesktop, heroImageMobile, ImageCarousel, backgroundColor, altText, blocks, copyright } = Astro.props;
 
-const slides: any[] = (ImageCarousel ?? []).map((item) => ({
+const slides = (ImageCarousel ?? []).map((item) => ({
   title: item.title,
   image: item.image,
   text: item.text,
@@ -43,6 +43,8 @@ const slides: any[] = (ImageCarousel ?? []).map((item) => ({
           </div>
 
           <slot />
+
+          {copyright && <p class="copyright">© {copyright}</p>}
 
           {slides.length > 0 && <Carousel slides={slides} client:load />}
         </div>
