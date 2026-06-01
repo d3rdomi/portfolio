@@ -50,7 +50,8 @@ export default config({
     repo: {
       owner: 'd3rdomi',
       name: 'portfolio',
-   }     
+    },
+    branchPrefix: 'keystatic/',
   },
 
   singletons: {
