@@ -7,7 +7,7 @@ import '../../styles/design-style.css';
 import MyFooter from '../../components/MyFooter.astro';
 import Navbar from '../../components/Navbar.astro';
 const posts = (await getCollection('design')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
 ---
