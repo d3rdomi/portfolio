@@ -214,13 +214,14 @@ a {
 
 .cta-button {
   display: inline-block;
+  width: fit-content;
   margin: 1.5rem 0 1rem;
   padding: 0.75rem 2rem;
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  color: #ffffff;
-  font-family: 'Unbounded', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
   text-decoration: none;
   border-radius: 100px;
   transition: opacity 0.2s;
