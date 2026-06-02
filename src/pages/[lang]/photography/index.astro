@@ -21,8 +21,8 @@ const posts = (await getCollection('photography')).sort(
 		<BaseHead title={t('site.title')} description={t('site.description')} lang={lang} />
 	</head>
 	<body>
-		<LangSwitch />
-		{/* <Navbar class="navbar" /> */}
+		{/* <LangSwitch /> */}
+		<Navbar class="navbar" />
 		<div class="header">
 			<h1>{t('heading.photography')}</h1>
 		</div>
