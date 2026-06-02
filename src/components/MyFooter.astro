@@ -1,5 +1,11 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
 <footer>
-	<a class="impressum" href="https://www.domi-lange.de/impressum">Impressum & Datenschutz &copy; Dominik Lange <span id="copyright"></span> </a>
+	<a class="impressum" href="/impressum">{t('footer.text')} &copy; Dominik Lange <span id="copyright"></span> </a>
 </footer>
 
 

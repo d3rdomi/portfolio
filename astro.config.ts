@@ -8,7 +8,7 @@ import netlify from '@astrojs/netlify';
 import markdoc from '@astrojs/markdoc';
 
 export default defineConfig({
-  site: 'https://portfolio-dominik.netlify.app',
+  site: 'https://www.domi-lange.de',
   output: 'server', // Geändert!
   adapter: netlify(),
   integrations: [

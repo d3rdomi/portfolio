@@ -1,0 +1,72 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import '../../styles/global-style.css';
+import '../../styles/index-style.css';
+import MyFooter from '../../components/MyFooter.astro';
+import LangSwitch from '../../components/LangSwitch.astro';
+import { getLangFromUrl, useTranslations, localizePath } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<!doctype html>
+<html lang={lang}>
+<head>
+	<script>
+		import "../../scripts/gradient.js";
+	</script>
+	<BaseHead title={t('site.title')} description={t('site.description')} lang={lang} />
+	<link rel="icon" type="image/x-icon" href="/favicon.svg">
+	<link rel="icon" type="image/png" href="/favicon.png">
+</head>
+
+	<body>
+
+		<canvas id="gradient-canvas" data-transition-in></canvas>
+
+		<LangSwitch />
+
+		<div class="main-grid">
+			<div class="header">
+			  <h1>Dominik Lange</h1>
+			</div>
+
+		 <a href={localizePath(lang, '/about-me')}>
+			<div class="about-me article-section">
+				<div class="text-about-me text">
+				  <h2>{t('home.about')}</h2>
+				</div>
+			</div>
+		  </a>
+
+		  <a href={localizePath(lang, '/photography')}>
+			<div class="photography article-section">
+				<div class="text-photography text">
+				  <h2>{t('home.photography')}</h2>
+				</div>
+			</div>
+		  </a>
+
+		  <a href={localizePath(lang, '/design')}>
+			<div class="design article-section">
+				<div class="text-design text">
+				  <h2>{t('home.design')}</h2>
+				</div>
+			</div>
+		  </a>
+
+		  <a href={localizePath(lang, '/concepts')}>
+			<div class="animation article-section">
+				<div class="text-animation text">
+				  <h2>{t('home.concepts')}</h2>
+				</div>
+			</div>
+		  </a>
+
+		  <MyFooter class="footer"/>
+
+		</div>
+	</body>
+</html>
+

@@ -6,8 +6,10 @@ import MyFooter from '../components/MyFooter.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
+<!doctype html>
+<html lang="de">
 <head>
-	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} lang="de" />
 </head>
 
 <body>
@@ -112,3 +114,4 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         <MyFooter />    
     </main>
 </body>
+</html>

@@ -1,0 +1,50 @@
+---
+import BaseHead from '../../../components/BaseHead.astro';
+import { getCollection } from 'astro:content';
+import '../../../styles/global-style.css';
+import '../../../styles/design-style.css';
+import MyFooter from '../../../components/MyFooter.astro';
+import Navbar from '../../../components/Navbar.astro';
+import { getLangFromUrl, useTranslations, localizePath, pick } from '../../../i18n/utils';
+import LangSwitch from '../../../components/LangSwitch.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const posts = (await getCollection('concepts')).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<BaseHead title={t('site.title')} description={t('site.description')} lang={lang} />
+	</head>
+	<body>
+		<LangSwitch />
+		{/* <Navbar class="navbar" /> */}
+
+		<div class="header">
+			<h1>{t('heading.concepts')}</h1>
+		</div>
+
+		<main>
+			<section>
+				<ul>
+					{
+						posts.map((post) => (
+							<li>
+								<a href={localizePath(lang, `/concepts/${post.slug}/`)}>
+									<img src={post.data.thumbnail} alt={pick(post.data.altText, lang)} />
+
+									<h4 class="title">{post.data.title}</h4>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<MyFooter />
+	</body>
+</html>

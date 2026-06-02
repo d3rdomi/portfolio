@@ -6,32 +6,43 @@ import '../styles/design-undersite-style.css';
 import MyFooter from '../components/MyFooter.astro';
 import Carousel from '../components/Carousel.jsx';
 import Navbar from '../components/Navbar.astro';
+import { getLangFromUrl, pick } from '../i18n/utils';
+import LangSwitch from '../components/LangSwitch.astro';
 
 type Props = CollectionEntry<'design'>['data'];
 
-const { title, pubDate, heroImageDesktop, heroImageMobile, ImageCarousel, backgroundColor, altText, blocks, copyright } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const { title, heroImageDesktop, heroImageMobile, ImageCarousel, backgroundColor, altText, blocks, copyright, contentEn } = Astro.props;
 
 const slides = (ImageCarousel ?? []).map((item) => ({
-  title: item.title,
+  title: pick(item.title, lang),
   image: item.image,
-  text: item.text,
-  alt: item.altText || item.title,
+  text: pick(item.text, lang),
+  alt: pick(item.altText, lang) || pick(item.title, lang),
 }));
 
+// Englischer Body kommt aus contentEn (Frontmatter); ist er leer, wird der deutsche
+// Markdoc-Body (<slot />) als Fallback gezeigt.
+const showGermanBody = lang === 'de' || !contentEn || contentEn.trim() === '';
+const enParagraphs = (contentEn ?? '')
+  .split(/\n\s*\n/)
+  .map((s) => s.trim())
+  .filter(Boolean);
 ---
 
-<html lang="de">
+<html lang={lang}>
   <head>
-    <BaseHead title={title} description={title} />
+    <BaseHead title={title} description={title} lang={lang} />
   </head>
 
   <body style={`background-color: ${backgroundColor || '#000000'};`}>
-    <Navbar />
+    <LangSwitch />
+    {/* <Navbar /> */}
     {(heroImageDesktop || heroImageMobile) && (
       <div class="hero-header">
         <picture>
           {heroImageMobile && <source media="(max-width: 767px)" srcset={heroImageMobile} />}
-          <img src={heroImageDesktop || heroImageMobile} alt={altText || title} />
+          <img src={heroImageDesktop || heroImageMobile} alt={pick(altText, lang) || title} />
         </picture>
       </div>
     )}
@@ -42,7 +53,7 @@ const slides = (ImageCarousel ?? []).map((item) => ({
             <h1>{title}</h1>
           </div>
 
-          <slot />
+          {showGermanBody ? <slot /> : enParagraphs.map((p) => <p>{p}</p>)}
 
           {copyright && <p class="copyright">© {copyright}</p>}
 
@@ -53,23 +64,23 @@ const slides = (ImageCarousel ?? []).map((item) => ({
               {blocks.map((block) => {
                 if (block.discriminant === 'text') return (
                   <div class="text-block">
-                    {block.value.headline && <h2>{block.value.headline}</h2>}
-                    <p>{block.value.content}</p>
+                    {pick(block.value.headline, lang) && <h2>{pick(block.value.headline, lang)}</h2>}
+                    <p>{pick(block.value.content, lang)}</p>
                   </div>
                 );
                 if (block.discriminant === 'image') return (
                   <div class="image-block">
-                    {block.value.headline && <h2>{block.value.headline}</h2>}
-                    <img src={block.value.src} alt={block.value.alt ?? ''} />
-                    {block.value.caption && <p class="caption">{block.value.caption}</p>}
+                    {pick(block.value.headline, lang) && <h2>{pick(block.value.headline, lang)}</h2>}
+                    <img src={block.value.src} alt={pick(block.value.alt, lang)} />
+                    {pick(block.value.caption, lang) && <p class="caption">{pick(block.value.caption, lang)}</p>}
                   </div>
                 );
                 if (block.discriminant === 'imageText') return (
                   <div class:list={['image-text-block', { reverse: block.value.imagePosition === 'right' }]}>
-                    <img src={block.value.image} alt={block.value.alt ?? ''} />
+                    <img src={block.value.image} alt={pick(block.value.alt, lang)} />
                     <div class="block-text">
-                      {block.value.headline && <h2>{block.value.headline}</h2>}
-                      <p>{block.value.text}</p>
+                      {pick(block.value.headline, lang) && <h2>{pick(block.value.headline, lang)}</h2>}
+                      <p>{pick(block.value.text, lang)}</p>
                     </div>
                   </div>
                 );

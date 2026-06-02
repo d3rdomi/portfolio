@@ -1,29 +1,37 @@
 import { defineCollection, z } from 'astro:content';
 
+// Zweisprachiges Textfeld { de, en } – beide optional, Fallback passiert beim Rendern (pick()).
+const tText = z
+  .object({
+    de: z.string().optional().default(''),
+    en: z.string().optional().default(''),
+  })
+  .optional();
+
 const blockSchema = z.discriminatedUnion('discriminant', [
   z.object({
     discriminant: z.literal('text'),
     value: z.object({
-      headline: z.string().optional(),
-      content: z.string(),
+      headline: tText,
+      content: tText,
     }),
   }),
   z.object({
     discriminant: z.literal('image'),
     value: z.object({
-      headline: z.string().optional(),
+      headline: tText,
       src: z.string(),
-      alt: z.string().optional(),
-      caption: z.string().optional(),
+      alt: tText,
+      caption: tText,
     }),
   }),
   z.object({
     discriminant: z.literal('imageText'),
     value: z.object({
-      headline: z.string().optional(),
+      headline: tText,
       image: z.string(),
-      alt: z.string().optional(),
-      text: z.string(),
+      alt: tText,
+      text: tText,
       imagePosition: z.enum(['left', 'right']),
     }),
   }),
@@ -34,6 +42,7 @@ const aboutMe = defineCollection({
   type: 'content',
   schema: z.object({
     portrait: z.string(),
+    textEn: z.string().optional(),
   }),
 });
 
@@ -46,13 +55,14 @@ const design = defineCollection({
     thumbnail: z.string().optional(),
     heroImageDesktop: z.string().optional(),
     heroImageMobile: z.string().optional(),
-    altText: z.string().optional(),
+    altText: tText,
+    contentEn: z.string().optional(),
     ImageCarousel: z.array(
       z.object({
-        title: z.string(),
-        text: z.string(),
+        title: tText,
+        text: tText,
         image: z.string(),
-        altText: z.string().optional(),
+        altText: tText,
       })
     ).optional(),
     blocks: z.array(blockSchema).optional(),
@@ -71,13 +81,14 @@ const concepts = defineCollection({
     thumbnail: z.string().optional(),
     heroImageDesktop: z.string().optional(),
     heroImageMobile: z.string().optional(),
-    altText: z.string().optional(),
+    altText: tText,
+    contentEn: z.string().optional(),
     ImageCarousel: z.array(
       z.object({
-        title: z.string(),
-        text: z.string(),
+        title: tText,
+        text: tText,
         image: z.string(),
-        altText: z.string().optional(),
+        altText: tText,
       })
     ).optional(),
     blocks: z.array(blockSchema).optional(),
@@ -93,10 +104,11 @@ const photography = defineCollection({
   schema: z.object({
     title: z.string(),
     images: z.array(z.string()).optional(),
-	pubDate: z.coerce.date(),
-	altText: z.string().optional(),
+    pubDate: z.coerce.date(),
+    altText: tText,
     heroImage: z.string().optional(),
-	text: z.string().optional(),
+    text: tText,
+    contentEn: z.string().optional(),
   }),
 });
 

@@ -1,0 +1,67 @@
+---
+import { getLangFromUrl, getAlternatePath, useTranslations } from '../i18n/utils';
+import { languages } from '../i18n/ui';
+
+const current = getLangFromUrl(Astro.url);
+const t = useTranslations(current);
+---
+
+<div class="lang-switch-wrapper">
+<div class="lang-switch" aria-label={t('switch.label')}>
+  {
+    languages.map((l) => (
+      <a
+        href={getAlternatePath(Astro.url, l)}
+        hreflang={l}
+        class={`lang-link ${l === current ? 'active' : ''}`}
+        aria-current={l === current ? 'true' : undefined}
+      >
+        {l.toUpperCase()}
+      </a>
+    ))
+  }
+</div>
+</div>
+
+<style>
+  .lang-switch-wrapper {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 200;
+  }
+
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    background-color: #cccccc80;
+    padding: clamp(0.2rem, 0.6vw, 0.35rem);
+    border-radius: 5rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .lang-link {
+    display: grid;
+    place-items: center;
+    min-width: 1.9rem;
+    padding: clamp(4px, 1.2vw, 7px) clamp(6px, 1.6vw, 9px);
+    border-radius: 5rem;
+    font-size: clamp(0.6rem, 1.4vw, 0.85rem);
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    line-height: 1;
+  }
+
+  .lang-link:hover {
+    background-color: #ffffff;
+  }
+
+  .lang-link.active {
+    background-color: #ffffff;
+  }
+</style>

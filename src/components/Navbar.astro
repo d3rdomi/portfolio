@@ -1,36 +1,40 @@
 ---
-const path = Astro.url.pathname;
+import { getLangFromUrl, useTranslations, localizePath } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+// Pfad ohne Sprach-Präfix, damit die Aktiv-Markierung sprachunabhängig funktioniert.
+const path = Astro.url.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
 ---
-<div class="nav" transition:persist="navbar">
+<div class="nav">
   <ul class="parent">
-      <a href="/">
+      <a href={localizePath(lang, '/')}>
         <li class={`child home ${path === '/' ? 'active' : ''}`}>
           <i class="fa-solid fa-house"></i>
-          <span>Home</span>
+          <span>{t('nav.home')}</span>
         </li>
       </a>
-      <a href="/about-me">
+      <a href={localizePath(lang, '/about-me')}>
         <li class={`child about-me ${path.startsWith('/about-me') ? 'active' : ''}`}>
           <i class="fa-solid fa-face-smile-beam"></i>
-          <span>Über Mich</span>
+          <span>{t('nav.about')}</span>
         </li>
       </a>
-      <a href="/photography">
+      <a href={localizePath(lang, '/photography')}>
         <li class={`child photography ${path.startsWith('/photography') ? 'active' : ''}`}>
           <i class="fa-solid fa-camera"></i>
-          <span>Fotografie</span>
+          <span>{t('nav.photography')}</span>
         </li>
       </a>
-      <a href="/design">
+      <a href={localizePath(lang, '/design')}>
         <li class={`child design ${path.startsWith('/design') ? 'active' : ''}`}>
           <i class="fa-solid fa-palette"></i>
-          <span>Design</span>
+          <span>{t('nav.design')}</span>
         </li>
       </a>
-      <a href="/concepts">
+      <a href={localizePath(lang, '/concepts')}>
         <li class={`child concepts ${path.startsWith('/concepts') ? 'active' : ''}`}>
           <i class="fa-solid fa-lightbulb"></i>
-          <span>Konzepte</span>
+          <span>{t('nav.concepts')}</span>
         </li>
       </a>
   </ul>
@@ -39,7 +43,7 @@ const path = Astro.url.pathname;
 
 <script>
   function updateActiveState() {
-    const path = window.location.pathname;
+    const path = window.location.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
     document.querySelectorAll('.child').forEach(el => el.classList.remove('active'));
 
     if (path === '/') {
@@ -68,6 +72,7 @@ const path = Astro.url.pathname;
   padding-top: 20px;
   justify-content: center;
   align-items: center;
+  gap: clamp(0.3rem, 1vw, 0.6rem);
   display: flex;
   position: sticky;
   top: 0;

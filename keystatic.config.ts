@@ -1,5 +1,21 @@
 import { config, fields, collection, singleton } from '@keystatic/core';
 
+// Zweisprachiges Textfeld: zeigt in Keystatic "Deutsch" und "English" als Gruppe.
+// English ist optional – ist es leer, fällt die Website automatisch auf Deutsch zurück.
+function tText(
+  label: string,
+  opts: { multiline?: boolean; description?: string } = {}
+) {
+  const { multiline = false, description } = opts;
+  return fields.object(
+    {
+      de: fields.text({ label: 'Deutsch', multiline, validation: { isRequired: false } }),
+      en: fields.text({ label: 'English', multiline, validation: { isRequired: false } }),
+    },
+    { label, description }
+  );
+}
+
 function createBlocksField(directory: string, publicPath: string) {
   return fields.array(
     fields.conditional(
@@ -14,20 +30,20 @@ function createBlocksField(directory: string, publicPath: string) {
       }),
       {
         text: fields.object({
-          headline: fields.text({ label: 'Überschrift', validation: { isRequired: false } }),
-          content: fields.text({ label: 'Inhalt', multiline: true }),
+          headline: tText('Überschrift'),
+          content: tText('Inhalt', { multiline: true }),
         }),
         image: fields.object({
-          headline: fields.text({ label: 'Überschrift', validation: { isRequired: false } }),
+          headline: tText('Überschrift'),
           src: fields.image({ label: 'Bild', directory, publicPath }),
-          alt: fields.text({ label: 'Alt Text', validation: { isRequired: false } }),
-          caption: fields.text({ label: 'Bildunterschrift', validation: { isRequired: false } }),
+          alt: tText('Alt Text'),
+          caption: tText('Bildunterschrift'),
         }),
         imageText: fields.object({
-          headline: fields.text({ label: 'Überschrift', validation: { isRequired: false } }),
+          headline: tText('Überschrift'),
           image: fields.image({ label: 'Bild', directory, publicPath }),
-          alt: fields.text({ label: 'Alt Text', validation: { isRequired: false } }),
-          text: fields.text({ label: 'Text', multiline: true }),
+          alt: tText('Alt Text'),
+          text: tText('Text', { multiline: true }),
           imagePosition: fields.select({
             label: 'Bild-Position',
             options: [
@@ -66,10 +82,16 @@ export default config({
           publicPath: '/assets/about/',
         }),
         text: fields.document({
-          label: 'About Text',
+          label: 'About Text (Deutsch)',
           formatting: true,
           links: true,
           dividers: true,
+        }),
+        textEn: fields.text({
+          label: 'About Text (English)',
+          multiline: true,
+          description: 'Englische Version. Leerzeile = neuer Absatz. Bleibt leer → Deutsch wird gezeigt.',
+          validation: { isRequired: false },
         }),
       },
     }),
@@ -100,11 +122,16 @@ export default config({
           directory: 'public/assets/design',
           publicPath: '/assets/design',
         }),
-        altText: fields.text({ label: 'Alt Text' }),
+        altText: tText('Alt Text'),
         content: fields.document({
-          label: 'Inhalt',
+          label: 'Inhalt (Deutsch)',
           formatting: true,
           links: true,
+        }),
+        contentEn: fields.text({
+          label: 'Inhalt (English)',
+          multiline: true,
+          validation: { isRequired: false },
         }),
         backgroundColor: fields.text({
           label: 'Hintergrundfarbe',
@@ -121,15 +148,15 @@ export default config({
         // ImageCarousel
         ImageCarousel: fields.array(
           fields.object({
-            title: fields.text({ label: 'Titel' }),
-            text: fields.text({ label: 'Text' }),
+            title: tText('Titel'),
+            text: tText('Text'),
             image: fields.image({
               label: 'Bild',
               directory: 'public/assets/design',
               publicPath: '/assets/design',
               validation: { isRequired: true },
             }),
-            altText: fields.text({ label: 'Alt Text' }),
+            altText: tText('Alt Text'),
           }),
         ),
 
@@ -139,7 +166,7 @@ export default config({
       },
     }),
 
-    // Concepts Collection (HIER das zweite "collections:" entfernt!)
+    // Concepts Collection
     concepts: collection({
       label: 'Konzepte',
       slugField: 'title',
@@ -163,11 +190,16 @@ export default config({
           directory: 'public/assets/concepts',
           publicPath: '/assets/concepts',
         }),
-        altText: fields.text({ label: 'Alt Text' }),
+        altText: tText('Alt Text'),
         content: fields.document({
-          label: 'Inhalt',
+          label: 'Inhalt (Deutsch)',
           formatting: true,
           links: true,
+        }),
+        contentEn: fields.text({
+          label: 'Inhalt (English)',
+          multiline: true,
+          validation: { isRequired: false },
         }),
         backgroundColor: fields.text({
           label: 'Hintergrundfarbe',
@@ -184,15 +216,15 @@ export default config({
         // ImageCarousel
         ImageCarousel: fields.array(
           fields.object({
-            title: fields.text({ label: 'Titel' }),
-            text: fields.text({ label: 'Text' }),
+            title: tText('Titel'),
+            text: tText('Text'),
             image: fields.image({
               label: 'Bild',
               directory: 'public/assets/concepts',
               publicPath: '/assets/concepts',
               validation: { isRequired: true },
             }),
-            altText: fields.text({ label: 'Alt Text' }),
+            altText: tText('Alt Text'),
           }),
         ),
 
@@ -211,13 +243,13 @@ export default config({
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
         pubDate: fields.date({ label: 'Veröffentlichungsdatum' }),
-        altText: fields.text({ label: 'Alt Text' }),
+        altText: tText('Alt Text'),
         heroImage: fields.image({
           label: 'Hero Image (Übersicht)',
           directory: 'public/assets/photography',
           publicPath: '/assets/photography',
         }),
-        text: fields.text({ label: 'Beschreibung', multiline: true }),
+        text: tText('Beschreibung', { multiline: true }),
         images: fields.array(
           fields.image({
             label: 'Bild',
@@ -227,9 +259,14 @@ export default config({
           { label: 'Bilder', itemLabel: () => 'Bild' }
         ),
         content: fields.document({
-          label: 'Inhalt',
+          label: 'Inhalt (Deutsch)',
           formatting: true,
           links: true,
+        }),
+        contentEn: fields.text({
+          label: 'Inhalt (English)',
+          multiline: true,
+          validation: { isRequired: false },
         }),
       },
     }),
