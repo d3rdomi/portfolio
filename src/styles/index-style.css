@@ -74,6 +74,29 @@ selector {
   z-index: 1;
 }
 
+.text {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 0.6rem;
+  width: 80%;
+  height: 80%;
+  justify-content: flex-start;
+  color: black;
+  margin-left: 50px;
+  margin-top: 10px;
+  transition: 1s;
+}
+
+.tile-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  pointer-events: none;
+  margin-bottom: -4px;
+}
+
 .header {
   grid-column: 1 / 3;
   display: flex;
@@ -85,19 +108,6 @@ selector {
   justify-content: center;
   transition: 1s;
   z-index: -1;
-}
-
-.text {
-  text-align: left;
-  display: flex;
-  width: 80%;
-  height: 80%;
-  align-items: flex-end;
-  justify-content: flex-start;
-  color: black;
-  margin-left: 50px;
-  margin-top: 10px;
-  transition:  1s;
 }
 
 .footer {

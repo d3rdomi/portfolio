@@ -74,10 +74,12 @@ h1 {
 }
 
 h2 {
-  text-align: center;
+  text-align: left;
+  font-family: 'Unbounded', sans-serif;
   font-weight: 600;
   margin-bottom: 10px;
-  color: var(--main3);
+  color: #ffffff;
+  font-size: 1.7rem;
 }
 
 .header {
