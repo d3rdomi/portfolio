@@ -57,7 +57,21 @@ function createBlocksField(directory: string, publicPath: string) {
         }),
       }
     ),
-    { label: 'Inhalts-Blöcke', itemLabel: () => 'Block' }
+    {
+      label: 'Inhalts-Blöcke',
+      itemLabel: (props) => {
+        const item = props as any;
+        const disc: string = item.discriminant ?? '';
+        const typeLabel: Record<string, string> = {
+          text: 'Text',
+          image: 'Bild',
+          imageText: 'Bild + Text',
+        };
+        const base = typeLabel[disc] ?? 'Block';
+        const headlineDe = item.value?.headline?.de as string | undefined;
+        return headlineDe?.trim() ? `${base} – ${headlineDe}` : base;
+      },
+    }
   );
 }
 
