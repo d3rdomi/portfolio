@@ -32,7 +32,7 @@ const blockSchema = z.discriminatedUnion('discriminant', [
       image: z.string(),
       alt: tText,
       text: tText,
-      imagePosition: z.enum(['left', 'right']),
+      imagePosition: z.enum(['left', 'right', 'top', 'bottom']),
     }),
   }),
 ]);
@@ -69,6 +69,8 @@ const design = defineCollection({
     backgroundColor: z.string().optional(),
     link: z.string().optional(),
     copyright: z.string().optional(),
+    buttonLink: z.string().optional(),
+    buttonLabel: tText,
   }),
 });
 
@@ -95,6 +97,8 @@ const concepts = defineCollection({
     backgroundColor: z.string().optional(),
     link: z.string().optional(),
     copyright: z.string().optional(),
+    buttonLink: z.string().optional(),
+    buttonLabel: tText,
   }),
 });
 

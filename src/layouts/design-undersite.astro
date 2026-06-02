@@ -12,7 +12,7 @@ import LangSwitch from '../components/LangSwitch.astro';
 type Props = CollectionEntry<'design'>['data'];
 
 const lang = getLangFromUrl(Astro.url);
-const { title, heroImageDesktop, heroImageMobile, ImageCarousel, backgroundColor, altText, blocks, copyright, contentEn } = Astro.props;
+const { title, heroImageDesktop, heroImageMobile, ImageCarousel, backgroundColor, altText, blocks, copyright, contentEn, buttonLink, buttonLabel } = Astro.props;
 
 const slides = (ImageCarousel ?? []).map((item) => ({
   title: pick(item.title, lang),
@@ -55,6 +55,12 @@ const enParagraphs = (contentEn ?? '')
 
           {showGermanBody ? <slot /> : enParagraphs.map((p) => <p>{p}</p>)}
 
+          {buttonLink && buttonLink.trim() !== '' && (
+            <a href={buttonLink} class="cta-button" target="_blank" rel="noopener noreferrer">
+              {pick(buttonLabel, lang) || (lang === 'de' ? 'mehr erfahren' : 'learn more')}
+            </a>
+          )}
+
           {copyright && <p class="copyright">© {copyright}</p>}
 
           {slides.length > 0 && <Carousel slides={slides} client:load />}
@@ -76,7 +82,7 @@ const enParagraphs = (contentEn ?? '')
                   </div>
                 );
                 if (block.discriminant === 'imageText') return (
-                  <div class:list={['image-text-block', { reverse: block.value.imagePosition === 'right' }]}>
+                  <div class:list={['image-text-block', block.value.imagePosition]}>
                     <img src={block.value.image} alt={pick(block.value.alt, lang)} />
                     <div class="block-text">
                       {pick(block.value.headline, lang) && <h2>{pick(block.value.headline, lang)}</h2>}

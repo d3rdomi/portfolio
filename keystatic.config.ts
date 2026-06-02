@@ -49,6 +49,8 @@ function createBlocksField(directory: string, publicPath: string) {
             options: [
               { label: 'Links', value: 'left' },
               { label: 'Rechts', value: 'right' },
+              { label: 'Oben', value: 'top' },
+              { label: 'Unten', value: 'bottom' },
             ],
             defaultValue: 'left',
           }),
@@ -163,6 +165,13 @@ export default config({
         blocks: createBlocksField('public/assets/design', '/assets/design'),
         link: fields.url({ label: 'Link' }),
         copyright: fields.text({ label: 'Copyright' }),
+        buttonLink: fields.text({
+          label: 'Button Link (leer = kein Button)',
+          validation: { isRequired: false },
+        }),
+        buttonLabel: tText('Button Beschriftung', {
+          description: 'Leer lassen für Standard-Text ("mehr erfahren" / "learn more")',
+        }),
       },
     }),
 
@@ -231,6 +240,13 @@ export default config({
         blocks: createBlocksField('public/assets/concepts', '/assets/concepts'),
         link: fields.url({ label: 'Link' }),
         copyright: fields.text({ label: 'Copyright' }),
+        buttonLink: fields.text({
+          label: 'Button Link (leer = kein Button)',
+          validation: { isRequired: false },
+        }),
+        buttonLabel: tText('Button Beschriftung', {
+          description: 'Leer lassen für Standard-Text ("mehr erfahren" / "learn more")',
+        }),
       },
     }),
 
