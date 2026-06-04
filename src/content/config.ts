@@ -19,6 +19,7 @@ const blockSchema = z.discriminatedUnion('discriminant', [
   z.object({
     discriminant: z.literal('image'),
     value: z.object({
+      headline: tText,
       src: z.string(),
       alt: tText,
     }),
@@ -26,6 +27,7 @@ const blockSchema = z.discriminatedUnion('discriminant', [
   z.object({
     discriminant: z.literal('imageText'),
     value: z.object({
+      headline: tText,
       image: z.string(),
       alt: tText,
       text: tText,

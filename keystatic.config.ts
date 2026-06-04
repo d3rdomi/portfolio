@@ -34,10 +34,12 @@ function createBlocksField(directory: string, publicPath: string) {
           content: tText('Inhalt', { multiline: true }),
         }),
         image: fields.object({
+          headline: tText('Überschrift'),
           src: fields.image({ label: 'Bild', directory, publicPath }),
           alt: tText('Alt Text'),
         }),
         imageText: fields.object({
+          headline: tText('Überschrift'),
           image: fields.image({ label: 'Bild', directory, publicPath }),
           alt: tText('Alt Text'),
           text: tText('Text', { multiline: true }),

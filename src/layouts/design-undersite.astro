@@ -76,6 +76,7 @@ const enParagraphs = (contentEn ?? '')
                 );
                 if (block.discriminant === 'image') return (
                   <div class="image-block">
+                    {pick(block.value.headline, lang) && <h2>{pick(block.value.headline, lang)}</h2>}
                     <img src={block.value.src} alt={pick(block.value.alt, lang)} />
                   </div>
                 );
@@ -83,6 +84,7 @@ const enParagraphs = (contentEn ?? '')
                   <div class:list={['image-text-block', block.value.imagePosition]}>
                     <img src={block.value.image} alt={pick(block.value.alt, lang)} />
                     <div class="block-text">
+                      {pick(block.value.headline, lang) && <h2>{pick(block.value.headline, lang)}</h2>}
                       <p>{pick(block.value.text, lang)}</p>
                     </div>
                   </div>
