@@ -173,8 +173,6 @@ export default config({
         // ImageCarousel
         ImageCarousel: fields.array(
           fields.object({
-            title: tText('Titel'),
-            text: tText('Text'),
             image: fields.image({
               label: 'Bild',
               directory: 'public/assets/design',
@@ -183,6 +181,7 @@ export default config({
             }),
             altText: tText('Alt Text'),
           }),
+          { label: 'Carousel', itemLabel: () => 'Bild' }
         ),
 
         blocks: createBlocksField('public/assets/design', '/assets/design'),
@@ -252,8 +251,6 @@ export default config({
         // ImageCarousel
         ImageCarousel: fields.array(
           fields.object({
-            title: tText('Titel'),
-            text: tText('Text'),
             image: fields.image({
               label: 'Bild',
               directory: 'public/assets/concepts',
@@ -262,6 +259,7 @@ export default config({
             }),
             altText: tText('Alt Text'),
           }),
+          { label: 'Carousel', itemLabel: () => 'Bild' }
         ),
 
         blocks: createBlocksField('public/assets/concepts', '/assets/concepts'),

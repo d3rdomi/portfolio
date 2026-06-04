@@ -56,8 +56,6 @@ const design = defineCollection({
     contentEn: z.string().optional(),
     ImageCarousel: z.array(
       z.object({
-        title: tText,
-        text: tText,
         image: z.string(),
         altText: tText,
       })
@@ -85,8 +83,6 @@ const concepts = defineCollection({
     contentEn: z.string().optional(),
     ImageCarousel: z.array(
       z.object({
-        title: tText,
-        text: tText,
         image: z.string(),
         altText: tText,
       })
