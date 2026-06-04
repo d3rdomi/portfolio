@@ -140,6 +140,13 @@ a {
 }
 
 /* Blocks */
+.section-divider {
+  width: 70%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 4rem auto;
+}
+
 .blocks-section {
   margin-top: 2rem;
 }

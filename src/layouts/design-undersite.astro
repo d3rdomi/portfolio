@@ -64,6 +64,7 @@ const enParagraphs = (contentEn ?? '')
           {copyright && <p class="copyright">© {copyright}</p>}
 
           {slides.length > 0 && <Carousel slides={slides} client:load />}
+          {slides.length > 0 && <div class="section-divider" />}
 
           {blocks && blocks.length > 0 && (
             <div class="blocks-section">
