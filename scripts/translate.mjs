@@ -105,13 +105,17 @@ async function processFile(filePath) {
   const raw = await fs.readFile(filePath, 'utf8');
   const parsed = matter(raw);
 
+  // Zielfeld für den Body-Text automatisch erkennen:
+  // about-me nutzt `textEn`, alle anderen Seiten `contentEn`
+  const bodyField = 'textEn' in parsed.data ? 'textEn' : 'contentEn';
+
   // Alle leeren EN-Felder in der Frontmatter finden
   const translatables = findTranslatableFields(parsed.data);
 
-  // Body-Text (deutscher Markdoc-Inhalt) → contentEn, falls noch leer
+  // Body-Text (deutscher Markdoc-Inhalt) → bodyField, falls noch leer
   const bodyText = parsed.content.trim();
   const needsBody =
-    bodyText && (!parsed.data.contentEn || parsed.data.contentEn.trim() === '');
+    bodyText && (!parsed.data[bodyField] || parsed.data[bodyField].trim() === '');
   if (needsBody) {
     translatables.push({ path: ['__body__'], text: bodyText });
   }
@@ -125,7 +129,7 @@ async function processFile(filePath) {
 
   if (DRY_RUN) {
     for (const { path: p, text } of translatables) {
-      const label = p[0] === '__body__' ? 'body → contentEn' : p.join('.');
+      const label = p[0] === '__body__' ? `body → ${bodyField}` : p.join('.');
       console.log(`      [${label}] "${text.slice(0, 70).replace(/\n/g, ' ')}…"`);
     }
     return;
@@ -138,8 +142,7 @@ async function processFile(filePath) {
   for (let i = 0; i < translatables.length; i++) {
     const { path: p } = translatables[i];
     if (p[0] === '__body__') {
-      // Haupttext → contentEn Frontmatter-Feld
-      parsed.data.contentEn = translations[i];
+      parsed.data[bodyField] = translations[i];
     } else {
       applyTranslation(parsed.data, p, translations[i]);
     }
@@ -160,13 +163,18 @@ if (CLI_FILES.length > 0) {
   // Einzelne Dateien aus CLI-Argumenten
   files = CLI_FILES;
 } else {
-  // Standard: alle .mdoc-Dateien in Design & Konzepte
-  const dirs = ['src/content/design', 'src/content/concepts'];
+  // Standard: alle Content-Dateien in Design, Konzepte, Fotografie & About
+  const dirs = [
+    { path: 'src/content/design', ext: '.mdoc' },
+    { path: 'src/content/concepts', ext: '.mdoc' },
+    { path: 'src/content/photography', ext: '.mdoc' },
+    { path: 'src/content/about-me', ext: '.mdoc' },
+  ];
   files = [];
-  for (const dir of dirs) {
+  for (const { path: dir, ext } of dirs) {
     const entries = await fs.readdir(dir);
     for (const entry of entries) {
-      if (entry.endsWith('.mdoc')) files.push(path.join(dir, entry));
+      if (entry.endsWith(ext)) files.push(path.join(dir, entry));
     }
   }
 }
