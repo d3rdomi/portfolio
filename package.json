@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "translate": "node scripts/translate.mjs"
   },
   "dependencies": {
     "@astrojs/markdoc": "^0.15.10",
@@ -29,6 +30,7 @@
     "swiper": "^11.2.10"
   },
   "devDependencies": {
-    "baseline-browser-mapping": "^2.9.19"
+    "baseline-browser-mapping": "^2.9.19",
+    "gray-matter": "^4.0.3"
   }
 }
