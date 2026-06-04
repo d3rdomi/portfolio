@@ -64,10 +64,11 @@ const design = defineCollection({
     ).optional(),
     blocks: z.array(blockSchema).optional(),
     backgroundColor: z.string().optional(),
-    link: z.string().optional(),
     copyright: z.string().optional(),
-    buttonLink: z.string().optional(),
-    buttonLabel: tText,
+    button: z.object({
+      buttonLink: z.string().optional(),
+      buttonLabel: tText,
+    }).optional(),
   }),
 });
 
@@ -92,10 +93,11 @@ const concepts = defineCollection({
     ).optional(),
     blocks: z.array(blockSchema).optional(),
     backgroundColor: z.string().optional(),
-    link: z.string().optional(),
     copyright: z.string().optional(),
-    buttonLink: z.string().optional(),
-    buttonLabel: tText,
+    button: z.object({
+      buttonLink: z.string().optional(),
+      buttonLabel: tText,
+    }).optional(),
   }),
 });
 

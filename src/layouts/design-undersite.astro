@@ -12,7 +12,9 @@ import LangSwitch from '../components/LangSwitch.astro';
 type Props = CollectionEntry<'design'>['data'];
 
 const lang = getLangFromUrl(Astro.url);
-const { title, heroImageDesktop, heroImageMobile, ImageCarousel, backgroundColor, altText, blocks, copyright, contentEn, buttonLink, buttonLabel } = Astro.props;
+const { title, heroImageDesktop, heroImageMobile, ImageCarousel, backgroundColor, altText, blocks, copyright, contentEn, button } = Astro.props;
+const buttonLink = button?.buttonLink;
+const buttonLabel = button?.buttonLabel;
 
 const slides = (ImageCarousel ?? []).map((item) => ({
   title: pick(item.title, lang),

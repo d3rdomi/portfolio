@@ -146,6 +146,18 @@ export default config({
           multiline: true,
           validation: { isRequired: false },
         }),
+        button: fields.object(
+          {
+            buttonLink: fields.text({
+              label: 'Button Link (leer = kein Button)',
+              validation: { isRequired: false },
+            }),
+            buttonLabel: tText('Button Beschriftung', {
+              description: 'Leer lassen für Standard-Text ("mehr erfahren" / "learn more")',
+            }),
+          },
+          { label: 'Button' }
+        ),
         backgroundColor: fields.text({
           label: 'Hintergrundfarbe',
           defaultValue: '#000000',
@@ -174,15 +186,7 @@ export default config({
         ),
 
         blocks: createBlocksField('public/assets/design', '/assets/design'),
-        link: fields.url({ label: 'Link' }),
         copyright: fields.text({ label: 'Copyright' }),
-        buttonLink: fields.text({
-          label: 'Button Link (leer = kein Button)',
-          validation: { isRequired: false },
-        }),
-        buttonLabel: tText('Button Beschriftung', {
-          description: 'Leer lassen für Standard-Text ("mehr erfahren" / "learn more")',
-        }),
       },
     }),
 
@@ -221,6 +225,18 @@ export default config({
           multiline: true,
           validation: { isRequired: false },
         }),
+        button: fields.object(
+          {
+            buttonLink: fields.text({
+              label: 'Button Link (leer = kein Button)',
+              validation: { isRequired: false },
+            }),
+            buttonLabel: tText('Button Beschriftung', {
+              description: 'Leer lassen für Standard-Text ("mehr erfahren" / "learn more")',
+            }),
+          },
+          { label: 'Button' }
+        ),
         backgroundColor: fields.text({
           label: 'Hintergrundfarbe',
           defaultValue: '#000000',
@@ -249,15 +265,7 @@ export default config({
         ),
 
         blocks: createBlocksField('public/assets/concepts', '/assets/concepts'),
-        link: fields.url({ label: 'Link' }),
         copyright: fields.text({ label: 'Copyright' }),
-        buttonLink: fields.text({
-          label: 'Button Link (leer = kein Button)',
-          validation: { isRequired: false },
-        }),
-        buttonLabel: tText('Button Beschriftung', {
-          description: 'Leer lassen für Standard-Text ("mehr erfahren" / "learn more")',
-        }),
       },
     }),
 
