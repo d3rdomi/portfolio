@@ -43,6 +43,11 @@ ul li a {
   display: block;
 }
 
+ul li img {
+  display: block;
+  margin: 0 auto;
+}
+
 h1 {
   color: var(--main2);
   margin-left: 20px;
@@ -57,7 +62,7 @@ h2 {
 }
 
 h4 {
-  text-align: left;
+  text-align: center;
   font-weight: 500;
   margin-bottom: 10px;
   padding-top: 10px;
