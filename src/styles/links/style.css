@@ -1,0 +1,201 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    min-height: 100vh;
+    overscroll-behavior: none;
+    font-family: 'Silkscreen', 'Courier New', monospace;
+    background-color: #F6D5E7;
+    /* Halftone dot pattern — inspired by Poolsuite's boot background */
+    background-image: radial-gradient(circle, rgba(125, 216, 204, 0.35) 1px, transparent 1px);
+    background-size: 6px 6px;
+    color: #000;
+}
+
+/* ── Layout ── */
+.page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 64px 20px 80px;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* ── Header — Mac-style window chrome ── */
+.header {
+    margin-bottom: 24px;
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    background: #fff;
+}
+
+.header-titlebar {
+    background: #000;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.titlebar-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #F6D5E7;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.titlebar-dot:nth-child(2) {
+    background: #7DD8CC;
+}
+
+.header-body {
+    padding: 24px 20px 20px;
+    text-align: center;
+}
+
+.logo-emoji {
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-bottom: 12px;
+    display: block;
+    font-family: sans-serif;
+}
+
+.site-title {
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #000;
+    line-height: 1.4;
+}
+
+.site-subtitle {
+    margin-top: 8px;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ── Teal divider ── */
+.teal-bar {
+    height: 6px;
+    background: #7DD8CC;
+    border-top: 2px solid #000;
+}
+
+/* ── Link cards — Mac window style ── */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.link-card {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    background: #fff;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.link-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
+}
+
+.link-card:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #000;
+}
+
+.card-titlebar {
+    background: #000;
+    padding: 5px 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-titlebar-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #444;
+    border: 1px solid #666;
+}
+
+.card-titlebar-dot:first-child {
+    background: #F6D5E7;
+    border-color: #c9a0b6;
+}
+
+.card-body {
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.card-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid #000;
+    background: #F6D5E7;
+    color: #000;
+}
+
+.card-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.card-text {
+    flex: 1;
+}
+
+.card-label {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.card-meta {
+    margin-top: 3px;
+    font-size: 0.55rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #777;
+}
+
+.card-arrow {
+    font-size: 0.9rem;
+    color: #000;
+}
+
+/* ── Footer ── */
+.footer {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #888;
+}
