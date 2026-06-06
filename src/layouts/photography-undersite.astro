@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import '../styles/global-style.css';
 import '../styles/photography-undersite-style.css';
+import '../styles/simple-lightbox.css';
 import MyFooter from '../components/MyFooter.astro';
 import Navbar from '../components/Navbar.astro';
 import { getLangFromUrl, pick } from '../i18n/utils';
@@ -54,7 +55,9 @@ const enParagraphs = (contentEn ?? '')
 					{images && images.length > 0 && (
 						<div class="photo-grid">
 							{images.map((src) => (
-								<img src={src} alt={heroAlt} loading="lazy" />
+								<a href={src} class="photo-lightbox">
+									<img src={src} alt={heroAlt} loading="lazy" />
+								</a>
 							))}
 						</div>
 					)}
@@ -65,5 +68,23 @@ const enParagraphs = (contentEn ?? '')
 		</main>
 
 		<MyFooter />
+
+		<script is:inline src="/scripts/simple-lightbox.min.js"></script>
+		<script is:inline>
+			document.addEventListener('astro:page-load', function () {
+				var links = document.querySelectorAll('.photo-lightbox');
+				if (links.length === 0) return;
+				new SimpleLightbox('.photo-lightbox', {
+					overlayOpacity: 0.95,
+					animationSpeed: 200,
+					loop: true,
+					captions: false,
+					doubleTapZoom: 1.5,
+					maxZoom: 4,
+					scrollZoom: true,
+					scrollZoomFactor: 0.2,
+				});
+			});
+		</script>
 	</body>
 </html>

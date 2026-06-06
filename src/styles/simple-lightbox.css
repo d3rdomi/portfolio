@@ -16,7 +16,7 @@ body.hidden-scroll {
   right: 0;
   top: 0;
   bottom: 0;
-  background: #fff;
+  background: #000;
   display: none;
   z-index: 1035;
 }
@@ -54,7 +54,7 @@ body.hidden-scroll {
   width: 44px;
   line-height: 44px;
   font-family: 'Unbounded';
-  color: #000;
+  color: #fff;
   font-size: 3rem;
 }
 .sl-wrapper .sl-counter {
@@ -63,7 +63,7 @@ body.hidden-scroll {
   top: 30px;
   left: 30px;
   z-index: 10060;
-  color: #000;
+  color: #fff;
   font-size: 1rem;
   font-family: 'Unbounded';
 }
@@ -96,7 +96,7 @@ body.hidden-scroll {
   display: block;
   z-index: 10060;
   font-family: 'Unbounded';
-  color: #000;
+  color: #fff;
 }
 .sl-wrapper .sl-navigation button.sl-next {
   right: 5px;
