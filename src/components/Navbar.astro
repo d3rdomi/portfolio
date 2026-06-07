@@ -160,6 +160,12 @@ const path = Astro.url.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
   display: none;
 }
 
+@media (max-width: 767px) {
+  .nav {
+    display: none;
+  }
+}
+
 ul {
   list-style: none;
   padding-left: 0;

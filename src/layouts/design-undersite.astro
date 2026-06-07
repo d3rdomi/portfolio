@@ -8,6 +8,7 @@ import Carousel from '../components/Carousel.jsx';
 import Navbar from '../components/Navbar.astro';
 import { getLangFromUrl, pick } from '../i18n/utils';
 import LangSwitch from '../components/LangSwitch.astro';
+import MobileNav from '../components/MobileNav.astro';
 
 type Props = CollectionEntry<'design'>['data'];
 
@@ -36,6 +37,7 @@ const enParagraphs = (contentEn ?? '')
   </head>
 
   <body style={`background-color: ${backgroundColor || '#000000'};`}>
+    <MobileNav />
     <LangSwitch />
     <Navbar />
     {(heroImageDesktop || heroImageMobile) && (

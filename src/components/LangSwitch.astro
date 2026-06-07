@@ -31,6 +31,12 @@ const t = useTranslations(current);
     z-index: 200;
   }
 
+  @media (max-width: 767px) {
+    .lang-switch-wrapper {
+      display: none;
+    }
+  }
+
   .lang-switch {
     display: inline-flex;
     align-items: center;

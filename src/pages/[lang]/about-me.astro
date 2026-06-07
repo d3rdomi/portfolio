@@ -12,6 +12,7 @@ import Instagram from "../../assets/about-me/instagram.svg"
 import Mail from "../../assets/about-me/mail.svg"
 import Navbar from '../../components/Navbar.astro';
 import LangSwitch from '../../components/LangSwitch.astro';
+import MobileNav from '../../components/MobileNav.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -36,6 +37,7 @@ const enParagraphs = (textEn ?? '')
 </head>
 
 	<body>
+		<MobileNav />
 		<LangSwitch />
 		<Navbar class="navbar" />
 		<div class="parent1">

@@ -8,6 +8,7 @@ import MyFooter from '../components/MyFooter.astro';
 import Navbar from '../components/Navbar.astro';
 import { getLangFromUrl, pick } from '../i18n/utils';
 import LangSwitch from '../components/LangSwitch.astro';
+import MobileNav from '../components/MobileNav.astro';
 
 type Props = CollectionEntry<'photography'>['data'];
 
@@ -30,6 +31,7 @@ const enParagraphs = (contentEn ?? '')
 	</head>
 
 	<body>
+		<MobileNav />
 		<LangSwitch />
 		<Navbar />
 
