@@ -86,6 +86,24 @@ export default config({
   },
 
   singletons: {
+    portfolioDownloads: singleton({
+      label: 'Portfolio Downloads',
+      path: 'src/content/portfolio-downloads/',
+      format: { data: 'yaml' },
+      schema: {
+        pdfDe: fields.file({
+          label: 'Portfolio PDF (Deutsch)',
+          directory: 'public/assets/downloads',
+          publicPath: '/assets/downloads/',
+        }),
+        pdfEn: fields.file({
+          label: 'Portfolio PDF (English)',
+          directory: 'public/assets/downloads',
+          publicPath: '/assets/downloads/',
+        }),
+      },
+    }),
+
     about: singleton({
       label: 'About Me',
       path: 'src/content/about-me/',

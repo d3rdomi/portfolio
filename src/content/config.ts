@@ -99,6 +99,15 @@ const concepts = defineCollection({
   }),
 });
 
+// Portfolio Downloads Singleton
+const portfolioDownloads = defineCollection({
+  type: 'data',
+  schema: z.object({
+    pdfDe: z.string().nullable().optional(),
+    pdfEn: z.string().nullable().optional(),
+  }),
+});
+
 // Photography Collection
 const photography = defineCollection({
   type: 'content',
@@ -118,4 +127,5 @@ export const collections = {
   'concepts': concepts,
   photography,
   'about-me': aboutMe,
+  'portfolio-downloads': portfolioDownloads,
 };

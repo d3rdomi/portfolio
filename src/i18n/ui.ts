@@ -43,6 +43,8 @@ export const ui = {
     'footer.text': 'Impressum & Datenschutz',
 
     'switch.label': 'Sprache wechseln',
+
+    'design.downloadPdf': 'Portfolio herunterladen',
   },
   en: {
     'site.title': 'Dominik Lange | Designer from Munich',
@@ -76,6 +78,8 @@ export const ui = {
     'footer.text': 'Imprint & Privacy',
 
     'switch.label': 'Switch language',
+
+    'design.downloadPdf': 'Download Portfolio',
   },
 } as const;
 

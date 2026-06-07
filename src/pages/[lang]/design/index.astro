@@ -1,6 +1,6 @@
 ---
 import BaseHead from '../../../components/BaseHead.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import '../../../styles/global-style.css';
 import '../../../styles/design-style.css';
 import MyFooter from '../../../components/MyFooter.astro';
@@ -14,6 +14,11 @@ const t = useTranslations(lang);
 const posts = (await getCollection('design')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+const downloadsEntry = await getEntry('portfolio-downloads', 'index');
+const pdfUrl = lang === 'en'
+	? (downloadsEntry?.data.pdfEn || downloadsEntry?.data.pdfDe || null)
+	: (downloadsEntry?.data.pdfDe || null);
 ---
 
 <!doctype html>
@@ -27,6 +32,11 @@ const posts = (await getCollection('design')).sort(
 		<Navbar class="navbar" />
 		<div class="header">
 			<h1>{t('heading.design')}</h1>
+			{pdfUrl && (
+				<a href={pdfUrl} download class="download-btn">
+					{t('design.downloadPdf')}
+				</a>
+			)}
 		</div>
 
 		<main>
