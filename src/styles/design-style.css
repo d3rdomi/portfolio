@@ -52,7 +52,6 @@ h1 {
   color: var(--main2);
   margin-left: 20px;
   margin-right: 20px;
-  font-size: 2.2rem;
 }
 
 h2 {
@@ -114,23 +113,33 @@ footer {
 
 .download-btn {
   display: inline-block;
+  width: fit-content;
   margin-top: 12px;
-  padding: 10px 24px;
-  border: 1.5px solid var(--main3);
-  border-radius: 30px;
-  color: var(--main3);
+  padding: 0.75rem 2rem;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
   text-decoration: none;
-  font-size: 14px;
-  letter-spacing: 0.03em;
-  transition: background-color 0.2s, color 0.2s;
+  border-radius: 100px;
+  transition: opacity 0.2s;
 }
 
 .download-btn:hover {
-  background-color: var(--main3);
-  color: var(--main4);
+  opacity: 0.75;
+}
+
+@media only screen and (max-width: 767px) {
+  h1 {
+    font-size: 3rem;
+  }
 }
 
 @media only screen and (max-width:480px) {
+  h1 {
+    font-size: 2.2rem;
+  }
   img {
     width: 720px;
     height: 350px;

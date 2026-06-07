@@ -265,6 +265,10 @@ a {
     max-width: 100%;
     flex: none;
   }
+
+  h1 {
+    font-size: 2rem;
+  }
 }
 
 @media only screen and (max-width:480px) {
@@ -276,6 +280,6 @@ a {
   gap: 4rem;
   }
   h1 {
-    font-size: 35px;
+    font-size: 1.6rem;
   }
 }
