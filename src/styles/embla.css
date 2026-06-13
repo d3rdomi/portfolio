@@ -136,3 +136,16 @@
 .embla__dot--selected:after {
   box-shadow: inset 0 0 0 0.2rem var(--text-body);
 }
+
+@media (max-width: 767px) {
+  .embla {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  .embla__slide img {
+    border-radius: 0;
+  }
+}
