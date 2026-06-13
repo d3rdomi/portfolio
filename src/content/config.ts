@@ -42,6 +42,8 @@ const aboutMe = defineCollection({
   schema: z.object({
     portrait: z.string(),
     textEn: z.string().optional(),
+    cvDe: z.string().nullable().optional(),
+    cvEn: z.string().nullable().optional(),
   }),
 });
 

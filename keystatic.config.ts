@@ -126,6 +126,16 @@ export default config({
           description: 'Englische Version. Leerzeile = neuer Absatz. Bleibt leer → Deutsch wird gezeigt.',
           validation: { isRequired: false },
         }),
+        cvDe: fields.file({
+          label: 'Lebenslauf PDF (Deutsch)',
+          directory: 'public/assets/downloads',
+          publicPath: '/assets/downloads/',
+        }),
+        cvEn: fields.file({
+          label: 'Lebenslauf PDF (English)',
+          directory: 'public/assets/downloads',
+          publicPath: '/assets/downloads/',
+        }),
       },
     }),
   },

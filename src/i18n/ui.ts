@@ -39,6 +39,7 @@ export const ui = {
     'about.form.email': 'E-Mail',
     'about.form.message': 'Nachricht',
     'about.form.submit': 'Senden',
+    'about.downloadCv': 'Lebenslauf herunterladen',
 
     'footer.text': 'Impressum & Datenschutz',
 
@@ -74,6 +75,7 @@ export const ui = {
     'about.form.email': 'Email',
     'about.form.message': 'Message',
     'about.form.submit': 'Send',
+    'about.downloadCv': 'Download CV',
 
     'footer.text': 'Imprint & Privacy',
 

@@ -19,8 +19,13 @@ const t = useTranslations(lang);
 
 // About-Daten aus Keystatic laden
 const aboutData = await getEntry('about-me', 'index');
-const { portrait, textEn } = aboutData.data;
+const { portrait, textEn, cvDe, cvEn } = aboutData.data;
 const { Content } = await aboutData.render();
+
+// Lebenslauf-PDF je Sprache; EN fällt auf DE zurück, falls nicht gepflegt.
+const cvUrl = lang === 'en'
+	? (cvEn || cvDe || null)
+	: (cvDe || null);
 
 // Englischer Text aus textEn (Frontmatter); leer → deutscher Markdoc-Body (<Content />).
 const showGermanText = lang === 'de' || !textEn || textEn.trim() === '';
@@ -59,6 +64,13 @@ const enParagraphs = (textEn ?? '')
 				  <Image class="icon" src={Mail} alt="E-Mail"/>
 				</a>
 			  </div>
+			  {cvUrl && (
+				<div class="cv-download">
+				  <a href={cvUrl} download class="download-btn">
+					{t('about.downloadCv')}
+				  </a>
+				</div>
+			  )}
 			</div>
 
 			<div class="text article-section">
