@@ -488,6 +488,11 @@ class Gradient {
 					(this.mesh.material.uniforms.u_shadow_power.value =
 						this.width < 600 ? 5 : 6);
 			}),
+			e(this, "resizeTimeout", void 0),
+			e(this, "handleResize", () => {
+				clearTimeout(this.resizeTimeout),
+					(this.resizeTimeout = setTimeout(() => this.resize(), 120));
+			}),
 			e(this, "handleMouseDown", (e) => {
 				this.isGradientLegendVisible &&
 					((this.isMetaKey = e.metaKey),
@@ -571,7 +576,8 @@ class Gradient {
 			window.removeEventListener("mouseup", this.handleMouseUp),
 			window.removeEventListener("keydown", this.handleKeyDown),
 			this.scrollObserver.disconnect()),
-			window.removeEventListener("resize", this.resize);
+			window.removeEventListener("resize", this.handleResize);
+		clearTimeout(this.resizeTimeout);
 	}
 	initMaterial() {
 		this.uniforms = {
@@ -691,7 +697,7 @@ class Gradient {
 			this.initMesh(),
 			this.resize(),
 			requestAnimationFrame(this.animate),
-			window.addEventListener("resize", this.resize);
+			window.addEventListener("resize", this.handleResize);
 	}
 	waitForCssVars() {
 		if (
