@@ -26,6 +26,17 @@ body {
   transition: 1s;
 }
 
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: -200;
+  pointer-events: none;
+}
+
 /* ============ DESKTOP GRID ============ */
 
 .main-grid {
@@ -114,7 +125,7 @@ body {
   grid-row: 2 / 3;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  gap: 10px;
   height: 70%;
   align-self: center;
 }
@@ -140,7 +151,7 @@ body {
 .article-section {
   background-color: rgba(256, 256, 256, 0.3);
   transition: 0.25s;
-  border-radius: 30px;
+  border-radius: 20px;
   backdrop-filter: blur(20px);
   height: 100%;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -181,7 +192,7 @@ body {
 @media only screen and (max-width:600px) {
   .main-grid {
     padding: 40px;
-    padding-top: 90px;
+    padding-top: 60px;
     height: 100dvh;
     display: flex;
     flex-direction: column;
@@ -193,10 +204,11 @@ body {
     flex: 0 0 auto;
     width: 100%;
     height: auto;
+    margin-bottom: 30px;
   }
 
   .hero-text h1 {
-    font-size: 60px;
+    font-size: 54px !important;
   }
 
   .divider {
@@ -227,13 +239,6 @@ body {
     min-height: 140px;
     align-self: stretch;
   }
-
-  /* DOM-Reihenfolge (About, Design, Concepts, Photography)
-     auf das Mobile-2x2 ummappen: Zeile1 About|Photography, Zeile2 Design|Concepts */
-  .about-me    { order: 1; }
-  .photography { order: 2; }
-  .design      { order: 3; }
-  .animation   { order: 4; }
 
   .nav-button h2 {
     font-size: 16px;
