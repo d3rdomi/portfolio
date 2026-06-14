@@ -36,6 +36,15 @@ const blockSchema = z.discriminatedUnion('discriminant', [
   }),
 ]);
 
+// Home Collection
+const home = defineCollection({
+  type: 'content',
+  schema: z.object({
+    portrait: z.string(),
+    headingEn: z.string().optional(),
+  }),
+});
+
 // About Collection
 const aboutMe = defineCollection({
   type: 'content',
@@ -129,5 +138,6 @@ export const collections = {
   'concepts': concepts,
   photography,
   'about-me': aboutMe,
+  home,
   'portfolio-downloads': portfolioDownloads,
 };

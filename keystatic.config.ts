@@ -86,6 +86,30 @@ export default config({
   },
 
   singletons: {
+    home: singleton({
+      label: 'Home',
+      path: 'src/content/home/',
+      format: { contentField: 'heading' },
+      schema: {
+        portrait: fields.image({
+          label: 'Portrait Bild',
+          directory: 'public/assets/home',
+          publicPath: '/assets/home/',
+        }),
+        heading: fields.document({
+          label: 'Tagline (Deutsch)',
+          formatting: false,
+          links: false,
+          dividers: false,
+        }),
+        headingEn: fields.text({
+          label: 'Tagline (English)',
+          description: 'Englische Version. Bleibt leer → Deutsch wird gezeigt.',
+          validation: { isRequired: false },
+        }),
+      },
+    }),
+
     portfolioDownloads: singleton({
       label: 'Portfolio Downloads',
       path: 'src/content/portfolio-downloads/',
