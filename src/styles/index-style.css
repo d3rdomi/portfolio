@@ -173,18 +173,22 @@ body {
 
 .about-me:hover {
   transform: scale(0.97) rotate(-2grad);
+  background-color: rgba(255, 255, 255, 0.5)
 }
 
 .photography:hover {
   transform: scale(0.97) rotate(2grad);
+  background-color: rgba(255, 255, 255, 0.5)
 }
 
 .design:hover {
   transform: scale(0.97) rotate(2grad);
+  background-color: rgba(255, 255, 255, 0.5)
 }
 
 .animation:hover {
   transform: scale(0.97) rotate(-2grad);
+  background-color: rgba(255, 255, 255, 0.5)
 }
 
 /* ============ MOBILE (≤500px) ============ */
