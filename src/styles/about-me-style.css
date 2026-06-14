@@ -72,7 +72,6 @@ p {
   background-color: #ffffff;
   padding: 30px;
   line-height: 2;
-  color: #ffffff;
 }
 
 .icon {
@@ -88,25 +87,6 @@ p {
 
 .cv-download {
   display: block;
-}
-
-.download-btn {
-  display: inline-block;
-  width: fit-content;
-  margin-top: 12px;
-  padding: 0.75rem 2rem;
-  background-color: #ffffff;
-  color: #000000;
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-decoration: none;
-  border-radius: 100px;
-  transition: opacity 0.2s;
-}
-
-.download-btn:hover {
-  opacity: 0.75;
 }
 
 .input {

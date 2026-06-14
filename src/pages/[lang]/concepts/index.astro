@@ -27,7 +27,7 @@ const posts = (await getCollection('concepts')).sort(
 		<Navbar class="navbar" />
 
 		<div class="header">
-			<h1>{t('heading.concepts')}</h1>
+			<h1 class="split-chars">{t('heading.concepts')}</h1>
 		</div>
 
 		<main>
@@ -39,7 +39,7 @@ const posts = (await getCollection('concepts')).sort(
 								<a href={localizePath(lang, `/concepts/${post.slug}/`)}>
 									<img src={post.data.thumbnail} alt={pick(post.data.altText, lang)} />
 
-									<h4 class="title">{post.data.title}</h4>
+									<h2 class="card-title">{post.data.title}</h2>
 								</a>
 							</li>
 						))

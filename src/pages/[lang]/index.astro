@@ -43,13 +43,13 @@ const showGermanHeading = lang === 'de' || !headingEn || headingEn.trim() === ''
 			<div class="hero-text">
 				<h1>Dominik <br> Lange</h1>
 				<div class="divider"></div>
-				<div class="subtitle">
+				<div class="subtitle split-words">
 					{showGermanHeading ? <Content /> : <p>{headingEn}</p>}
 				</div>
 			</div>
 
 			<div class="hero-portrait">
-				<img src={portrait} alt={t('about.portraitAlt')} />
+				<img src={portrait} alt={t('about.portraitAlt')} width="798" height="798" decoding="async" fetchpriority="high" />
 			</div>
 
 			<div class="nav-buttons">

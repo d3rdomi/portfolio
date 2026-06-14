@@ -52,26 +52,6 @@ h1 {
   margin-right: 20px;
 }
 
-h2 {
-  text-align: left;
-  margin-bottom: 10px;
-  padding-top: 10px;
-  font-family: 'Unbounded';
-  font-weight: 500;
-  color: var(--main3);
-  font-size: 30px;
-}
-
-h4 {
-  text-align: left;
-  margin-bottom: 10px;
-  padding-top: 10px;
-  font-family: 'Unbounded';
-  font-weight: 500;
-  color: var(--main3);
-  font-size: 30px;
-}
-
 .main-grid {
   margin: 20px;
   padding: 0px;

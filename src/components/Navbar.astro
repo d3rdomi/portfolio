@@ -19,12 +19,6 @@ const path = Astro.url.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
           <span>{t('nav.about')}</span>
         </li>
       </a>
-      <a href={localizePath(lang, '/photography')}>
-        <li class={`child photography ${path.startsWith('/photography') ? 'active' : ''}`}>
-          <i class="fa-solid fa-camera"></i>
-          <span>{t('nav.photography')}</span>
-        </li>
-      </a>
       <a href={localizePath(lang, '/design')}>
         <li class={`child design ${path.startsWith('/design') ? 'active' : ''}`}>
           <i class="fa-solid fa-palette"></i>
@@ -35,6 +29,12 @@ const path = Astro.url.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
         <li class={`child concepts ${path.startsWith('/concepts') ? 'active' : ''}`}>
           <i class="fa-solid fa-lightbulb"></i>
           <span>{t('nav.concepts')}</span>
+        </li>
+      </a>
+      <a href={localizePath(lang, '/photography')}>
+        <li class={`child photography ${path.startsWith('/photography') ? 'active' : ''}`}>
+          <i class="fa-solid fa-camera"></i>
+          <span>{t('nav.photography')}</span>
         </li>
       </a>
   </ul>
@@ -63,16 +63,14 @@ const path = Astro.url.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
 </script>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap");
-
 .nav {
   width: 100%;
-  max-width: 60rem;
+  max-width: 42rem;
   margin: 0 auto;
-  padding-top: 20px;
+  padding-top: 14px;
   justify-content: center;
   align-items: center;
-  gap: clamp(0.3rem, 1vw, 0.6rem);
+  gap: clamp(0.2rem, 0.7vw, 0.4rem);
   display: flex;
   position: sticky;
   top: 0;
@@ -83,10 +81,10 @@ const path = Astro.url.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
   list-style: none;
   display: flex;
   flex-wrap: nowrap;
-  gap: clamp(0.1rem, 0.5vw, 0.5rem);
+  gap: clamp(0.07rem, 0.35vw, 0.35rem);
   background-color: #cccccc80;
-  padding: clamp(0.3rem, 1vw, 0.5rem);
-  border-radius: 5rem;
+  padding: clamp(0.2rem, 0.7vw, 0.35rem);
+  border-radius: 3.5rem;
   position: relative;
   width: 90%; /* Mobile first - 90% */
   max-width: 95vw;
@@ -111,8 +109,8 @@ const path = Astro.url.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
 
 .active {
   background-color: #ffffff;
-  border-radius: 5rem;
-  padding: clamp(6px, 2vw, 10px);
+  border-radius: 3.5rem;
+  padding: clamp(4px, 1.4vw, 7px);
 }
 
 .child {
@@ -120,9 +118,9 @@ const path = Astro.url.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: clamp(0.15rem, 0.5vw, 0.3rem);
-  padding: clamp(5px, 1.5vw, 8px) clamp(6px, 2vw, 10px);
-  border-radius: 5rem;
+  gap: clamp(0.1rem, 0.35vw, 0.2rem);
+  padding: clamp(3.5px, 1vw, 5.5px) clamp(4px, 1.4vw, 7px);
+  border-radius: 3.5rem;
   min-width: max-content;
   transition: all 0.3s ease;
   text-align: center;
@@ -132,11 +130,11 @@ const path = Astro.url.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
 }
 
 .child i {
-  font-size: clamp(0.85rem, 2vw, 1.3rem);
+  font-size: clamp(0.6rem, 1.4vw, 0.9rem);
 }
 
 .child span {
-  font-size: clamp(0.65rem, 1.5vw, 1rem);
+  font-size: clamp(0.45rem, 1.05vw, 0.7rem);
 }
 
 .child:hover {

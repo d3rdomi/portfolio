@@ -31,7 +31,7 @@ const pdfUrl = lang === 'en'
 		<LangSwitch />
 		<Navbar class="navbar" />
 		<div class="header">
-			<h1>{t('heading.design')}</h1>
+			<h1 class="split-chars">{t('heading.design')}</h1>
 			{pdfUrl && (
 				<a href={pdfUrl} download class="download-btn">
 					{t('design.downloadPdf')}
@@ -48,7 +48,7 @@ const pdfUrl = lang === 'en'
 								<a href={localizePath(lang, `/design/${post.slug}/`)}>
 									{post.data.thumbnail && <img src={post.data.thumbnail} alt={pick(post.data.altText, lang)} />}
 
-									<h4 class="title">{post.data.title}</h4>
+									<h2 class="card-title">{post.data.title}</h2>
 								</a>
 							</li>
 						))

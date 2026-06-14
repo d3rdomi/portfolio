@@ -52,13 +52,13 @@ const enParagraphs = (contentEn ?? '')
       <article>
         <div class="prose">
           <div class="title">
-            <h1>{title}</h1>
+            <h1 class="split-chars">{title}</h1>
           </div>
 
           {showGermanBody ? <slot /> : enParagraphs.map((p) => <p>{p}</p>)}
 
           {buttonLink && buttonLink.trim() !== '' && (
-            <a href={buttonLink} class="cta-button" target="_blank" rel="noopener noreferrer">
+            <a href={buttonLink} class="download-btn" target="_blank" rel="noopener noreferrer">
               {pick(buttonLabel, lang) || (lang === 'de' ? 'mehr erfahren' : 'learn more')}
             </a>
           )}

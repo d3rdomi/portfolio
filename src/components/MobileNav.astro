@@ -29,10 +29,6 @@ const path = Astro.url.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
         <span>{t('nav.about')}</span>
         <i class="fa-solid fa-face-smile-beam"></i>
       </a>
-      <a href={localizePath(lang, '/photography')} class={`nav-pill ${path.startsWith('/photography') ? 'active' : ''}`}>
-        <span>{t('nav.photography')}</span>
-        <i class="fa-solid fa-camera"></i>
-      </a>
       <a href={localizePath(lang, '/design')} class={`nav-pill ${path.startsWith('/design') ? 'active' : ''}`}>
         <span>{t('nav.design')}</span>
         <i class="fa-solid fa-palette"></i>
@@ -40,6 +36,10 @@ const path = Astro.url.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
       <a href={localizePath(lang, '/concepts')} class={`nav-pill ${path.startsWith('/concepts') ? 'active' : ''}`}>
         <span>{t('nav.concepts')}</span>
         <i class="fa-solid fa-lightbulb"></i>
+      </a>
+      <a href={localizePath(lang, '/photography')} class={`nav-pill ${path.startsWith('/photography') ? 'active' : ''}`}>
+        <span>{t('nav.photography')}</span>
+        <i class="fa-solid fa-camera"></i>
       </a>
     </nav>
 
@@ -214,7 +214,7 @@ const path = Astro.url.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
     -webkit-backdrop-filter: blur(12px);
     text-decoration: none;
     color: #fff;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 1.15rem;
     line-height: 1;
     font-weight: 500;
@@ -258,7 +258,7 @@ const path = Astro.url.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
     place-items: center;
     padding: 0.3rem 0.75rem;
     border-radius: 5rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 0.8rem;
     font-weight: 600;
     color: #fff;

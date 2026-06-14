@@ -235,25 +235,6 @@ a {
   flex: 1;
 }
 
-.cta-button {
-  display: inline-block;
-  width: fit-content;
-  margin: 1.5rem 0 1rem;
-  padding: 0.75rem 2rem;
-  background-color: #ffffff;
-  color: #000000;
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-decoration: none;
-  border-radius: 100px;
-  transition: opacity 0.2s;
-}
-
-.cta-button:hover {
-  opacity: 0.75;
-}
-
 @media (max-width: 767px) {
   .image-text-block,
   .image-text-block.right {

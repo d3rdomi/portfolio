@@ -35,6 +35,14 @@ h1 {
   user-select: none; /* Standard */
 }
 
+.split-chars * {
+  font-family: inherit;
+}
+
+.split-chars .char {
+  display: inline-block;
+}
+
 h2 {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -67,6 +75,16 @@ h5 {
   text-align: left;
 }
 
+.card-title {
+  font-family: 'Unbounded';
+  font-weight: 500;
+  font-size: 30px;
+  color: #000000;
+  text-align: left;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
 a {
   width: 100%;
   height: 100%;
@@ -83,6 +101,27 @@ p {
   font-size: 18px;
   line-height: 24px;
   color: #000000;
+}
+
+/* BUTTONS */
+
+.download-btn {
+  display: inline-block;
+  width: fit-content;
+  margin: 0.75rem 0 1rem;
+  padding: 0.75rem 2rem;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: opacity 0.2s;
+}
+
+.download-btn:hover {
+  opacity: 0.75;
 }
 
 /* OTHER */
