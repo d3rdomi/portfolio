@@ -18,4 +18,11 @@ export default defineConfig({
     keystatic(),
     markdoc(),
   ],
+  vite: {
+    optimizeDeps: {
+      esbuildOptions: {
+        target: 'esnext',
+      },
+    },
+  },
 });

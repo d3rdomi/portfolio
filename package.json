@@ -33,5 +33,8 @@
   "devDependencies": {
     "baseline-browser-mapping": "^2.9.19",
     "gray-matter": "^4.0.3"
+  },
+  "overrides": {
+    "esbuild": "^0.28.1"
   }
 }
