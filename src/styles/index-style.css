@@ -1,5 +1,5 @@
 body {
-  background: #EDAAA8;
+  background: #f0908e;
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
@@ -10,17 +10,17 @@ body {
 	position: absolute;
 	height: 100vh;
 	width: 100%;
-  background-color: #EDAAA8;
+  background-color: #f0908e;
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
   background-size: cover;
   width:100%;
   height:100%;
-  --gradient-color-1: #f27777;
-  --gradient-color-2: #43ecffe6;
-  --gradient-color-3: #d98989;
-  --gradient-color-4: #fec3c3;
+  --gradient-color-1: #f54040;
+  --gradient-color-2: #15eaffe6;
+  --gradient-color-3: #e05c5c;
+  --gradient-color-4: #ffa8a8;
   opacity: 1;
   z-index: -400;
   transition: 1s;
