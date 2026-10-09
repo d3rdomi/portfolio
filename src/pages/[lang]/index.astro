@@ -4,6 +4,7 @@ import '../../styles/global-style.css';
 import '../../styles/index-style.css';
 import MyFooter from '../../components/MyFooter.astro';
 import LangSwitch from '../../components/LangSwitch.astro';
+import MobileNav from '../../components/MobileNav.astro';
 import { getLangFromUrl, useTranslations, localizePath } from '../../i18n/utils';
 import { getEntry } from 'astro:content';
 
@@ -37,6 +38,7 @@ const showGermanHeading = lang === 'de' || !headingEn || headingEn.trim() === ''
 		<div class="gradient-overlay"></div>
 
 		<LangSwitch />
+		<MobileNav />
 
 		<div class="main-grid">
 
