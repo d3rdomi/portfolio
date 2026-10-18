@@ -16,7 +16,7 @@ export function useTranslations(lang: Lang) {
   };
 }
 
-/** Stellt einem internen Pfad das Sprach-Präfix voran: localizePath('en', '/design') → '/en/design'. */
+/** Stellt einem internen Pfad das Sprach-Präfix voran: localizePath('en', '/online-design') → '/en/online-design'. */
 export function localizePath(lang: Lang, path = '/'): string {
   const clean = path.startsWith('/') ? path : `/${path}`;
   if (clean === '/') return `/${lang}`;

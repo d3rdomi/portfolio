@@ -4,14 +4,19 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 export async function GET(context) {
   // Alle Collections abrufen
-  const designPosts = await getCollection('design');
+  const onlineDesignPosts = await getCollection('online-design');
+  const printDesignPosts = await getCollection('print-design');
   const photographyPosts = await getCollection('photography');
 
   // Alle Posts zusammenführen
   const allPosts = [
-    ...designPosts.map((post) => ({
+    ...onlineDesignPosts.map((post) => ({
       ...post.data,
-      link: `/design/${post.slug}/`,
+      link: `/online-design/${post.slug}/`,
+    })),
+    ...printDesignPosts.map((post) => ({
+      ...post.data,
+      link: `/print-design/${post.slug}/`,
     })),
     ...photographyPosts.map((post) => ({
       ...post.data,

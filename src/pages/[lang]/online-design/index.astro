@@ -1,6 +1,6 @@
 ---
 import BaseHead from '../../../components/BaseHead.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import '../../../styles/global-style.css';
 import '../../../styles/design-style.css';
 import MyFooter from '../../../components/MyFooter.astro';
@@ -11,9 +11,14 @@ import MobileNav from '../../../components/MobileNav.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const posts = (await getCollection('concepts')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+const posts = (await getCollection('online-design')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+const downloadsEntry = await getEntry('portfolio-downloads', 'index');
+const pdfUrl = lang === 'en'
+	? (downloadsEntry?.data.pdfEn || downloadsEntry?.data.pdfDe || null)
+	: (downloadsEntry?.data.pdfDe || null);
 ---
 
 <!doctype html>
@@ -25,9 +30,13 @@ const posts = (await getCollection('concepts')).sort(
 		<MobileNav />
 		<LangSwitch />
 		<Navbar class="navbar" />
-
 		<div class="header">
-			<h1 class="split-chars">{t('heading.concepts')}</h1>
+			<h1 class="split-chars">{t('heading.onlineDesign')}</h1>
+			{pdfUrl && (
+				<a href={pdfUrl} download class="download-btn">
+					{t('design.downloadPdf')}
+				</a>
+			)}
 		</div>
 
 		<main>
@@ -36,8 +45,8 @@ const posts = (await getCollection('concepts')).sort(
 					{
 						posts.map((post) => (
 							<li>
-								<a href={localizePath(lang, `/concepts/${post.slug}/`)}>
-									<img src={post.data.thumbnail} alt={pick(post.data.altText, lang)} />
+								<a href={localizePath(lang, `/online-design/${post.slug}/`)}>
+									{post.data.thumbnail && <img src={post.data.thumbnail} alt={pick(post.data.altText, lang)} />}
 
 									<h2 class="card-title">{post.data.title}</h2>
 								</a>

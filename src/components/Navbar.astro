@@ -19,16 +19,16 @@ const path = Astro.url.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
           <span>{t('nav.about')}</span>
         </li>
       </a>
-      <a href={localizePath(lang, '/design')}>
-        <li class={`child design ${path.startsWith('/design') ? 'active' : ''}`}>
-          <i class="fa-solid fa-palette"></i>
-          <span>{t('nav.design')}</span>
+      <a href={localizePath(lang, '/online-design')}>
+        <li class={`child online-design ${path.startsWith('/online-design') ? 'active' : ''}`}>
+          <i class="fa-solid fa-display"></i>
+          <span>{t('nav.onlineDesign')}</span>
         </li>
       </a>
-      <a href={localizePath(lang, '/concepts')}>
-        <li class={`child concepts ${path.startsWith('/concepts') ? 'active' : ''}`}>
-          <i class="fa-solid fa-lightbulb"></i>
-          <span>{t('nav.concepts')}</span>
+      <a href={localizePath(lang, '/print-design')}>
+        <li class={`child print-design ${path.startsWith('/print-design') ? 'active' : ''}`}>
+          <i class="fa-solid fa-print"></i>
+          <span>{t('nav.printDesign')}</span>
         </li>
       </a>
       <a href={localizePath(lang, '/photography')}>
@@ -52,10 +52,10 @@ const path = Astro.url.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
       document.querySelector('.child.about-me')?.classList.add('active');
     } else if (path.startsWith('/photography')) {
       document.querySelector('.child.photography')?.classList.add('active');
-    } else if (path.startsWith('/design')) {
-      document.querySelector('.child.design')?.classList.add('active');
-    } else if (path.startsWith('/concepts')) {
-      document.querySelector('.child.concepts')?.classList.add('active');
+    } else if (path.startsWith('/online-design')) {
+      document.querySelector('.child.online-design')?.classList.add('active');
+    } else if (path.startsWith('/print-design')) {
+      document.querySelector('.child.print-design')?.classList.add('active');
     }
   }
 

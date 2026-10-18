@@ -29,13 +29,13 @@ const path = Astro.url.pathname.replace(/^\/(de|en)(?=\/|$)/, '') || '/';
         <span>{t('nav.about')}</span>
         <i class="fa-solid fa-face-smile-beam"></i>
       </a>
-      <a href={localizePath(lang, '/design')} class={`nav-pill ${path.startsWith('/design') ? 'active' : ''}`}>
-        <span>{t('nav.design')}</span>
-        <i class="fa-solid fa-palette"></i>
+      <a href={localizePath(lang, '/online-design')} class={`nav-pill ${path.startsWith('/online-design') ? 'active' : ''}`}>
+        <span>{t('nav.onlineDesign')}</span>
+        <i class="fa-solid fa-display"></i>
       </a>
-      <a href={localizePath(lang, '/concepts')} class={`nav-pill ${path.startsWith('/concepts') ? 'active' : ''}`}>
-        <span>{t('nav.concepts')}</span>
-        <i class="fa-solid fa-lightbulb"></i>
+      <a href={localizePath(lang, '/print-design')} class={`nav-pill ${path.startsWith('/print-design') ? 'active' : ''}`}>
+        <span>{t('nav.printDesign')}</span>
+        <i class="fa-solid fa-print"></i>
       </a>
       <a href={localizePath(lang, '/photography')} class={`nav-pill ${path.startsWith('/photography') ? 'active' : ''}`}>
         <span>{t('nav.photography')}</span>

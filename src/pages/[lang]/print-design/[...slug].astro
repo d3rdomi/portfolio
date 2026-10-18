@@ -4,7 +4,7 @@ import BlogPost from '../../../layouts/design-undersite.astro';
 
 const { slug } = Astro.params;
 
-const posts = await getCollection('design');
+const posts = await getCollection('print-design');
 const post = posts.find(p => p.slug === slug);
 
 if (!post) return new Response(null, { status: 404 });

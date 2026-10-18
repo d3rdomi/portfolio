@@ -10,7 +10,7 @@ import { getLangFromUrl, pick } from '../i18n/utils';
 import LangSwitch from '../components/LangSwitch.astro';
 import MobileNav from '../components/MobileNav.astro';
 
-type Props = CollectionEntry<'design'>['data'];
+type Props = CollectionEntry<'online-design'>['data'];
 
 const lang = getLangFromUrl(Astro.url);
 const { title, heroImageDesktop, heroImageMobile, ImageCarousel, backgroundColor, altText, blocks, copyright, contentEn, button } = Astro.props;

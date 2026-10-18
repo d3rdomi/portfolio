@@ -165,29 +165,29 @@ export default config({
   },
 
   collections: {
-    // Design Collection
-    design: collection({
-      label: 'Design',
+    // Online-Design Collection
+    'online-design': collection({
+      label: 'Online-Design',
       slugField: 'title',
-      path: 'src/content/design/*',
+      path: 'src/content/online-design/*',
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
         pubDate: fields.date({ label: 'Veröffentlichungsdatum' }),
         thumbnail: fields.image({
           label: 'Thumbnail (Index-Seite)',
-          directory: 'public/assets/design',
-          publicPath: '/assets/design',
+          directory: 'public/assets/online-design',
+          publicPath: '/assets/online-design',
         }),
         heroImageDesktop: fields.image({
           label: 'Hero Bild Desktop',
-          directory: 'public/assets/design',
-          publicPath: '/assets/design',
+          directory: 'public/assets/online-design',
+          publicPath: '/assets/online-design',
         }),
         heroImageMobile: fields.image({
           label: 'Hero Bild Mobile',
-          directory: 'public/assets/design',
-          publicPath: '/assets/design',
+          directory: 'public/assets/online-design',
+          publicPath: '/assets/online-design',
         }),
         altText: tText('Alt Text'),
         content: fields.document({
@@ -229,8 +229,8 @@ export default config({
           fields.object({
             image: fields.image({
               label: 'Bild',
-              directory: 'public/assets/design',
-              publicPath: '/assets/design',
+              directory: 'public/assets/online-design',
+              publicPath: '/assets/online-design',
               validation: { isRequired: true },
             }),
             altText: tText('Alt Text'),
@@ -238,34 +238,34 @@ export default config({
           { label: 'Carousel', itemLabel: () => 'Bild' }
         ),
 
-        blocks: createBlocksField('public/assets/design', '/assets/design'),
+        blocks: createBlocksField('public/assets/online-design', '/assets/online-design'),
         copyright: fields.text({ label: 'Copyright' }),
       },
     }),
 
-    // Concepts Collection
-    concepts: collection({
-      label: 'Konzepte',
+    // Print-Design Collection
+    'print-design': collection({
+      label: 'Print-Design',
       slugField: 'title',
-      path: 'src/content/concepts/*',
+      path: 'src/content/print-design/*',
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
         pubDate: fields.date({ label: 'Veröffentlichungsdatum' }),
         thumbnail: fields.image({
           label: 'Thumbnail (Index-Seite)',
-          directory: 'public/assets/concepts',
-          publicPath: '/assets/concepts',
+          directory: 'public/assets/print-design',
+          publicPath: '/assets/print-design',
         }),
         heroImageDesktop: fields.image({
           label: 'Hero Bild Desktop',
-          directory: 'public/assets/concepts',
-          publicPath: '/assets/concepts',
+          directory: 'public/assets/print-design',
+          publicPath: '/assets/print-design',
         }),
         heroImageMobile: fields.image({
           label: 'Hero Bild Mobile',
-          directory: 'public/assets/concepts',
-          publicPath: '/assets/concepts',
+          directory: 'public/assets/print-design',
+          publicPath: '/assets/print-design',
         }),
         altText: tText('Alt Text'),
         content: fields.document({
@@ -307,8 +307,8 @@ export default config({
           fields.object({
             image: fields.image({
               label: 'Bild',
-              directory: 'public/assets/concepts',
-              publicPath: '/assets/concepts',
+              directory: 'public/assets/print-design',
+              publicPath: '/assets/print-design',
               validation: { isRequired: true },
             }),
             altText: tText('Alt Text'),
@@ -316,7 +316,7 @@ export default config({
           { label: 'Carousel', itemLabel: () => 'Bild' }
         ),
 
-        blocks: createBlocksField('public/assets/concepts', '/assets/concepts'),
+        blocks: createBlocksField('public/assets/print-design', '/assets/print-design'),
         copyright: fields.text({ label: 'Copyright' }),
       },
     }),

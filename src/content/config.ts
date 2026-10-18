@@ -56,8 +56,8 @@ const aboutMe = defineCollection({
   }),
 });
 
-// Design Collection
-const design = defineCollection({
+// Online-Design Collection
+const onlineDesign = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
@@ -83,8 +83,8 @@ const design = defineCollection({
   }),
 });
 
-// Concepts Collection
-const concepts = defineCollection({
+// Print-Design Collection
+const printDesign = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
@@ -134,8 +134,8 @@ const photography = defineCollection({
 });
 
 export const collections = {
-  design,
-  'concepts': concepts,
+  'online-design': onlineDesign,
+  'print-design': printDesign,
   photography,
   'about-me': aboutMe,
   home,

@@ -11,6 +11,12 @@ const PASS = [
   /^\/_/, // /_astro, /_image, /_server-islands ...
 ];
 
+// Alte Routen-Namen → neue, für dauerhafte Redirects auf bereits indexierte/verlinkte URLs.
+const RENAMED_SEGMENTS: Record<string, string> = {
+  design: 'online-design',
+  concepts: 'print-design',
+};
+
 function detectLang(header: string | null): string {
   if (!header) return defaultLang;
   const entries = header
@@ -32,7 +38,8 @@ export const onRequest = defineMiddleware((context, next) => {
     return next();
   }
 
-  const seg = pathname.split('/')[1];
+  const segments = pathname.split('/');
+  const seg = segments[1];
 
   // Wurzel "/" → nach Browsersprache umleiten.
   if (pathname === '/' || seg === '') {
@@ -40,11 +47,23 @@ export const onRequest = defineMiddleware((context, next) => {
     return context.redirect(`/${lang}`, 302);
   }
 
-  // Gültige Sprache → normal weiter.
+  // Gültige Sprache → altes Routen-Segment (z.B. /de/design/...) ggf. auf das neue mappen.
   if (isLang(seg)) {
+    const renamed = RENAMED_SEGMENTS[segments[2]];
+    if (renamed) {
+      segments[2] = renamed;
+      return context.redirect(segments.join('/'), 301);
+    }
     return next();
   }
 
-  // Unbekanntes erstes Segment (z.B. alte URLs wie /design) → dauerhaft auf Deutsch.
+  // Altes Routen-Segment ohne Sprachpräfix (z.B. /design/...) → neuer Name + Deutsch.
+  const renamed = RENAMED_SEGMENTS[seg];
+  if (renamed) {
+    segments[1] = renamed;
+    return context.redirect(`/${defaultLang}${segments.join('/')}`, 301);
+  }
+
+  // Unbekanntes erstes Segment → dauerhaft auf Deutsch.
   return context.redirect(`/${defaultLang}${pathname}`, 301);
 });

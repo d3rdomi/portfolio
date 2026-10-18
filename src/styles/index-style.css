@@ -183,12 +183,12 @@ body {
   background-color: rgba(255, 255, 255, 0.5)
 }
 
-.design:hover {
+.online-design:hover {
   transform: scale(0.9) rotate(2grad);
   background-color: rgba(255, 255, 255, 0.5)
 }
 
-.animation:hover {
+.print-design:hover {
   transform: scale(0.9) rotate(-2grad);
   background-color: rgba(255, 255, 255, 0.5)
 }
