@@ -49,6 +49,7 @@ const pdfUrl = lang === 'en'
 									{post.data.thumbnail && <img src={post.data.thumbnail} alt={pick(post.data.altText, lang)} />}
 
 									<h2 class="card-title">{post.data.title}</h2>
+									{pick(post.data.subline, lang) && <p class="subline">{pick(post.data.subline, lang)}</p>}
 								</a>
 							</li>
 						))

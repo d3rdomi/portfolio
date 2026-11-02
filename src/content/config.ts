@@ -61,6 +61,7 @@ const onlineDesign = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    subline: tText,
     pubDate: z.coerce.date(),
     thumbnail: z.string().optional(),
     heroImageDesktop: z.string().optional(),
@@ -88,6 +89,7 @@ const printDesign = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    subline: tText,
     pubDate: z.coerce.date(),
     thumbnail: z.string().optional(),
     heroImageDesktop: z.string().optional(),

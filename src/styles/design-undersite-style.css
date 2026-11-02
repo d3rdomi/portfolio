@@ -59,6 +59,10 @@ main {
   margin-bottom: 20px;
 }
 
+.title .subline {
+  margin-bottom: 4px;
+}
+
 ul {
   margin: 20px;
   padding: 0px;

@@ -173,6 +173,10 @@ export default config({
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
+        subline: tText('Subline', {
+          description:
+            'Kurz (1–3 Wörter), was ich bei diesem Projekt gemacht habe, z. B. "Website-Redesign". Erscheint unter dem Titel in der Übersicht und über der Headline auf der Projektseite.',
+        }),
         pubDate: fields.date({ label: 'Veröffentlichungsdatum' }),
         thumbnail: fields.image({
           label: 'Thumbnail (Index-Seite)',
@@ -251,6 +255,10 @@ export default config({
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
+        subline: tText('Subline', {
+          description:
+            'Kurz (1–3 Wörter), was ich bei diesem Projekt gemacht habe, z. B. "Magazin-Layout". Erscheint unter dem Titel in der Übersicht und über der Headline auf der Projektseite.',
+        }),
         pubDate: fields.date({ label: 'Veröffentlichungsdatum' }),
         thumbnail: fields.image({
           label: 'Thumbnail (Index-Seite)',

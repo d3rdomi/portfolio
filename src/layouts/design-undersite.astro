@@ -13,7 +13,7 @@ import MobileNav from '../components/MobileNav.astro';
 type Props = CollectionEntry<'online-design'>['data'];
 
 const lang = getLangFromUrl(Astro.url);
-const { title, heroImageDesktop, heroImageMobile, ImageCarousel, backgroundColor, altText, blocks, copyright, contentEn, button } = Astro.props;
+const { title, subline, heroImageDesktop, heroImageMobile, ImageCarousel, backgroundColor, altText, blocks, copyright, contentEn, button } = Astro.props;
 const buttonLink = button?.buttonLink;
 const buttonLabel = button?.buttonLabel;
 
@@ -52,6 +52,7 @@ const enParagraphs = (contentEn ?? '')
       <article>
         <div class="prose">
           <div class="title">
+            {pick(subline, lang) && <p class="subline">{pick(subline, lang)}</p>}
             <h1 class="split-chars">{title}</h1>
           </div>
 
