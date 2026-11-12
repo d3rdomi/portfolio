@@ -338,6 +338,39 @@ export default config({
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
         pubDate: fields.date({ label: 'Veröffentlichungsdatum' }),
+        shotDate: fields.object(
+          {
+            year: fields.integer({
+              label: 'Jahr',
+              description: 'z. B. 2024',
+              validation: { isRequired: false, min: 1900, max: 2100 },
+            }),
+            month: fields.select({
+              label: 'Monat',
+              options: [
+                { label: '–', value: '' },
+                { label: 'Januar', value: '1' },
+                { label: 'Februar', value: '2' },
+                { label: 'März', value: '3' },
+                { label: 'April', value: '4' },
+                { label: 'Mai', value: '5' },
+                { label: 'Juni', value: '6' },
+                { label: 'Juli', value: '7' },
+                { label: 'August', value: '8' },
+                { label: 'September', value: '9' },
+                { label: 'Oktober', value: '10' },
+                { label: 'November', value: '11' },
+                { label: 'Dezember', value: '12' },
+              ],
+              defaultValue: '',
+            }),
+          },
+          {
+            label: 'Aufnahmedatum (Jahr & Monat)',
+            description:
+              'Wann sind die Bilder entstanden? Danach wird die Fotografie-Übersicht sortiert (neueste zuerst). Einträge ohne Datum stehen am Ende.',
+          }
+        ),
         altText: tText('Alt Text'),
         heroImage: fields.image({
           label: 'Hero Image (Übersicht)',

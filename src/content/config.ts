@@ -128,6 +128,12 @@ const photography = defineCollection({
     title: z.string(),
     images: z.array(z.string()).optional(),
     pubDate: z.coerce.date(),
+    shotDate: z
+      .object({
+        year: z.number().nullable().optional(),
+        month: z.coerce.number().int().min(0).max(12).optional(),
+      })
+      .optional(),
     altText: tText,
     heroImage: z.string().optional(),
     text: tText,

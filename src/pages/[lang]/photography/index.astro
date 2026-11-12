@@ -11,8 +11,14 @@ import MobileNav from '../../../components/MobileNav.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const posts = (await getCollection('photography')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+// Neueste Aufnahmen zuerst (Jahr, dann Monat). Einträge ohne Jahr stehen am Ende.
+const shotKey = (post: (typeof allPosts)[number]) => {
+	const { year, month } = post.data.shotDate ?? {};
+	return year ? year * 100 + (month || 0) : -1;
+};
+const allPosts = await getCollection('photography');
+const posts = allPosts.sort(
+	(a, b) => shotKey(b) - shotKey(a) || b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
