@@ -1,0 +1,254 @@
+---
+// „Weitere Designs" – Abschnitt über dem Footer auf den Online-/Print-Design-Projektseiten.
+// Zeigt die drei in der Übersichts-Reihenfolge folgenden Projekte derselben Collection
+// (am Listenende umlaufend). Desktop: 3er-Raster, Mobil: swipebarer Rail mit Punkten.
+import { getCollection } from 'astro:content';
+import { getLangFromUrl, useTranslations, localizePath, pick } from '../i18n/utils';
+
+interface Props {
+  collection: 'online-design' | 'print-design';
+  currentSlug: string;
+}
+
+const { collection, currentSlug } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Gleiche Sortierung wie die jeweilige Übersichtsseite:
+// online-design = neueste zuerst, print-design = älteste zuerst.
+const entries = (await getCollection(collection))
+  .filter((entry) => Boolean(entry.data.thumbnail))
+  .sort((a, b) =>
+    collection === 'print-design'
+      ? a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+      : b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
+
+const currentIndex = entries.findIndex((entry) => entry.slug === currentSlug);
+const start = currentIndex === -1 ? 0 : currentIndex + 1;
+
+const items = entries
+  .map((_, offset) => entries[(start + offset) % entries.length])
+  .filter((entry) => entry.slug !== currentSlug)
+  .slice(0, 3);
+---
+
+{items.length > 0 && (
+  <section class="more-designs" aria-labelledby="more-designs-title">
+    <div class="more-designs__inner">
+      <h2 class="more-designs__title" id="more-designs-title">{t('heading.moreDesigns')}</h2>
+
+      <ul class="more-designs__rail">
+        {items.map((entry) => (
+          <li class="more-designs__item">
+            <a href={localizePath(lang, `/${collection}/${entry.slug}/`)}>
+              <img
+                src={entry.data.thumbnail}
+                alt={pick(entry.data.altText, lang) || entry.data.title}
+                loading="lazy"
+              />
+              <span class="more-designs__name">{entry.data.title}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      {items.length > 1 && (
+        <div class="more-designs__dots">
+          {items.map((entry, i) => (
+            <button
+              type="button"
+              class="more-designs__dot"
+              aria-current={i === 0 ? 'true' : 'false'}
+              aria-label={entry.data.title}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+)}
+
+<style>
+  .more-designs {
+    background: var(--main4);
+    padding: 4.5rem 0 2.5rem;
+  }
+
+  .more-designs__inner {
+    width: 960px;
+    max-width: calc(100% - 2em);
+    margin: 0 auto;
+  }
+
+  .more-designs__title {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 1.2;
+    text-align: center;
+    color: var(--main3);
+    margin: 0 0 2.5rem;
+  }
+
+  .more-designs__rail {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    /* Kleine Hierarchie: die mittlere Karte ist am größten, die äußeren etwas kleiner. */
+    grid-template-columns: 0.85fr 1fr 0.85fr;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .more-designs__item {
+    min-width: 0;
+  }
+
+  .more-designs__item a {
+    display: block;
+    width: 100%;
+    height: auto;
+    text-decoration: none;
+  }
+
+  .more-designs__item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0;
+    transition: transform 0.3s;
+  }
+
+  .more-designs__item a:hover img {
+    transform: scale(0.98);
+  }
+
+  .more-designs__name {
+    display: block;
+    margin-top: 0.75rem;
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    text-align: center;
+    color: var(--main3);
+  }
+
+  .more-designs__dots {
+    display: none;
+  }
+
+  @media (max-width: 767px) {
+    .more-designs {
+      padding: 3rem 0 2rem;
+    }
+
+    .more-designs__inner {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .more-designs__title {
+      font-size: 1.5rem;
+      margin-bottom: 1.75rem;
+      padding: 0 1em;
+    }
+
+    .more-designs__rail {
+      display: flex;
+      grid-template-columns: none;
+      gap: 1rem;
+      /* Padding so bemessen, dass auch die erste und letzte Karte mittig einrasten kann. */
+      padding: 0 11%;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .more-designs__rail::-webkit-scrollbar {
+      display: none;
+    }
+
+    .more-designs__item {
+      /* 100 % der Content-Box = 78 % der Rail-Breite (Padding links/rechts je 11 %),
+         dadurch liegt die erste Karte exakt mittig. */
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+    }
+
+    .more-designs__name {
+      font-size: 1rem;
+    }
+
+    .more-designs__dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .more-designs__dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 100px;
+      background: rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .more-designs__dot[aria-current='true'] {
+      background: var(--main3);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const section = document.querySelector<HTMLElement>('.more-designs');
+    if (!section) return;
+
+    const rail = section.querySelector<HTMLElement>('.more-designs__rail');
+    const dots = Array.from(section.querySelectorAll<HTMLButtonElement>('.more-designs__dot'));
+    if (!rail || dots.length === 0) return;
+
+    const items = Array.from(rail.children) as HTMLElement[];
+    const step = items.length > 1 ? items[1].offsetLeft - items[0].offsetLeft : 0;
+
+    let ticking = false;
+    const sync = () => {
+      ticking = false;
+      if (step <= 0) return;
+      const raw = Math.round(rail.scrollLeft / step);
+      const index = Math.max(0, Math.min(items.length - 1, raw));
+      dots.forEach((dot, i) => dot.setAttribute('aria-current', i === index ? 'true' : 'false'));
+    };
+
+    rail.addEventListener(
+      'scroll',
+      () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(sync);
+      },
+      { passive: true }
+    );
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        rail.scrollTo({ left: (items[i]?.offsetLeft ?? 0) - items[0].offsetLeft, behavior: 'smooth' });
+      });
+    });
+
+    sync();
+  });
+</script>

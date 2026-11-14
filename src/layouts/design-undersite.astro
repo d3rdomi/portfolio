@@ -9,11 +9,15 @@ import Navbar from '../components/Navbar.astro';
 import { getLangFromUrl, pick } from '../i18n/utils';
 import LangSwitch from '../components/LangSwitch.astro';
 import MobileNav from '../components/MobileNav.astro';
+import MoreDesigns from '../components/MoreDesigns.astro';
 
-type Props = CollectionEntry<'online-design'>['data'];
+type Props = CollectionEntry<'online-design'>['data'] & {
+  collection: 'online-design' | 'print-design';
+  slug: string;
+};
 
 const lang = getLangFromUrl(Astro.url);
-const { title, subline, heroImageDesktop, heroImageMobile, ImageCarousel, backgroundColor, altText, blocks, copyright, contentEn, button } = Astro.props;
+const { title, subline, heroImageDesktop, heroImageMobile, ImageCarousel, backgroundColor, altText, blocks, copyright, contentEn, button, collection, slug } = Astro.props;
 const buttonLink = button?.buttonLink;
 const buttonLabel = button?.buttonLabel;
 
@@ -99,6 +103,9 @@ const enParagraphs = (contentEn ?? '')
         </div>
       </article>
     </main>
-    <MyFooter />
+    <div class="outro">
+      <MoreDesigns collection={collection} currentSlug={slug} />
+      <MyFooter />
+    </div>
   </body>
 </html>

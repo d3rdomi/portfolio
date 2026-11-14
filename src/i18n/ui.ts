@@ -32,6 +32,7 @@ export const ui = {
     'heading.photography': 'Fotografie',
     'heading.onlineDesign': 'Online-Design',
     'heading.printDesign': 'Print-Design',
+    'heading.moreDesigns': 'Weitere Designs',
 
     'about.portraitAlt': 'Ein Foto von mir, Dominik Lange',
     'about.form.firstName': 'Vorname',
@@ -68,6 +69,7 @@ export const ui = {
     'heading.photography': 'Photography',
     'heading.onlineDesign': 'Online Design',
     'heading.printDesign': 'Print Design',
+    'heading.moreDesigns': 'More Designs',
 
     'about.portraitAlt': 'A photo of me, Dominik Lange',
     'about.form.firstName': 'First name',

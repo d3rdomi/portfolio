@@ -12,6 +12,6 @@ if (!post) return new Response(null, { status: 404 });
 const { Content } = await post.render();
 ---
 
-<BlogPost {...post.data}>
+<BlogPost {...post.data} collection="print-design" slug={post.slug}>
 	<Content />
 </BlogPost>
